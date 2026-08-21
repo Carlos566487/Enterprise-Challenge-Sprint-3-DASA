@@ -1,0 +1,28 @@
+# Arquivos PDF — política de privacidade: PDFs podem conter dados genéticos reais
+# ou simulados. Nenhum PDF deve ser versionado. Use dados_estruturados.json como
+# formato de trabalho interno. (Regra adicionada em 2026-08-20 — Carlos, Sprint 3)
+*.pdf
+
+# Base vetorial ChromaDB (gerada localmente, não versionar)
+sprint2/vetorial/base_vetorial/
+
+# Chunks com embeddings (arquivo grande, gerado pelo pipeline)
+sprint2/embeddings/chunks.json
+
+# Uploads temporários recebidos pela interface Streamlit
+sprint2/interface/uploads/
+
+# Guia de contexto para agentes de IA — ferramenta local, não faz parte da entrega
+CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+
+# Cache de modelos do sentence-transformers / HuggingFace
+.cache/

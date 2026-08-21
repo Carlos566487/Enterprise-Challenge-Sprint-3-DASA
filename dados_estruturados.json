@@ -1,0 +1,361 @@
+{
+  "paciente": {
+    "nome": "Carlos Eduardo Mendes",
+    "data_nascimento": "1985-03-14",
+    "cpf": "***.***.***-**",
+    "id_relatorio": "GEN-2024-00847",
+    "data_exame": "2024-11-05",
+    "data_emissao": "2024-11-12",
+    "medico_solicitante": "Dra. Fernanda Lopes",
+    "crm_medico": "CRM/SP 87432"
+  },
+  "sumario": {
+    "total_condicoes_analisadas": 7,
+    "condicoes_alto_risco": 2,
+    "condicoes_medio_risco": 3,
+    "condicoes_baixo_risco": 2,
+    "cobertura_genomica_snps": 654027,
+    "plataforma_genotipagem": "Illumina GSA v3.0",
+    "aviso_legal": "Este relatório tem caráter informativo e não substitui consulta médica. Predisposição genética não determina desenvolvimento de doença.",
+    "resumo_executivo_paciente": "Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica.",
+    "principais_riscos_medico": [
+      "Diabetes Mellitus Tipo 2 (Alto - percentil 89)",
+      "Carcinoma de Mama BRCA2 (Alto - variante patogênica)",
+      "Hipertensão Arterial (Médio - percentil 67)"
+    ],
+    "recomendacoes_prioritarias": [
+      "Consulta com endocrinologista para diabetes",
+      "Aconselhamento genético oncológico urgente",
+      "Monitoramento cardiovascular anual"
+    ]
+  },
+  "resultados": [
+    {
+      "id": "2.1",
+      "doenca": "Diabetes Mellitus Tipo 2",
+      "categoria": "Metabolismo e Endocrinologia",
+      "risco": "Alto",
+      "marcadores_geneticos": [
+        {
+          "id_snp": "RS7903146",
+          "gene": "TCF7L2",
+          "alelo": "T/T",
+          "observacao": "homozigoto para alelo de risco"
+        },
+        {
+          "id_snp": "RS12255372",
+          "gene": "TCF7L2",
+          "alelo": "T/G",
+          "observacao": "heterozigoto"
+        },
+        {
+          "id_snp": "RS1801282",
+          "gene": "PPARG",
+          "alelo": "C/G",
+          "observacao": "Pro12Ala heterozigoto"
+        }
+      ],
+      "escore_poligênico_percentil": 89,
+      "descricao_tecnica": "Homozigose para o alelo de risco T no polimorfismo RS7903146 do gene TCF7L2 (odds ratio de 1,37 por alelo; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas.",
+      "descricao_simples": "Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios.",
+      "recomendacao": "Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada.",
+      "impacto_pratico": "Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+      "urgencia_medica": "Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias",
+      "relevancia_medico": "Prioridade clínica alta - paciente requer acompanhamento endocrinológico especializado e monitoramento glicêmico rigoroso",
+      "fontes": [
+        "Grant SF et al. Nat Genet. 2006;38(3):320-3",
+        "Florez JC. Clin Pharmacol Ther. 2007;82(5):620-5"
+      ]
+    },
+    {
+      "id": "2.2",
+      "doenca": "Carcinoma de Mama (BRCA-relacionado)",
+      "categoria": "Oncologia",
+      "risco": "Alto",
+      "marcadores_geneticos": [
+        {
+          "id_snp": "RS80357906",
+          "gene": "BRCA2",
+          "alelo": "variante patogênica c.5946delT",
+          "observacao": "Classe 5 ACMG — Patogênica"
+        },
+        {
+          "id_snp": "RS28897696",
+          "gene": "BRCA1",
+          "alelo": "G/A",
+          "observacao": "efeito modificador"
+        },
+        {
+          "id_snp": "RS4986850",
+          "gene": "BRCA1",
+          "alelo": "T/T",
+          "observacao": "efeito modificador"
+        }
+      ],
+      "escore_poligênico_percentil": null,
+      "descricao_tecnica": "Variante patogênica de perda de função no gene BRCA2 (c.5946delT, p.Ser1982Argfs), classificada como Patogênica (Classe 5) segundo critérios ACMG/AMP. Risco cumulativo de carcinoma de mama de 45–85% ao longo da vida e risco de carcinoma ovariano de 10–30%. Variantes adicionais em BRCA1 com efeito modificador detectadas.",
+      "descricao_simples": "Foi encontrada uma alteração importante em um gene chamado BRCA2, que normalmente protege contra câncer. Essa alteração aumenta significativamente o risco de câncer de mama e ovário ao longo da vida. É muito importante consultar um especialista em genética médica para discutir as próximas etapas.",
+      "recomendacao": "Encaminhamento urgente para aconselhamento genético oncológico. Rastreamento mamográfico anual a partir dos 25 anos. Ressonância magnética de mama anual. Discussão de estratégias de redução de risco com oncologista geneticista.",
+      "impacto_pratico": "Isso significa que você precisa de acompanhamento médico especializado e exames mais frequentes. Existem estratégias preventivas eficazes que um geneticista pode discutir com você.",
+      "urgencia_medica": "Urgente - recomenda-se consulta com geneticista oncológico em até 15 dias",
+      "relevancia_medico": "Prioridade clínica máxima - variante patogênica BRCA2 requer protocolo de rastreamento intensivo e aconselhamento genético familiar",
+      "fontes": [
+        "Antoniou A et al. Am J Hum Genet. 2003;72(5):1117-30",
+        "NCCN Guidelines Genetic/Familial High-Risk Assessment: Breast, Ovarian, and Pancreatic v2.2024"
+      ]
+    },
+    {
+      "id": "2.3",
+      "doenca": "Hipertensão Arterial Essencial",
+      "categoria": "Cardiologia",
+      "risco": "Médio",
+      "marcadores_geneticos": [
+        {
+          "id_snp": "RS4340",
+          "gene": "ACE",
+          "alelo": "I/D",
+          "observacao": "heterozigoto inserção/deleção"
+        },
+        {
+          "id_snp": "RS699",
+          "gene": "AGT",
+          "alelo": "M235T",
+          "observacao": "heterozigoto"
+        },
+        {
+          "id_snp": "RS5186",
+          "gene": "AGTR1",
+          "alelo": "A/C",
+          "observacao": "heterozigoto receptor AT1"
+        }
+      ],
+      "escore_poligênico_percentil": 67,
+      "descricao_tecnica": "Heterozigose para polimorfismo de inserção/deleção RS4340 no gene ACE, associado a níveis elevados de ACE sérica no genótipo D/D. Variante RS699 no gene AGT (M235T) em heterozigose, relacionada a maior produção de angiotensinogênio. RS5186 (AGTR1) em heterozigose.",
+      "descricao_simples": "Seu perfil genético indica uma predisposição moderada à pressão alta. Genes relacionados ao controle da pressão arterial apresentam variações que podem contribuir para hipertensão, especialmente combinados com fatores como estresse, excesso de sal e sedentarismo.",
+      "recomendacao": "Monitoramento regular da pressão arterial (pelo menos 2 vezes por ano). Dieta com baixo teor de sódio (menos de 2g de sal por dia). Controle de peso corporal e prática de exercícios físicos regulares. Avaliação cardiológica anual.",
+      "fontes": [
+        "Rigat B et al. J Clin Invest. 1990;86(4):1343-6",
+        "Jeunemaitre X et al. Cell. 1992;71(1):169-80"
+      ]
+    },
+    {
+      "id": "2.4",
+      "doenca": "Doença de Alzheimer (início tardio)",
+      "categoria": "Neurologia",
+      "risco": "Médio",
+      "marcadores_geneticos": [
+        {
+          "id_snp": "RS429358",
+          "gene": "APOE",
+          "alelo": "ε3/ε4",
+          "observacao": "heterozigoto — presença do alelo de risco ε4"
+        },
+        {
+          "id_snp": "RS7412",
+          "gene": "APOE",
+          "alelo": "C/T",
+          "observacao": "define haplótipo ε4"
+        },
+        {
+          "id_snp": "RS11136000",
+          "gene": "CLU",
+          "alelo": "C/T",
+          "observacao": "efeito protetor parcial"
+        }
+      ],
+      "escore_poligênico_percentil": 72,
+      "descricao_tecnica": "Genótipo APOE ε3/ε4 (heterozigoto), conferindo risco relativo de 3–4x para Doença de Alzheimer de início tardio em comparação ao genótipo ε3/ε3. O alelo ε4 está presente em aproximadamente 40% dos casos de Alzheimer esporádico. Variante RS11136000 no gene CLU com efeito protetor parcial detectada.",
+      "descricao_simples": "Você possui uma variação no gene APOE que aumenta moderadamente o risco de desenvolver Alzheimer após os 65 anos. Isso não significa que você vai ter a doença — a maioria das pessoas com essa variação não desenvolve Alzheimer. Manter o cérebro ativo e controlar fatores cardiovasculares ajuda muito na prevenção.",
+      "recomendacao": "Manutenção de atividade cognitiva regular (leitura, aprendizado de novas habilidades). Controle de fatores de risco cardiovascular (pressão, colesterol, diabetes). Dieta mediterrânea. Avaliação neurológica periódica a partir dos 50 anos.",
+      "fontes": [
+        "Corder EH et al. Science. 1993;261(5123):921-3",
+        "Lambert JC et al. Nat Genet. 2013;45(12):1452-8"
+      ]
+    },
+    {
+      "id": "2.5",
+      "doenca": "Doença Celíaca",
+      "categoria": "Gastroenterologia / Imunologia",
+      "risco": "Médio",
+      "marcadores_geneticos": [
+        {
+          "id_snp": "RS2187668",
+          "gene": "HLA-DQA1*05",
+          "alelo": "positivo",
+          "observacao": "haplótipo HLA-DQ2.5 presente"
+        },
+        {
+          "id_snp": "RS7454108",
+          "gene": "HLA-DQ2.5",
+          "alelo": "positivo",
+          "observacao": "DQA1*05:01/DQB1*02:01 heterozigoto"
+        },
+        {
+          "id_snp": "RS4713586",
+          "gene": "IL18RAP",
+          "alelo": "A/G",
+          "observacao": "modulador da resposta inflamatória intestinal"
+        }
+      ],
+      "escore_poligênico_percentil": null,
+      "descricao_tecnica": "Presença do haplótipo HLA-DQ2.5 (DQA1*05:01/DQB1*02:01) em heterozigose, presente em 90–95% dos pacientes com doença celíaca. A presença isolada do haplótipo confere predisposição, mas não determina o desenvolvimento da doença (penetrância ~3%). Variante RS4713586 em IL18RAP com efeito modulador da resposta inflamatória intestinal.",
+      "descricao_simples": "Você possui genes que aumentam a chance de desenvolver doença celíaca — uma condição em que o glúten causa danos ao intestino. Porém, ter esses genes não significa que você tem a doença. Se sentir sintomas como diarreia frequente, inchaço ou cansaço, procure um médico para fazer os exames específicos.",
+      "recomendacao": "Atenção a sintomas gastrointestinais persistentes (diarreia, distensão, má absorção). Sorologia para anticorpos anti-transglutaminase (tTG-IgA) em caso de sintomas. Não iniciar dieta isenta de glúten sem diagnóstico confirmado por biópsia intestinal.",
+      "fontes": [
+        "Sollid LM et al. Immunol Rev. 2015;267(1):312-22",
+        "Husby S et al. J Pediatr Gastroenterol Nutr. 2020;70(1):141-156"
+      ]
+    },
+    {
+      "id": "2.6",
+      "doenca": "Trombofilia Hereditária (Fator V de Leiden)",
+      "categoria": "Hematologia",
+      "risco": "Baixo",
+      "marcadores_geneticos": [
+        {
+          "id_snp": "RS6025",
+          "gene": "F5",
+          "alelo": "G/G",
+          "observacao": "wild-type — ausência da mutação Fator V Leiden"
+        },
+        {
+          "id_snp": "RS1799963",
+          "gene": "F2",
+          "alelo": "G/G",
+          "observacao": "wild-type — ausência da mutação Protrombina G20210A"
+        }
+      ],
+      "escore_poligênico_percentil": 12,
+      "descricao_tecnica": "Ausência da mutação Fator V Leiden (RS6025, G1691A) — genótipo wild-type G/G. Ausência da mutação de protrombina G20210A (RS1799963) — genótipo wild-type G/G. Sem evidência de variantes patogênicas nos genes MTHFR, PROC e PROS1 analisados. Risco de tromboembolismo venoso dentro dos parâmetros populacionais basais.",
+      "descricao_simples": "Ótima notícia: você não possui as mutações genéticas mais comuns associadas a coágulos sanguíneos hereditários. Seu risco genético para trombose está dentro do normal para a população geral.",
+      "recomendacao": "Sem restrições específicas relacionadas a trombofilia hereditária. Manter hidratação adequada em viagens longas. Informar médico sobre resultado antes de uso de anticoncepcionais hormonais.",
+      "fontes": [
+        "Bertina RM et al. Nature. 1994;369(6475):64-7",
+        "Poort SR et al. Blood. 1996;88(10):3698-703"
+      ]
+    },
+    {
+      "id": "2.7",
+      "doenca": "Intolerância à Lactose (tipo adulto)",
+      "categoria": "Nutrigenômica",
+      "risco": "Baixo",
+      "marcadores_geneticos": [
+        {
+          "id_snp": "RS4988235",
+          "gene": "MCM6/LCT",
+          "alelo": "C/T",
+          "observacao": "heterozigoto — persistência parcial da lactase"
+        },
+        {
+          "id_snp": "RS182549",
+          "gene": "MCM6",
+          "alelo": "C/T",
+          "observacao": "heterozigoto"
+        }
+      ],
+      "escore_poligênico_percentil": 35,
+      "descricao_tecnica": "Genótipo heterozigoto C/T para RS4988235 (região regulatória do gene LCT — Lactase), associado à persistência parcial da lactase na vida adulta. Indivíduos com este genótipo geralmente toleram quantidades moderadas de lactose (até 12g por refeição) sem sintomas significativos.",
+      "descricao_simples": "Você tem uma tolerância parcial à lactose (o açúcar do leite). Isso significa que provavelmente consegue consumir leite e derivados em quantidades moderadas sem grandes problemas. Produtos fermentados como iogurte e queijos curados costumam ser ainda melhor tolerados.",
+      "recomendacao": "Tolerância moderada a produtos lácteos esperada. Observar sintomas individuais. Produtos fermentados (iogurte, queijos curados) geralmente bem tolerados. Suplementação de cálcio não necessária se consumo moderado de laticínios mantido.",
+      "fontes": [
+        "Enattah NS et al. Nat Genet. 2002;30(2):233-7",
+        "Ingram CJ et al. Hum Genet. 2009;124(6):579-91"
+      ]
+    }
+  ],
+  "ancestralidade": [
+    {
+      "regiao": "Europa Ibérica (Península Ibérica)",
+      "percentual": 42.3,
+      "intervalo_confianca_95": "39.1% – 45.5%"
+    },
+    {
+      "regiao": "Europa do Sul (Itália/Grécia)",
+      "percentual": 18.7,
+      "intervalo_confianca_95": "16.2% – 21.2%"
+    },
+    {
+      "regiao": "África Subsaariana (África Ocidental)",
+      "percentual": 22.1,
+      "intervalo_confianca_95": "19.4% – 24.8%"
+    },
+    {
+      "regiao": "Ameríndio (América do Sul)",
+      "percentual": 11.4,
+      "intervalo_confianca_95": "9.2% – 13.6%"
+    },
+    {
+      "regiao": "Oriente Médio / Norte da África",
+      "percentual": 3.8,
+      "intervalo_confianca_95": "2.1% – 5.5%"
+    },
+    {
+      "regiao": "Ásia do Leste",
+      "percentual": 1.2,
+      "intervalo_confianca_95": "0.3% – 2.1%"
+    },
+    {
+      "regiao": "Outros / Não determinado",
+      "percentual": 0.5,
+      "intervalo_confianca_95": "0.0% – 1.2%"
+    }
+  ],
+  "metodologia": {
+    "plataforma": "Illumina Global Screening Array v3.0 (GSA)",
+    "cobertura_snps": 654027,
+    "genoma_referencia": "GRCh38/hg38",
+    "etapas": [
+      {
+        "etapa": "Extração de DNA",
+        "ferramenta": "Saliva — kit Oragene OG-500",
+        "parametro_qualidade": "Concentração ≥ 50 ng/μL"
+      },
+      {
+        "etapa": "Genotipagem",
+        "ferramenta": "Illumina GSA v3.0",
+        "parametro_qualidade": "Call rate ≥ 98%"
+      },
+      {
+        "etapa": "Controle de Qualidade",
+        "ferramenta": "PLINK v1.9",
+        "parametro_qualidade": "MAF ≥ 1%, HWE p > 1×10⁻⁶"
+      },
+      {
+        "etapa": "Imputação",
+        "ferramenta": "Michigan Imputation Server (TOPMed r2)",
+        "parametro_qualidade": "Rsq ≥ 0.3"
+      },
+      {
+        "etapa": "Análise de Risco",
+        "ferramenta": "PRSice-2 (Escore Poligênico)",
+        "parametro_qualidade": "Baseado em GWAS publicados"
+      },
+      {
+        "etapa": "Ancestralidade",
+        "ferramenta": "ADMIXTURE v1.3 + PCA",
+        "parametro_qualidade": "K=7, CV error < 0.5%"
+      },
+      {
+        "etapa": "Anotação de Variantes",
+        "ferramenta": "ANNOVAR + ClinVar (Nov/2024)",
+        "parametro_qualidade": "Classificação ACMG/AMP"
+      }
+    ]
+  },
+  "metadata": {
+    "versao_relatorio": "3.2.1",
+    "laboratorio": "Dasa Genômica",
+    "cnes_laboratorio": "2078431",
+    "endereco_laboratorio": "Av. Juruá, 434 — Alphaville, Barueri/SP — CEP 06455-010",
+    "responsavel_tecnico": "Dr. Ricardo Almeida Souza",
+    "crm_responsavel": "CRM/SP 54321",
+    "especialidade_responsavel": "Genética Médica",
+    "data_processamento": "2024-11-12",
+    "tipo_pdf": "nativo",
+    "fonte_extracao": "pdfplumber + PyMuPDF",
+    "tempo_processamento_segundos": 12.4,
+    "qualidade_extracao": "alta",
+    "campos_extraidos_total": 47,
+    "confiabilidade_dados": "99.2%"
+  }
+}

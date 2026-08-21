@@ -1,0 +1,10 @@
+# Dependências do projeto Genera AI
+# Pipeline de embeddings/busca (sprint2/embeddings, sprint2/vetorial):
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+
+# Interfaces Streamlit e integração com LLM
+# (sprint2/interface, sprint3/interface):
+streamlit>=1.32.0
+openai>=1.0.0
+python-dotenv>=1.0.0
