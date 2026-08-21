@@ -42,7 +42,7 @@
 
 **Tutor turma A:** [Caique Nonato da Silva Bezerra](https://www.linkedin.com/in/caique-nonato/) — profcaique.bezerra@fiap.com.br  
 **Tutor turma R:** [Leonardo Ruiz Orabona](https://www.linkedin.com/in/leonardoorabona/) — profleonardo.orabona@fiap.com.br  
-**Coordenador:** [André Godoi Chiovato](https://www.linkedin.com/in/andregodoichiovato/)
+**Coordenador:** [André Godoi Chiovato](https://www.linkedin.com/in/andregodoichiovato/) - profandre.chiovato@fiap.com.br
 
 ---
 
