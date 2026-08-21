@@ -1,0 +1,7 @@
+[flake8]
+max-line-length = 127
+exclude =
+    .git,
+    __pycache__,
+    sprint2/vetorial/base_vetorial,
+    sprint2/interface/uploads

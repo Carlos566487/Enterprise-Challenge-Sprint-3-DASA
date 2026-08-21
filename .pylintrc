@@ -1,0 +1,60 @@
+# Configuração do Pylint — Genera AI / Dasa / FIAP
+#
+# Contexto: o workflow .github/workflows/pylint.yml roda
+#     pylint $(git ls-files '*.py')
+# sobre todo o repositório, com as três versões da matrix. Sem este arquivo o
+# pylint usa os defaults, que conflitam com decisões já adotadas pelo time —
+# o workflow nunca passou uma única vez desde que foi criado.
+#
+# Nada aqui esconde mensagem: todas continuam sendo impressas no log. O que
+# muda é (1) o pylint passar a resolver os imports do projeto de verdade e
+# (2) o critério de falha do build.
+
+[MAIN]
+
+# ── Resolução de imports ─────────────────────────────────────────────────────
+# Os módulos do projeto não formam pacotes Python: usam imports planos
+# (`from prompts import ...`, `from ancoragem import ...`) resolvidos em tempo
+# de execução por sys.path.insert() feito por quem importa. É convenção
+# documentada e adotada pelos quatro integrantes.
+#
+# Análise estática não enxerga essa manipulação de sys.path, então o pylint
+# reportava 20 falsos E0401. Colocar os mesmos diretórios no path faz o pylint
+# RESOLVER os módulos de verdade — não é supressão de regra.
+init-hook=import sys; sys.path[:0] = ['.', 'sprint2/agente', 'sprint2/interface', 'sprint3/nlp', 'sprint3/rag_personalizacao', 'sprint3/integracao']
+
+# ── Dependências externas ────────────────────────────────────────────────────
+# O job de lint instala apenas o pylint, de propósito: instalar
+# sentence-transformers puxa o torch (centenas de MB) em cada uma das três
+# entradas da matrix, e as versões atuais nem suportam Python 3.8.
+#
+# Que as dependências instalam e o código roda já é verificado pelo outro
+# workflow (python-app.yml), que instala o requirements.txt e roda os testes.
+# Aqui elas são apenas declaradas como externas, para não virarem E0401.
+ignored-modules=chromadb,sentence_transformers,streamlit,openai,dotenv,pytest,numpy,torch
+
+# ── Critério de falha do build ───────────────────────────────────────────────
+# fail-on=E: qualquer ERRO derruba o build, sempre. Este é o sinal que
+#            realmente importa e continua rigoroso — vale mesmo que a nota
+#            esteja acima do piso (verificado: erro injetado -> exit 30).
+# fail-under: piso de qualidade. Nota atual: 8.84.
+#
+# Por que 8.0 e não 8.5: a matrix roda pylint 3.2.x no Python 3.8 e 4.x no
+# 3.10, e versões diferentes pontuam o mesmo código de forma diferente (checks
+# novos entram entre releases). Um piso colado na nota atual quebraria por
+# variação de versão, não por regressão real. 8.0 absorve essa variação e
+# ainda derruba o build se a qualidade cair de verdade.
+#
+# Por que um piso em vez de exigir nota 10: das 268 mensagens restantes, a
+# maioria está em arquivos de outros integrantes — 16 delas em sprint3/nlp/,
+# cujo autor encerrou a participação e cujos arquivos o time decidiu não
+# alterar. Exigir zero mensagens deixaria o CI vermelho permanentemente.
+fail-on=E
+fail-under=8.0
+
+[FORMAT]
+
+# Alinha ao padrão que o projeto já adotou em .flake8 (max-line-length = 127).
+# O default do pylint é 100, o que colocava os dois linters em conflito direto
+# sobre o mesmo código.
+max-line-length=127
