@@ -80,7 +80,7 @@ A Sprint 2 entregou o motor de inteligência: pipeline RAG funcional, guardrails
 
 ## 2. Evolução da Experiência do Usuário
 
-### 🖥️ Dashboard — Endrew Alves
+### 🖥️ Dashboard
 
 A interface da Sprint 3 (`sprint3/interface/app.py`) é uma evolução completa da interface de chat da Sprint 2. Ao carregar o relatório, o usuário acessa:
 
@@ -100,7 +100,7 @@ Principais decisões de UX:
 | Visão geral antes dos detalhes | Reduz sobrecarga cognitiva para o leigo |
 | Dados pessoais mínimos exibidos | Princípio da minimização (LGPD) |
 
-### 🤖 Personalização de Respostas — João
+### 🤖 Personalização de Respostas
 
 O módulo `sprint3/rag_personalizacao/` adapta a resposta ao **perfil declarado do usuário** sem alterar os fatos do relatório:
 
@@ -112,14 +112,14 @@ O módulo `sprint3/rag_personalizacao/` adapta a resposta ao **perfil declarado 
 
 Toda resposta passa por validação de ancoragem: números, percentuais e SNPs na resposta devem aparecer nos trechos recuperados do relatório.
 
-### 📝 Simplificação de Linguagem e Resumos — Tayná
+### 📝 Simplificação de Linguagem e Resumos
 
 O módulo `sprint3/nlp/` oferece:
 - `nlp_simplificacao.py` — traduz jargão genético para linguagem acessível
 - `resumos_automaticos.py` — gera resumos do relatório por seção e geral
 - Integração com o RAG via `sprint3/integracao/adaptador_nlp.py`
 
-### 🛡️ Salvaguardas de Comunicação Responsável — Carlos
+### 🛡️ Salvaguardas de Comunicação Responsável
 
 O módulo `sprint3/governanca/` implementa:
 - Disclaimers fixos contextuais exibidos na interface
@@ -172,7 +172,7 @@ O módulo `sprint3/governanca/` implementa:
 
 ---
 
-## 4. João — Cientista de IA: Personalização & RAG
+## Cientista de IA: Personalização & RAG
 
 > *"Eu adapto a inteligência ao perfil de quem pergunta."*
 
@@ -227,7 +227,7 @@ pytest                                   # 67 testes no total
 
 ---
 
-## 5. Endrew — UX / Front-end e Mobile: Dashboard
+## UX / Front-end e Mobile: Dashboard
 
 > *"Eu faço o relatório genético ser compreensível para qualquer pessoa."*
 
@@ -260,7 +260,7 @@ A interface da Sprint 3 reconstrói a experiência do usuário a partir dos dado
 
 ---
 
-## 6. Tayná — NLP e Automação de Resumos
+## NLP e Automação de Resumos
 
 > *"Eu transformo linguagem técnica em algo que qualquer pessoa entende."*
 
@@ -277,7 +277,7 @@ Módulo NLP que pós-processa as respostas do agente e gera resumos automáticos
 
 ---
 
-## 7. Carlos — Governança e Comunicação Responsável
+##  Governança e Comunicação Responsável
 
 > *"Eu garanto que o que o sistema diz é responsável — e que o que está documentado é verdadeiro."*
 
@@ -428,9 +428,6 @@ Enterprise-Challenge-Sprint-3-DASA/
 ---
 
 ## 10. Governança e Comunicação Responsável
-
-> **Responsável:** Carlos Eduardo (RM566487)  
-> **Módulo:** `sprint3/governanca/`
 
 ### Por que uma camada dedicada de governança?
 
