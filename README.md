@@ -512,7 +512,7 @@ A solução respeita a **LGPD — Art. 11** (dados sensíveis de saúde): proces
 
 > 📹 **Sprint 2:** [https://youtu.be/z1Jqb33pSjU](https://youtu.be/z1Jqb33pSjU)
 
-> 📹 **Sprint 3:** **[LINK DO VÍDEO — PENDENTE DE GRAVAÇÃO E PUBLICAÇÃO]**
+> 📹 **Sprint 3:** **[https://youtu.be/wutlT02hQwg]**
 
 ---
 
