@@ -98,10 +98,12 @@ def _commit() -> dict:
             ["git", *args], cwd=RAIZ, capture_output=True, text=True,
         ).stdout.strip()
 
+    pendentes = [linha for linha in git("status", "--porcelain").splitlines() if linha]
     return {
         "commit": git("rev-parse", "HEAD"),
         "branch": git("rev-parse", "--abbrev-ref", "HEAD"),
-        "arvore_limpa": git("status", "--porcelain") == "",
+        "arvore_limpa": not pendentes,
+        "alteracoes_pendentes": pendentes,
     }
 
 
@@ -235,6 +237,10 @@ def main(argv=None) -> int:
                         help="quantas vezes rodar o Grupo B")
     args = parser.parse_args(argv)
 
+    # Estado do git lido ANTES de criar o diretório de saída — senão o próprio
+    # diretório novo apareceria como alteração pendente.
+    estado_git = _commit()
+
     carimbo = datetime.now().strftime("%Y%m%d_%H%M%S")
     destino = DIR_EXECUCOES / f"{args.rotulo}_{carimbo}"
     destino.mkdir(parents=True, exist_ok=False)
@@ -242,7 +248,7 @@ def main(argv=None) -> int:
     resumo = {
         "rotulo": args.rotulo,
         "inicio_utc": _agora(),
-        "git": _commit(),
+        "git": estado_git,
         "ambiente": {
             "python": sys.version,
             "plataforma": platform.platform(),
