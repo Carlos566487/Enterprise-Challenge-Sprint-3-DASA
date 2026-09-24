@@ -1,4 +1,7 @@
 # Dependências do projeto Genera AI
+# Extração PDF → JSON (sprint1/extracao):
+pdfplumber>=0.10.0
+
 # Pipeline de embeddings/busca (sprint2/embeddings, sprint2/vetorial):
 chromadb>=0.4.0
 sentence-transformers>=2.2.0
