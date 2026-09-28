@@ -1,0 +1,1449 @@
+{
+  "gerado_em_utc": "2026-09-28T23:22:15+00:00",
+  "fonte_bruta": "sprint4/avaliacao/execucoes/recuperacao_20260928_202044.json",
+  "limiar_producao": 0.5,
+  "deterministico_todas": true,
+  "prefixo_ok_todas": true,
+  "agregados_por_perfil": {
+    "leigo_ansioso": {
+      "precisao_media_legitimas_com_contexto": 0.9333,
+      "recall_medio_legitimas": 0.3636,
+      "legitimas_sem_nenhum_trecho": [
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_que_receberam_trecho": [
+        "X2"
+      ],
+      "roteamento_correto": 9,
+      "total": 16
+    },
+    "leigo_curioso": {
+      "precisao_media_legitimas_com_contexto": 0.9,
+      "recall_medio_legitimas": 0.3636,
+      "legitimas_sem_nenhum_trecho": [
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_que_receberam_trecho": [
+        "X2"
+      ],
+      "roteamento_correto": 9,
+      "total": 16
+    },
+    "medico": {
+      "precisao_media_legitimas_com_contexto": 0.9,
+      "recall_medio_legitimas": 0.3636,
+      "legitimas_sem_nenhum_trecho": [
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_que_receberam_trecho": [
+        "X2"
+      ],
+      "roteamento_correto": 9,
+      "total": 16
+    }
+  },
+  "por_categoria": {
+    "ambigua": {
+      "perguntas": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "similaridade_max": {
+        "B1": 0.3542,
+        "B2": 0.3904,
+        "B3": 0.6275
+      },
+      "similaridade_max_media": 0.4574,
+      "recall_medio_leigo_ansioso": 1.0
+    },
+    "ancestralidade": {
+      "perguntas": [
+        "A1",
+        "A2"
+      ],
+      "similaridade_max": {
+        "A1": 0.4938,
+        "A2": 0.4936
+      },
+      "similaridade_max_media": 0.4937,
+      "recall_medio_leigo_ansioso": 0.0
+    },
+    "ausente_do_relatorio": {
+      "perguntas": [
+        "X1",
+        "X2",
+        "X3"
+      ],
+      "similaridade_max": {
+        "X1": 0.3585,
+        "X2": 0.5267,
+        "X3": 0.3654
+      },
+      "similaridade_max_media": 0.4169,
+      "recall_medio_leigo_ansioso": null
+    },
+    "fato_direto": {
+      "perguntas": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "similaridade_max": {
+        "F1": 0.5358,
+        "F2": 0.476,
+        "F3": 0.4602,
+        "F4": 0.7205
+      },
+      "similaridade_max_media": 0.5481,
+      "recall_medio_leigo_ansioso": 0.5
+    },
+    "risco_percentil": {
+      "perguntas": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "similaridade_max": {
+        "R1": 0.6882,
+        "R2": 0.4726,
+        "R3": 0.6954,
+        "R4": 0.4542
+      },
+      "similaridade_max_media": 0.5776,
+      "recall_medio_leigo_ansioso": 0.25
+    }
+  },
+  "separacao_de_similaridade": {
+    "menor_similaridade_de_chunk_essencial": [
+      0.3547,
+      "R3",
+      "marcadores_2.2"
+    ],
+    "maior_similaridade_em_pergunta_sem_resposta": [
+      0.5267,
+      "X2"
+    ]
+  },
+  "varredura_de_limiar": [
+    {
+      "limiar": 0.3,
+      "perfil": "leigo_ansioso",
+      "top_k": 3,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.6061,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ]
+    },
+    {
+      "limiar": 0.3,
+      "perfil": "leigo_curioso",
+      "top_k": 4,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.4545,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ]
+    },
+    {
+      "limiar": 0.3,
+      "perfil": "medico",
+      "top_k": 5,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.3636,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ]
+    },
+    {
+      "limiar": 0.35,
+      "perfil": "leigo_ansioso",
+      "top_k": 3,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.6061,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ]
+    },
+    {
+      "limiar": 0.35,
+      "perfil": "leigo_curioso",
+      "top_k": 4,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.4545,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ]
+    },
+    {
+      "limiar": 0.35,
+      "perfil": "medico",
+      "top_k": 5,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.3636,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ]
+    },
+    {
+      "limiar": 0.4,
+      "perfil": "leigo_ansioso",
+      "top_k": 3,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.6818,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.4,
+      "perfil": "leigo_curioso",
+      "top_k": 4,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.5606,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.4,
+      "perfil": "medico",
+      "top_k": 5,
+      "recall_medio_legitimas": 0.8182,
+      "precisao_media_quando_ha_contexto": 0.5061,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.45,
+      "perfil": "leigo_ansioso",
+      "top_k": 3,
+      "recall_medio_legitimas": 0.6818,
+      "precisao_media_quando_ha_contexto": 0.8333,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.45,
+      "perfil": "leigo_curioso",
+      "top_k": 4,
+      "recall_medio_legitimas": 0.6818,
+      "precisao_media_quando_ha_contexto": 0.7727,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.45,
+      "perfil": "medico",
+      "top_k": 5,
+      "recall_medio_legitimas": 0.6818,
+      "precisao_media_quando_ha_contexto": 0.7727,
+      "legitimas_sem_trecho": [],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.5,
+      "perfil": "leigo_ansioso",
+      "top_k": 3,
+      "recall_medio_legitimas": 0.3636,
+      "precisao_media_quando_ha_contexto": 0.9333,
+      "legitimas_sem_trecho": [
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.5,
+      "perfil": "leigo_curioso",
+      "top_k": 4,
+      "recall_medio_legitimas": 0.3636,
+      "precisao_media_quando_ha_contexto": 0.9,
+      "legitimas_sem_trecho": [
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.5,
+      "perfil": "medico",
+      "top_k": 5,
+      "recall_medio_legitimas": 0.3636,
+      "precisao_media_quando_ha_contexto": 0.9,
+      "legitimas_sem_trecho": [
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": [
+        "X2"
+      ]
+    },
+    {
+      "limiar": 0.55,
+      "perfil": "leigo_ansioso",
+      "top_k": 3,
+      "recall_medio_legitimas": 0.2727,
+      "precisao_media_quando_ha_contexto": 0.9167,
+      "legitimas_sem_trecho": [
+        "F1",
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": []
+    },
+    {
+      "limiar": 0.55,
+      "perfil": "leigo_curioso",
+      "top_k": 4,
+      "recall_medio_legitimas": 0.2727,
+      "precisao_media_quando_ha_contexto": 0.875,
+      "legitimas_sem_trecho": [
+        "F1",
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": []
+    },
+    {
+      "limiar": 0.55,
+      "perfil": "medico",
+      "top_k": 5,
+      "recall_medio_legitimas": 0.2727,
+      "precisao_media_quando_ha_contexto": 0.875,
+      "legitimas_sem_trecho": [
+        "F1",
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": []
+    },
+    {
+      "limiar": 0.6,
+      "perfil": "leigo_ansioso",
+      "top_k": 3,
+      "recall_medio_legitimas": 0.2727,
+      "precisao_media_quando_ha_contexto": 1.0,
+      "legitimas_sem_trecho": [
+        "F1",
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": []
+    },
+    {
+      "limiar": 0.6,
+      "perfil": "leigo_curioso",
+      "top_k": 4,
+      "recall_medio_legitimas": 0.2727,
+      "precisao_media_quando_ha_contexto": 1.0,
+      "legitimas_sem_trecho": [
+        "F1",
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": []
+    },
+    {
+      "limiar": 0.6,
+      "perfil": "medico",
+      "top_k": 5,
+      "recall_medio_legitimas": 0.2727,
+      "precisao_media_quando_ha_contexto": 1.0,
+      "legitimas_sem_trecho": [
+        "F1",
+        "F2",
+        "F3",
+        "R2",
+        "R4",
+        "A1",
+        "A2"
+      ],
+      "sem_resposta_com_trecho": []
+    }
+  ],
+  "contabilidade_parte_b": {
+    "regra": "N=3 por pergunta e perfil; N=5 nas críticas",
+    "natureza": "derivada da recuperação medida e do guardrail — ambos determinísticos; a Parte B confirma com o instrumento de custo",
+    "chamadas_llm": 72,
+    "evitadas_guardrail": 36,
+    "evitadas_sem_contexto_correto": 36,
+    "evitadas_sem_contexto_indevido": 66,
+    "execucoes_totais": 210,
+    "detalhe": [
+      {
+        "id": "F1",
+        "perfil": "leigo_ansioso",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "F1",
+        "perfil": "leigo_curioso",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "F1",
+        "perfil": "medico",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "F2",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "F2",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "F2",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "F3",
+        "perfil": "leigo_ansioso",
+        "n": 5,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "F3",
+        "perfil": "leigo_curioso",
+        "n": 5,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "F3",
+        "perfil": "medico",
+        "n": 5,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "F4",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "F4",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "F4",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "R1",
+        "perfil": "leigo_ansioso",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "R1",
+        "perfil": "leigo_curioso",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "R1",
+        "perfil": "medico",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "R2",
+        "perfil": "leigo_ansioso",
+        "n": 5,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "R2",
+        "perfil": "leigo_curioso",
+        "n": 5,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "R2",
+        "perfil": "medico",
+        "n": 5,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "R3",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "R3",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "R3",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "R4",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "R4",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "R4",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "A1",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "A1",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "A1",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "A2",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "A2",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "A2",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_indevido"
+      },
+      {
+        "id": "X1",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "X1",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "X1",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "X2",
+        "perfil": "leigo_ansioso",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "X2",
+        "perfil": "leigo_curioso",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "X2",
+        "perfil": "medico",
+        "n": 5,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "X3",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "X3",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "X3",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "G1",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G1",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G1",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G2",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G2",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G2",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G3",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G3",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G3",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G4",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G4",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "G4",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_guardrail"
+      },
+      {
+        "id": "B1",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "B1",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "B1",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "B2",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "B2",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "B2",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "evitadas_sem_contexto_correto"
+      },
+      {
+        "id": "B3",
+        "perfil": "leigo_ansioso",
+        "n": 3,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "B3",
+        "perfil": "leigo_curioso",
+        "n": 3,
+        "destino": "chamadas_llm"
+      },
+      {
+        "id": "B3",
+        "perfil": "medico",
+        "n": 3,
+        "destino": "chamadas_llm"
+      }
+    ]
+  },
+  "por_pergunta": [
+    {
+      "id": "F1",
+      "categoria": "fato_direto",
+      "similaridade_max": 0.5358,
+      "essenciais_no_ranking": {
+        "paciente": {
+          "posicao": 1,
+          "similaridade": 0.5358
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [
+            "paciente"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [
+            "paciente"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [
+            "paciente"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        }
+      }
+    },
+    {
+      "id": "F2",
+      "categoria": "fato_direto",
+      "similaridade_max": 0.476,
+      "essenciais_no_ranking": {
+        "paciente": {
+          "posicao": 2,
+          "similaridade": 0.4561
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        }
+      }
+    },
+    {
+      "id": "F3",
+      "categoria": "fato_direto",
+      "similaridade_max": 0.4602,
+      "essenciais_no_ranking": {
+        "sumario": {
+          "posicao": 6,
+          "similaridade": 0.4026
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        }
+      }
+    },
+    {
+      "id": "F4",
+      "categoria": "fato_direto",
+      "similaridade_max": 0.7205,
+      "essenciais_no_ranking": {
+        "marcadores_2.1": {
+          "posicao": 2,
+          "similaridade": 0.6126
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1"
+          ],
+          "precisao": 0.6667,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "precisao": 0.5,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "precisao": 0.5,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        }
+      }
+    },
+    {
+      "id": "R1",
+      "categoria": "risco_percentil",
+      "similaridade_max": 0.6882,
+      "essenciais_no_ranking": {
+        "resultado_2.1": {
+          "posicao": 1,
+          "similaridade": 0.6882
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        }
+      }
+    },
+    {
+      "id": "R2",
+      "categoria": "risco_percentil",
+      "similaridade_max": 0.4726,
+      "essenciais_no_ranking": {
+        "resultado_2.3": {
+          "posicao": 2,
+          "similaridade": 0.438
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        }
+      }
+    },
+    {
+      "id": "R3",
+      "categoria": "risco_percentil",
+      "similaridade_max": 0.6954,
+      "essenciais_no_ranking": {
+        "marcadores_2.2": {
+          "posicao": 13,
+          "similaridade": 0.3547
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "precisao": 1.0,
+          "recall": 0.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "precisao": 1.0,
+          "recall": 0.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "precisao": 1.0,
+          "recall": 0.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        }
+      }
+    },
+    {
+      "id": "R4",
+      "categoria": "risco_percentil",
+      "similaridade_max": 0.4542,
+      "essenciais_no_ranking": {
+        "resultado_2.6": {
+          "posicao": 1,
+          "similaridade": 0.4542
+        },
+        "resultado_2.7": {
+          "posicao": 3,
+          "similaridade": 0.4417
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        }
+      }
+    },
+    {
+      "id": "A1",
+      "categoria": "ancestralidade",
+      "similaridade_max": 0.4938,
+      "essenciais_no_ranking": {
+        "ancestralidade": {
+          "posicao": 1,
+          "similaridade": 0.4938
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        }
+      }
+    },
+    {
+      "id": "A2",
+      "categoria": "ancestralidade",
+      "similaridade_max": 0.4936,
+      "essenciais_no_ranking": {
+        "ancestralidade": {
+          "posicao": 1,
+          "similaridade": 0.4936
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": 0.0,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": false
+        }
+      }
+    },
+    {
+      "id": "X1",
+      "categoria": "ausente_do_relatorio",
+      "similaridade_max": 0.3585,
+      "essenciais_no_ranking": {},
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        }
+      }
+    },
+    {
+      "id": "X2",
+      "categoria": "ausente_do_relatorio",
+      "similaridade_max": 0.5267,
+      "essenciais_no_ranking": {},
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "precisao": 0.0,
+          "recall": null,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": false
+        },
+        "leigo_curioso": {
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "precisao": 0.0,
+          "recall": null,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": false
+        },
+        "medico": {
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "precisao": 0.0,
+          "recall": null,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": false
+        }
+      }
+    },
+    {
+      "id": "X3",
+      "categoria": "ausente_do_relatorio",
+      "similaridade_max": 0.3654,
+      "essenciais_no_ranking": {},
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        }
+      }
+    },
+    {
+      "id": "B1",
+      "categoria": "ambigua",
+      "similaridade_max": 0.3542,
+      "essenciais_no_ranking": {},
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        }
+      }
+    },
+    {
+      "id": "B2",
+      "categoria": "ambigua",
+      "similaridade_max": 0.3904,
+      "essenciais_no_ranking": {},
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [],
+          "precisao": null,
+          "recall": null,
+          "roteamento_obtido": "sem_contexto",
+          "roteamento_ok": true
+        }
+      }
+    },
+    {
+      "id": "B3",
+      "categoria": "ambigua",
+      "similaridade_max": 0.6275,
+      "essenciais_no_ranking": {
+        "recomendacao_2.1": {
+          "posicao": 2,
+          "similaridade": 0.6057
+        }
+      },
+      "deterministico": true,
+      "prefixo_ok": true,
+      "perfis": {
+        "leigo_ansioso": {
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "leigo_curioso": {
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        },
+        "medico": {
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "precisao": 1.0,
+          "recall": 1.0,
+          "roteamento_obtido": "com_contexto",
+          "roteamento_ok": true
+        }
+      }
+    }
+  ]
+}

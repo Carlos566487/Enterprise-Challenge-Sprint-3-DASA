@@ -1,0 +1,627 @@
+{
+  "gerado_em_utc": "2026-09-28T23:22:58+00:00",
+  "base": "sprint2/vetorial/base_vetorial (25 chunks)",
+  "folhas_total": 233,
+  "presentes": 161,
+  "ausentes": 70,
+  "vazios_no_json": [
+    "resultados[1].escore_poligênico_percentil",
+    "resultados[4].escore_poligênico_percentil"
+  ],
+  "ausentes_por_campo": [
+    {
+      "campo": "ancestralidade[].intervalo_confianca_95",
+      "ausentes": 7,
+      "ocorrencias_no_json": 7,
+      "exemplos": [
+        {
+          "campo": "ancestralidade[0].intervalo_confianca_95",
+          "valor": "39.1% – 45.5%"
+        },
+        {
+          "campo": "ancestralidade[1].intervalo_confianca_95",
+          "valor": "16.2% – 21.2%"
+        },
+        {
+          "campo": "ancestralidade[2].intervalo_confianca_95",
+          "valor": "19.4% – 24.8%"
+        }
+      ]
+    },
+    {
+      "campo": "metadata.campos_extraidos_total",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metadata.campos_extraidos_total",
+          "valor": 47
+        }
+      ]
+    },
+    {
+      "campo": "metadata.cnes_laboratorio",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metadata.cnes_laboratorio",
+          "valor": "2078431"
+        }
+      ]
+    },
+    {
+      "campo": "metadata.confiabilidade_dados",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metadata.confiabilidade_dados",
+          "valor": "99.2%"
+        }
+      ]
+    },
+    {
+      "campo": "metadata.endereco_laboratorio",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metadata.endereco_laboratorio",
+          "valor": "Av. Juruá, 434 — Alphaville, Barueri/SP — CEP 06455-010"
+        }
+      ]
+    },
+    {
+      "campo": "metadata.fonte_extracao",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metadata.fonte_extracao",
+          "valor": "pdfplumber + PyMuPDF"
+        }
+      ]
+    },
+    {
+      "campo": "metadata.tempo_processamento_segundos",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metadata.tempo_processamento_segundos",
+          "valor": 12.4
+        }
+      ]
+    },
+    {
+      "campo": "metadata.tipo_pdf",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metadata.tipo_pdf",
+          "valor": "nativo"
+        }
+      ]
+    },
+    {
+      "campo": "metodologia.cobertura_snps",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metodologia.cobertura_snps",
+          "valor": 654027
+        }
+      ]
+    },
+    {
+      "campo": "metodologia.etapas[].etapa",
+      "ausentes": 7,
+      "ocorrencias_no_json": 7,
+      "exemplos": [
+        {
+          "campo": "metodologia.etapas[0].etapa",
+          "valor": "Extração de DNA"
+        },
+        {
+          "campo": "metodologia.etapas[1].etapa",
+          "valor": "Genotipagem"
+        },
+        {
+          "campo": "metodologia.etapas[2].etapa",
+          "valor": "Controle de Qualidade"
+        }
+      ]
+    },
+    {
+      "campo": "metodologia.etapas[].ferramenta",
+      "ausentes": 7,
+      "ocorrencias_no_json": 7,
+      "exemplos": [
+        {
+          "campo": "metodologia.etapas[0].ferramenta",
+          "valor": "Saliva — kit Oragene OG-500"
+        },
+        {
+          "campo": "metodologia.etapas[1].ferramenta",
+          "valor": "Illumina GSA v3.0"
+        },
+        {
+          "campo": "metodologia.etapas[2].ferramenta",
+          "valor": "PLINK v1.9"
+        }
+      ]
+    },
+    {
+      "campo": "metodologia.etapas[].parametro_qualidade",
+      "ausentes": 7,
+      "ocorrencias_no_json": 7,
+      "exemplos": [
+        {
+          "campo": "metodologia.etapas[0].parametro_qualidade",
+          "valor": "Concentração ≥ 50 ng/μL"
+        },
+        {
+          "campo": "metodologia.etapas[1].parametro_qualidade",
+          "valor": "Call rate ≥ 98%"
+        },
+        {
+          "campo": "metodologia.etapas[2].parametro_qualidade",
+          "valor": "MAF ≥ 1%, HWE p > 1×10⁻⁶"
+        }
+      ]
+    },
+    {
+      "campo": "metodologia.genoma_referencia",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metodologia.genoma_referencia",
+          "valor": "GRCh38/hg38"
+        }
+      ]
+    },
+    {
+      "campo": "metodologia.plataforma",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "metodologia.plataforma",
+          "valor": "Illumina Global Screening Array v3.0 (GSA)"
+        }
+      ]
+    },
+    {
+      "campo": "paciente.cpf",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "paciente.cpf",
+          "valor": "***.***.***-**"
+        }
+      ]
+    },
+    {
+      "campo": "paciente.crm_medico",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "paciente.crm_medico",
+          "valor": "CRM/SP 87432"
+        }
+      ]
+    },
+    {
+      "campo": "resultados[].escore_poligênico_percentil",
+      "ausentes": 4,
+      "ocorrencias_no_json": 7,
+      "exemplos": [
+        {
+          "campo": "resultados[0].escore_poligênico_percentil",
+          "valor": 89
+        },
+        {
+          "campo": "resultados[2].escore_poligênico_percentil",
+          "valor": 67
+        },
+        {
+          "campo": "resultados[3].escore_poligênico_percentil",
+          "valor": 72
+        }
+      ]
+    },
+    {
+      "campo": "resultados[].fontes[]",
+      "ausentes": 14,
+      "ocorrencias_no_json": 14,
+      "exemplos": [
+        {
+          "campo": "resultados[0].fontes[0]",
+          "valor": "Grant SF et al. Nat Genet. 2006;38(3):320-3"
+        },
+        {
+          "campo": "resultados[0].fontes[1]",
+          "valor": "Florez JC. Clin Pharmacol Ther. 2007;82(5):620-5"
+        },
+        {
+          "campo": "resultados[1].fontes[0]",
+          "valor": "Antoniou A et al. Am J Hum Genet. 2003;72(5):1117-30"
+        }
+      ]
+    },
+    {
+      "campo": "resultados[].id",
+      "ausentes": 4,
+      "ocorrencias_no_json": 7,
+      "exemplos": [
+        {
+          "campo": "resultados[1].id",
+          "valor": "2.2"
+        },
+        {
+          "campo": "resultados[3].id",
+          "valor": "2.4"
+        },
+        {
+          "campo": "resultados[5].id",
+          "valor": "2.6"
+        }
+      ]
+    },
+    {
+      "campo": "resultados[].relevancia_medico",
+      "ausentes": 2,
+      "ocorrencias_no_json": 2,
+      "exemplos": [
+        {
+          "campo": "resultados[0].relevancia_medico",
+          "valor": "Prioridade clínica alta - paciente requer acompanhamento endocrinológico especializado e monitoramento glicêmico rigoroso"
+        },
+        {
+          "campo": "resultados[1].relevancia_medico",
+          "valor": "Prioridade clínica máxima - variante patogênica BRCA2 requer protocolo de rastreamento intensivo e aconselhamento genético familiar"
+        }
+      ]
+    },
+    {
+      "campo": "sumario.aviso_legal",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "sumario.aviso_legal",
+          "valor": "Este relatório tem caráter informativo e não substitui consulta médica. Predisposição genética não determina desenvolvimento de doença."
+        }
+      ]
+    },
+    {
+      "campo": "sumario.cobertura_genomica_snps",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "sumario.cobertura_genomica_snps",
+          "valor": 654027
+        }
+      ]
+    },
+    {
+      "campo": "sumario.plataforma_genotipagem",
+      "ausentes": 1,
+      "ocorrencias_no_json": 1,
+      "exemplos": [
+        {
+          "campo": "sumario.plataforma_genotipagem",
+          "valor": "Illumina GSA v3.0"
+        }
+      ]
+    },
+    {
+      "campo": "sumario.principais_riscos_medico[]",
+      "ausentes": 3,
+      "ocorrencias_no_json": 3,
+      "exemplos": [
+        {
+          "campo": "sumario.principais_riscos_medico[0]",
+          "valor": "Diabetes Mellitus Tipo 2 (Alto - percentil 89)"
+        },
+        {
+          "campo": "sumario.principais_riscos_medico[1]",
+          "valor": "Carcinoma de Mama BRCA2 (Alto - variante patogênica)"
+        },
+        {
+          "campo": "sumario.principais_riscos_medico[2]",
+          "valor": "Hipertensão Arterial (Médio - percentil 67)"
+        }
+      ]
+    }
+  ],
+  "ausentes_detalhe": [
+    {
+      "campo": "paciente.cpf",
+      "valor": "***.***.***-**"
+    },
+    {
+      "campo": "paciente.crm_medico",
+      "valor": "CRM/SP 87432"
+    },
+    {
+      "campo": "sumario.cobertura_genomica_snps",
+      "valor": 654027
+    },
+    {
+      "campo": "sumario.plataforma_genotipagem",
+      "valor": "Illumina GSA v3.0"
+    },
+    {
+      "campo": "sumario.aviso_legal",
+      "valor": "Este relatório tem caráter informativo e não substitui consulta médica. Predisposição genética não determina desenvolvimento de doença."
+    },
+    {
+      "campo": "sumario.principais_riscos_medico[0]",
+      "valor": "Diabetes Mellitus Tipo 2 (Alto - percentil 89)"
+    },
+    {
+      "campo": "sumario.principais_riscos_medico[1]",
+      "valor": "Carcinoma de Mama BRCA2 (Alto - variante patogênica)"
+    },
+    {
+      "campo": "sumario.principais_riscos_medico[2]",
+      "valor": "Hipertensão Arterial (Médio - percentil 67)"
+    },
+    {
+      "campo": "resultados[0].escore_poligênico_percentil",
+      "valor": 89
+    },
+    {
+      "campo": "resultados[0].relevancia_medico",
+      "valor": "Prioridade clínica alta - paciente requer acompanhamento endocrinológico especializado e monitoramento glicêmico rigoroso"
+    },
+    {
+      "campo": "resultados[0].fontes[0]",
+      "valor": "Grant SF et al. Nat Genet. 2006;38(3):320-3"
+    },
+    {
+      "campo": "resultados[0].fontes[1]",
+      "valor": "Florez JC. Clin Pharmacol Ther. 2007;82(5):620-5"
+    },
+    {
+      "campo": "resultados[1].id",
+      "valor": "2.2"
+    },
+    {
+      "campo": "resultados[1].relevancia_medico",
+      "valor": "Prioridade clínica máxima - variante patogênica BRCA2 requer protocolo de rastreamento intensivo e aconselhamento genético familiar"
+    },
+    {
+      "campo": "resultados[1].fontes[0]",
+      "valor": "Antoniou A et al. Am J Hum Genet. 2003;72(5):1117-30"
+    },
+    {
+      "campo": "resultados[1].fontes[1]",
+      "valor": "NCCN Guidelines Genetic/Familial High-Risk Assessment: Breast, Ovarian, and Pancreatic v2.2024"
+    },
+    {
+      "campo": "resultados[2].escore_poligênico_percentil",
+      "valor": 67
+    },
+    {
+      "campo": "resultados[2].fontes[0]",
+      "valor": "Rigat B et al. J Clin Invest. 1990;86(4):1343-6"
+    },
+    {
+      "campo": "resultados[2].fontes[1]",
+      "valor": "Jeunemaitre X et al. Cell. 1992;71(1):169-80"
+    },
+    {
+      "campo": "resultados[3].id",
+      "valor": "2.4"
+    },
+    {
+      "campo": "resultados[3].escore_poligênico_percentil",
+      "valor": 72
+    },
+    {
+      "campo": "resultados[3].fontes[0]",
+      "valor": "Corder EH et al. Science. 1993;261(5123):921-3"
+    },
+    {
+      "campo": "resultados[3].fontes[1]",
+      "valor": "Lambert JC et al. Nat Genet. 2013;45(12):1452-8"
+    },
+    {
+      "campo": "resultados[4].fontes[0]",
+      "valor": "Sollid LM et al. Immunol Rev. 2015;267(1):312-22"
+    },
+    {
+      "campo": "resultados[4].fontes[1]",
+      "valor": "Husby S et al. J Pediatr Gastroenterol Nutr. 2020;70(1):141-156"
+    },
+    {
+      "campo": "resultados[5].id",
+      "valor": "2.6"
+    },
+    {
+      "campo": "resultados[5].fontes[0]",
+      "valor": "Bertina RM et al. Nature. 1994;369(6475):64-7"
+    },
+    {
+      "campo": "resultados[5].fontes[1]",
+      "valor": "Poort SR et al. Blood. 1996;88(10):3698-703"
+    },
+    {
+      "campo": "resultados[6].id",
+      "valor": "2.7"
+    },
+    {
+      "campo": "resultados[6].escore_poligênico_percentil",
+      "valor": 35
+    },
+    {
+      "campo": "resultados[6].fontes[0]",
+      "valor": "Enattah NS et al. Nat Genet. 2002;30(2):233-7"
+    },
+    {
+      "campo": "resultados[6].fontes[1]",
+      "valor": "Ingram CJ et al. Hum Genet. 2009;124(6):579-91"
+    },
+    {
+      "campo": "ancestralidade[0].intervalo_confianca_95",
+      "valor": "39.1% – 45.5%"
+    },
+    {
+      "campo": "ancestralidade[1].intervalo_confianca_95",
+      "valor": "16.2% – 21.2%"
+    },
+    {
+      "campo": "ancestralidade[2].intervalo_confianca_95",
+      "valor": "19.4% – 24.8%"
+    },
+    {
+      "campo": "ancestralidade[3].intervalo_confianca_95",
+      "valor": "9.2% – 13.6%"
+    },
+    {
+      "campo": "ancestralidade[4].intervalo_confianca_95",
+      "valor": "2.1% – 5.5%"
+    },
+    {
+      "campo": "ancestralidade[5].intervalo_confianca_95",
+      "valor": "0.3% – 2.1%"
+    },
+    {
+      "campo": "ancestralidade[6].intervalo_confianca_95",
+      "valor": "0.0% – 1.2%"
+    },
+    {
+      "campo": "metodologia.plataforma",
+      "valor": "Illumina Global Screening Array v3.0 (GSA)"
+    },
+    {
+      "campo": "metodologia.cobertura_snps",
+      "valor": 654027
+    },
+    {
+      "campo": "metodologia.genoma_referencia",
+      "valor": "GRCh38/hg38"
+    },
+    {
+      "campo": "metodologia.etapas[0].etapa",
+      "valor": "Extração de DNA"
+    },
+    {
+      "campo": "metodologia.etapas[0].ferramenta",
+      "valor": "Saliva — kit Oragene OG-500"
+    },
+    {
+      "campo": "metodologia.etapas[0].parametro_qualidade",
+      "valor": "Concentração ≥ 50 ng/μL"
+    },
+    {
+      "campo": "metodologia.etapas[1].etapa",
+      "valor": "Genotipagem"
+    },
+    {
+      "campo": "metodologia.etapas[1].ferramenta",
+      "valor": "Illumina GSA v3.0"
+    },
+    {
+      "campo": "metodologia.etapas[1].parametro_qualidade",
+      "valor": "Call rate ≥ 98%"
+    },
+    {
+      "campo": "metodologia.etapas[2].etapa",
+      "valor": "Controle de Qualidade"
+    },
+    {
+      "campo": "metodologia.etapas[2].ferramenta",
+      "valor": "PLINK v1.9"
+    },
+    {
+      "campo": "metodologia.etapas[2].parametro_qualidade",
+      "valor": "MAF ≥ 1%, HWE p > 1×10⁻⁶"
+    },
+    {
+      "campo": "metodologia.etapas[3].etapa",
+      "valor": "Imputação"
+    },
+    {
+      "campo": "metodologia.etapas[3].ferramenta",
+      "valor": "Michigan Imputation Server (TOPMed r2)"
+    },
+    {
+      "campo": "metodologia.etapas[3].parametro_qualidade",
+      "valor": "Rsq ≥ 0.3"
+    },
+    {
+      "campo": "metodologia.etapas[4].etapa",
+      "valor": "Análise de Risco"
+    },
+    {
+      "campo": "metodologia.etapas[4].ferramenta",
+      "valor": "PRSice-2 (Escore Poligênico)"
+    },
+    {
+      "campo": "metodologia.etapas[4].parametro_qualidade",
+      "valor": "Baseado em GWAS publicados"
+    },
+    {
+      "campo": "metodologia.etapas[5].etapa",
+      "valor": "Ancestralidade"
+    },
+    {
+      "campo": "metodologia.etapas[5].ferramenta",
+      "valor": "ADMIXTURE v1.3 + PCA"
+    },
+    {
+      "campo": "metodologia.etapas[5].parametro_qualidade",
+      "valor": "K=7, CV error < 0.5%"
+    },
+    {
+      "campo": "metodologia.etapas[6].etapa",
+      "valor": "Anotação de Variantes"
+    },
+    {
+      "campo": "metodologia.etapas[6].ferramenta",
+      "valor": "ANNOVAR + ClinVar (Nov/2024)"
+    },
+    {
+      "campo": "metodologia.etapas[6].parametro_qualidade",
+      "valor": "Classificação ACMG/AMP"
+    },
+    {
+      "campo": "metadata.cnes_laboratorio",
+      "valor": "2078431"
+    },
+    {
+      "campo": "metadata.endereco_laboratorio",
+      "valor": "Av. Juruá, 434 — Alphaville, Barueri/SP — CEP 06455-010"
+    },
+    {
+      "campo": "metadata.tipo_pdf",
+      "valor": "nativo"
+    },
+    {
+      "campo": "metadata.fonte_extracao",
+      "valor": "pdfplumber + PyMuPDF"
+    },
+    {
+      "campo": "metadata.tempo_processamento_segundos",
+      "valor": 12.4
+    },
+    {
+      "campo": "metadata.campos_extraidos_total",
+      "valor": 47
+    },
+    {
+      "campo": "metadata.confiabilidade_dados",
+      "valor": "99.2%"
+    }
+  ]
+}
