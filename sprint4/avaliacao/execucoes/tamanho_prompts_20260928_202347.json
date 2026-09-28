@@ -1,0 +1,264 @@
+{
+  "gerado_em_utc": "2026-09-28T23:23:47+00:00",
+  "fonte_trechos": "sprint4/avaliacao/execucoes/recuperacao_20260928_202044.json",
+  "tokens": "NÃO MEDIDO — tiktoken ausente; o piloto mede via usage da API",
+  "caracteres": {
+    "min": 3537,
+    "max": 5548,
+    "media": 4564.8
+  },
+  "prompts": [
+    {
+      "id": "F1",
+      "perfil": "leigo_ansioso",
+      "continuidade": false,
+      "n_trechos": 1,
+      "caracteres": 3576
+    },
+    {
+      "id": "F1",
+      "perfil": "leigo_ansioso",
+      "continuidade": true,
+      "n_trechos": 1,
+      "caracteres": 3712
+    },
+    {
+      "id": "F1",
+      "perfil": "leigo_curioso",
+      "continuidade": false,
+      "n_trechos": 1,
+      "caracteres": 3559
+    },
+    {
+      "id": "F1",
+      "perfil": "leigo_curioso",
+      "continuidade": true,
+      "n_trechos": 1,
+      "caracteres": 3695
+    },
+    {
+      "id": "F1",
+      "perfil": "medico",
+      "continuidade": false,
+      "n_trechos": 1,
+      "caracteres": 3537
+    },
+    {
+      "id": "F1",
+      "perfil": "medico",
+      "continuidade": true,
+      "n_trechos": 1,
+      "caracteres": 3673
+    },
+    {
+      "id": "F4",
+      "perfil": "leigo_ansioso",
+      "continuidade": false,
+      "n_trechos": 3,
+      "caracteres": 4927
+    },
+    {
+      "id": "F4",
+      "perfil": "leigo_ansioso",
+      "continuidade": true,
+      "n_trechos": 3,
+      "caracteres": 5063
+    },
+    {
+      "id": "F4",
+      "perfil": "leigo_curioso",
+      "continuidade": false,
+      "n_trechos": 4,
+      "caracteres": 5412
+    },
+    {
+      "id": "F4",
+      "perfil": "leigo_curioso",
+      "continuidade": true,
+      "n_trechos": 4,
+      "caracteres": 5548
+    },
+    {
+      "id": "F4",
+      "perfil": "medico",
+      "continuidade": false,
+      "n_trechos": 4,
+      "caracteres": 5390
+    },
+    {
+      "id": "F4",
+      "perfil": "medico",
+      "continuidade": true,
+      "n_trechos": 4,
+      "caracteres": 5526
+    },
+    {
+      "id": "R1",
+      "perfil": "leigo_ansioso",
+      "continuidade": false,
+      "n_trechos": 3,
+      "caracteres": 4871
+    },
+    {
+      "id": "R1",
+      "perfil": "leigo_ansioso",
+      "continuidade": true,
+      "n_trechos": 3,
+      "caracteres": 5007
+    },
+    {
+      "id": "R1",
+      "perfil": "leigo_curioso",
+      "continuidade": false,
+      "n_trechos": 3,
+      "caracteres": 4854
+    },
+    {
+      "id": "R1",
+      "perfil": "leigo_curioso",
+      "continuidade": true,
+      "n_trechos": 3,
+      "caracteres": 4990
+    },
+    {
+      "id": "R1",
+      "perfil": "medico",
+      "continuidade": false,
+      "n_trechos": 3,
+      "caracteres": 4832
+    },
+    {
+      "id": "R1",
+      "perfil": "medico",
+      "continuidade": true,
+      "n_trechos": 3,
+      "caracteres": 4968
+    },
+    {
+      "id": "R3",
+      "perfil": "leigo_ansioso",
+      "continuidade": false,
+      "n_trechos": 2,
+      "caracteres": 4394
+    },
+    {
+      "id": "R3",
+      "perfil": "leigo_ansioso",
+      "continuidade": true,
+      "n_trechos": 2,
+      "caracteres": 4530
+    },
+    {
+      "id": "R3",
+      "perfil": "leigo_curioso",
+      "continuidade": false,
+      "n_trechos": 2,
+      "caracteres": 4377
+    },
+    {
+      "id": "R3",
+      "perfil": "leigo_curioso",
+      "continuidade": true,
+      "n_trechos": 2,
+      "caracteres": 4513
+    },
+    {
+      "id": "R3",
+      "perfil": "medico",
+      "continuidade": false,
+      "n_trechos": 2,
+      "caracteres": 4355
+    },
+    {
+      "id": "R3",
+      "perfil": "medico",
+      "continuidade": true,
+      "n_trechos": 2,
+      "caracteres": 4491
+    },
+    {
+      "id": "X2",
+      "perfil": "leigo_ansioso",
+      "continuidade": false,
+      "n_trechos": 2,
+      "caracteres": 4142
+    },
+    {
+      "id": "X2",
+      "perfil": "leigo_ansioso",
+      "continuidade": true,
+      "n_trechos": 2,
+      "caracteres": 4278
+    },
+    {
+      "id": "X2",
+      "perfil": "leigo_curioso",
+      "continuidade": false,
+      "n_trechos": 2,
+      "caracteres": 4125
+    },
+    {
+      "id": "X2",
+      "perfil": "leigo_curioso",
+      "continuidade": true,
+      "n_trechos": 2,
+      "caracteres": 4261
+    },
+    {
+      "id": "X2",
+      "perfil": "medico",
+      "continuidade": false,
+      "n_trechos": 2,
+      "caracteres": 4103
+    },
+    {
+      "id": "X2",
+      "perfil": "medico",
+      "continuidade": true,
+      "n_trechos": 2,
+      "caracteres": 4239
+    },
+    {
+      "id": "B3",
+      "perfil": "leigo_ansioso",
+      "continuidade": false,
+      "n_trechos": 3,
+      "caracteres": 4848
+    },
+    {
+      "id": "B3",
+      "perfil": "leigo_ansioso",
+      "continuidade": true,
+      "n_trechos": 3,
+      "caracteres": 4984
+    },
+    {
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "continuidade": false,
+      "n_trechos": 3,
+      "caracteres": 4831
+    },
+    {
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "continuidade": true,
+      "n_trechos": 3,
+      "caracteres": 4967
+    },
+    {
+      "id": "B3",
+      "perfil": "medico",
+      "continuidade": false,
+      "n_trechos": 3,
+      "caracteres": 4809
+    },
+    {
+      "id": "B3",
+      "perfil": "medico",
+      "continuidade": true,
+      "n_trechos": 3,
+      "caracteres": 4945
+    }
+  ]
+}
