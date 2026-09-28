@@ -1,0 +1,649 @@
+{
+  "gerado_em_utc": "2026-09-28T23:09:41+00:00",
+  "detector": "sprint3/rag_personalizacao/ancoragem.py::validar_ancoragem",
+  "casos_fonte": "sprint4/avaliacao/casos_ancoragem.json",
+  "metricas_geral": {
+    "VP": 9,
+    "FP": 5,
+    "FN": 6,
+    "VN": 13,
+    "total": 33,
+    "precisao": 0.6429,
+    "recall": 0.6,
+    "acuracia": 0.6667
+  },
+  "metricas_por_grupo": {
+    "alucinacao": {
+      "VP": 9,
+      "FP": 0,
+      "FN": 6,
+      "VN": 0,
+      "total": 15,
+      "precisao": 1.0,
+      "recall": 0.6,
+      "acuracia": 0.6
+    },
+    "fiel": {
+      "VP": 0,
+      "FP": 0,
+      "FN": 0,
+      "VN": 10,
+      "total": 10,
+      "precisao": null,
+      "recall": null,
+      "acuracia": 1.0
+    },
+    "fronteira": {
+      "VP": 0,
+      "FP": 5,
+      "FN": 0,
+      "VN": 3,
+      "total": 8,
+      "precisao": 0.0,
+      "recall": null,
+      "acuracia": 0.375
+    }
+  },
+  "casos": [
+    {
+      "id": "V01",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 1.0,
+      "resposta": "Seu nível de risco para Diabetes Mellitus Tipo 2 é Alto.",
+      "justificativa_rotulo": "Cópia literal do trecho.",
+      "contexto_secoes": [
+        "resultado_2.1"
+      ],
+      "contexto_textos": [
+        "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença."
+      ]
+    },
+    {
+      "id": "V02",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.75,
+      "resposta": "Foram encontrados os marcadores RS7903146 (TCF7L2), alelo T/T, e RS1801282 (PPARG), alelo C/G.",
+      "justificativa_rotulo": "SNPs, genes e alelos presentes no trecho.",
+      "contexto_secoes": [
+        "marcadores_2.1"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Diabetes Mellitus Tipo 2: RS7903146 (TCF7L2) alelo T/T — homozigoto para alelo de risco; RS12255372 (TCF7L2) alelo T/G — heterozigoto; RS1801282 (PPARG) alelo C/G — Pro12Ala heterozigoto. Descrição técnica: Homozigose para o alelo de risco T no polimorfismo RS7903146 do gene TCF7L2 (odds ratio de 1,37 por alelo; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas."
+      ]
+    },
+    {
+      "id": "V03",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.7143,
+      "resposta": "O relatório indica uma chance maior de diabetes tipo 2, mas isso não é uma certeza.",
+      "justificativa_rotulo": "Paráfrase fiel sem elementos numéricos.",
+      "contexto_secoes": [
+        "resultado_2.1"
+      ],
+      "contexto_textos": [
+        "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença."
+      ]
+    },
+    {
+      "id": "V04",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.6667,
+      "resposta": "Sua ancestralidade da Europa Ibérica é de 42,3%.",
+      "justificativa_rotulo": "Mesmo valor, com vírgula decimal (a base usa 42.3).",
+      "contexto_secoes": [
+        "ancestralidade"
+      ],
+      "contexto_textos": [
+        "Composição ancestral do paciente: Europa Ibérica (Península Ibérica): 42.3%; Europa do Sul (Itália/Grécia): 18.7%; África Subsaariana (África Ocidental): 22.1%; Ameríndio (América do Sul): 11.4%; Oriente Médio / Norte da África: 3.8%; Ásia do Leste: 1.2%; Outros / Não determinado: 0.5%."
+      ]
+    },
+    {
+      "id": "V05",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 1.0,
+      "resposta": "1. Europa Ibérica: 42.3%\n2. África Subsaariana: 22.1%\n3. Europa do Sul: 18.7%",
+      "justificativa_rotulo": "Lista numerada; a numeração dos itens não é fato clínico.",
+      "contexto_secoes": [
+        "ancestralidade"
+      ],
+      "contexto_textos": [
+        "Composição ancestral do paciente: Europa Ibérica (Península Ibérica): 42.3%; Europa do Sul (Itália/Grécia): 18.7%; África Subsaariana (África Ocidental): 22.1%; Ameríndio (América do Sul): 11.4%; Oriente Médio / Norte da África: 3.8%; Ásia do Leste: 1.2%; Outros / Não determinado: 0.5%."
+      ]
+    },
+    {
+      "id": "V06",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.5,
+      "resposta": "O exame foi realizado em 05/11/2024.",
+      "justificativa_rotulo": "Mesma data da base (2024-11-05), em formato brasileiro.",
+      "contexto_secoes": [
+        "paciente"
+      ],
+      "contexto_textos": [
+        "Paciente: Carlos Eduardo Mendes. Data de nascimento: 1985-03-14. ID do relatório: GEN-2024-00847. Data do exame: 2024-11-05. Médico solicitante: Dra. Fernanda Lopes."
+      ]
+    },
+    {
+      "id": "V07",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.5455,
+      "resposta": "O risco de câncer de mama ao longo da vida fica entre 45 e 85 por cento, associado ao gene BRCA2.",
+      "justificativa_rotulo": "Faixa 45–85% reescrita por extenso.",
+      "contexto_secoes": [
+        "marcadores_2.2"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Carcinoma de Mama (BRCA-relacionado): RS80357906 (BRCA2) alelo variante patogênica c.5946delT — Classe 5 ACMG — Patogênica; RS28897696 (BRCA1) alelo G/A — efeito modificador; RS4986850 (BRCA1) alelo T/T — efeito modificador. Descrição técnica: Variante patogênica de perda de função no gene BRCA2 (c.5946delT, p.Ser1982Argfs), classificada como Patogênica (Classe 5) segundo critérios ACMG/AMP. Risco cumulativo de carcinoma de mama de 45–85% ao longo da vida e risco de carcinoma ovariano de 10–30%. Variantes adicionais em BRCA1 com efeito modificador detectadas."
+      ]
+    },
+    {
+      "id": "V08",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.1111,
+      "resposta": "Procure um profissional de saúde para interpretar este resultado. A genética indica tendência, não certeza.",
+      "justificativa_rotulo": "Texto de enquadramento responsável, sem fato clínico novo.",
+      "contexto_secoes": [
+        "resultado_2.1"
+      ],
+      "contexto_textos": [
+        "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença."
+      ]
+    },
+    {
+      "id": "V09",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 1.0,
+      "resposta": "O odds ratio é de 1.37 por alelo, com OR combinado de 1,88.",
+      "justificativa_rotulo": "Mesmos valores; notação de ponto e vírgula misturadas.",
+      "contexto_secoes": [
+        "marcadores_2.1"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Diabetes Mellitus Tipo 2: RS7903146 (TCF7L2) alelo T/T — homozigoto para alelo de risco; RS12255372 (TCF7L2) alelo T/G — heterozigoto; RS1801282 (PPARG) alelo C/G — Pro12Ala heterozigoto. Descrição técnica: Homozigose para o alelo de risco T no polimorfismo RS7903146 do gene TCF7L2 (odds ratio de 1,37 por alelo; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas."
+      ]
+    },
+    {
+      "id": "V10",
+      "grupo": "fiel",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.7778,
+      "resposta": "O genótipo APOE ε3/ε4 confere risco relativo de 3 a 4 vezes para Alzheimer de início tardio.",
+      "justificativa_rotulo": "Faixa 3–4x reescrita.",
+      "contexto_secoes": [
+        "marcadores_2.4"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Doença de Alzheimer (início tardio): RS429358 (APOE) alelo ε3/ε4 — heterozigoto — presença do alelo de risco ε4; RS7412 (APOE) alelo C/T — define haplótipo ε4; RS11136000 (CLU) alelo C/T — efeito protetor parcial. Descrição técnica: Genótipo APOE ε3/ε4 (heterozigoto), conferindo risco relativo de 3–4x para Doença de Alzheimer de início tardio em comparação ao genótipo ε3/ε3. O alelo ε4 está presente em aproximadamente 40% dos casos de Alzheimer esporádico. Variante RS11136000 no gene CLU com efeito protetor parcial detectada."
+      ]
+    },
+    {
+      "id": "H01",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "67"
+      ],
+      "score_sobreposicao": 0.25,
+      "resposta": "Seu escore poligênico para hipertensão está no percentil 67.",
+      "justificativa_rotulo": "Percentil 67 existe no JSON, mas não no trecho: número introduzido de fora do contexto.",
+      "contexto_secoes": [
+        "resultado_2.3"
+      ],
+      "contexto_textos": [
+        "Condição: Hipertensão Arterial Essencial. Categoria: Cardiologia. Nível de risco: Médio. Seu perfil genético indica uma predisposição moderada à pressão alta. Genes relacionados ao controle da pressão arterial apresentam variações que podem contribuir para hipertensão, especialmente combinados com fatores como estresse, excesso de sal e sedentarismo. "
+      ]
+    },
+    {
+      "id": "H02",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "3"
+      ],
+      "score_sobreposicao": 0.5,
+      "resposta": "Seu risco de diabetes é 3 vezes maior que o da população em geral.",
+      "justificativa_rotulo": "Multiplicador inventado.",
+      "contexto_secoes": [
+        "resultado_2.1"
+      ],
+      "contexto_textos": [
+        "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença."
+      ]
+    },
+    {
+      "id": "H03",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "11",
+        "KCNJ11"
+      ],
+      "score_sobreposicao": 0.5,
+      "resposta": "A variante no gene KCNJ11 aumenta o seu risco de diabetes.",
+      "justificativa_rotulo": "Gene inexistente no relatório.",
+      "contexto_secoes": [
+        "marcadores_2.1"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Diabetes Mellitus Tipo 2: RS7903146 (TCF7L2) alelo T/T — homozigoto para alelo de risco; RS12255372 (TCF7L2) alelo T/G — heterozigoto; RS1801282 (PPARG) alelo C/G — Pro12Ala heterozigoto. Descrição técnica: Homozigose para o alelo de risco T no polimorfismo RS7903146 do gene TCF7L2 (odds ratio de 1,37 por alelo; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas."
+      ]
+    },
+    {
+      "id": "H04",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "RS7903147"
+      ],
+      "score_sobreposicao": 0.6,
+      "resposta": "O marcador RS7903147 do gene TCF7L2 está em homozigose.",
+      "justificativa_rotulo": "SNP trocado por um dígito (o correto é RS7903146).",
+      "contexto_secoes": [
+        "marcadores_2.1"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Diabetes Mellitus Tipo 2: RS7903146 (TCF7L2) alelo T/T — homozigoto para alelo de risco; RS12255372 (TCF7L2) alelo T/G — heterozigoto; RS1801282 (PPARG) alelo C/G — Pro12Ala heterozigoto. Descrição técnica: Homozigose para o alelo de risco T no polimorfismo RS7903146 do gene TCF7L2 (odds ratio de 1,37 por alelo; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas."
+      ]
+    },
+    {
+      "id": "H05",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "19.4",
+        "24.8",
+        "95"
+      ],
+      "score_sobreposicao": 0.0,
+      "resposta": "Sua ancestralidade africana é de 22,1% (intervalo de confiança de 95%: 19,4% a 24,8%).",
+      "justificativa_rotulo": "Intervalo de confiança não está no trecho.",
+      "contexto_secoes": [
+        "ancestralidade"
+      ],
+      "contexto_textos": [
+        "Composição ancestral do paciente: Europa Ibérica (Península Ibérica): 42.3%; Europa do Sul (Itália/Grécia): 18.7%; África Subsaariana (África Ocidental): 22.1%; Ameríndio (América do Sul): 11.4%; Oriente Médio / Norte da África: 3.8%; Ásia do Leste: 1.2%; Outros / Não determinado: 0.5%."
+      ]
+    },
+    {
+      "id": "H06",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": true,
+      "classe": "FN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.8333,
+      "resposta": "A médica solicitante é a Dra. Fernanda Lopes, CRM/SP 54321.",
+      "justificativa_rotulo": "Mistura de entidades: 54321 é o CRM do responsável técnico, não da médica solicitante.",
+      "contexto_secoes": [
+        "paciente",
+        "metadata"
+      ],
+      "contexto_textos": [
+        "Paciente: Carlos Eduardo Mendes. Data de nascimento: 1985-03-14. ID do relatório: GEN-2024-00847. Data do exame: 2024-11-05. Médico solicitante: Dra. Fernanda Lopes.",
+        "Relatório emitido pelo laboratório Dasa Genômica. Responsável técnico: Dr. Ricardo Almeida Souza (CRM/SP 54321). Versão do relatório: 3.2.1. Data de processamento: 2024-11-12."
+      ]
+    },
+    {
+      "id": "H07",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": true,
+      "classe": "FN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 1.0,
+      "resposta": "Seu risco para hipertensão arterial é Alto.",
+      "justificativa_rotulo": "Mistura de condições: o nível Alto é do diabetes; hipertensão é Médio.",
+      "contexto_secoes": [
+        "resultado_2.1",
+        "resultado_2.3"
+      ],
+      "contexto_textos": [
+        "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+        "Condição: Hipertensão Arterial Essencial. Categoria: Cardiologia. Nível de risco: Médio. Seu perfil genético indica uma predisposição moderada à pressão alta. Genes relacionados ao controle da pressão arterial apresentam variações que podem contribuir para hipertensão, especialmente combinados com fatores como estresse, excesso de sal e sedentarismo. "
+      ]
+    },
+    {
+      "id": "H08",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": true,
+      "classe": "FN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.8,
+      "resposta": "Seu risco de câncer de mama ao longo da vida é de 10% a 30%.",
+      "justificativa_rotulo": "Faixa atribuída à condição errada: 10–30% é o risco de câncer de ovário.",
+      "contexto_secoes": [
+        "marcadores_2.2"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Carcinoma de Mama (BRCA-relacionado): RS80357906 (BRCA2) alelo variante patogênica c.5946delT — Classe 5 ACMG — Patogênica; RS28897696 (BRCA1) alelo G/A — efeito modificador; RS4986850 (BRCA1) alelo T/T — efeito modificador. Descrição técnica: Variante patogênica de perda de função no gene BRCA2 (c.5946delT, p.Ser1982Argfs), classificada como Patogênica (Classe 5) segundo critérios ACMG/AMP. Risco cumulativo de carcinoma de mama de 45–85% ao longo da vida e risco de carcinoma ovariano de 10–30%. Variantes adicionais em BRCA1 com efeito modificador detectadas."
+      ]
+    },
+    {
+      "id": "H09",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": true,
+      "classe": "FN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.6667,
+      "resposta": "Você não possui nenhuma variante patogênica no gene BRCA2.",
+      "justificativa_rotulo": "Negação invertida: o relatório afirma variante patogênica em BRCA2.",
+      "contexto_secoes": [
+        "resultado_2.2",
+        "marcadores_2.2"
+      ],
+      "contexto_textos": [
+        "Condição: Carcinoma de Mama (BRCA-relacionado). Categoria: Oncologia. Nível de risco: Alto. Foi encontrada uma alteração importante em um gene chamado BRCA2, que normalmente protege contra câncer. Essa alteração aumenta significativamente o risco de câncer de mama e ovário ao longo da vida. É muito importante consultar um especialista em genética médica para discutir as próximas etapas. Isso significa que você precisa de acompanhamento médico especializado e exames mais frequentes. Existem estratégias preventivas eficazes que um geneticista pode discutir com você.",
+        "Marcadores genéticos para Carcinoma de Mama (BRCA-relacionado): RS80357906 (BRCA2) alelo variante patogênica c.5946delT — Classe 5 ACMG — Patogênica; RS28897696 (BRCA1) alelo G/A — efeito modificador; RS4986850 (BRCA1) alelo T/T — efeito modificador. Descrição técnica: Variante patogênica de perda de função no gene BRCA2 (c.5946delT, p.Ser1982Argfs), classificada como Patogênica (Classe 5) segundo critérios ACMG/AMP. Risco cumulativo de carcinoma de mama de 45–85% ao longo da vida e risco de carcinoma ovariano de 10–30%. Variantes adicionais em BRCA1 com efeito modificador detectadas."
+      ]
+    },
+    {
+      "id": "H10",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": true,
+      "classe": "FN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.8333,
+      "resposta": "Foram analisadas oito condições genéticas no seu relatório.",
+      "justificativa_rotulo": "Número errado escrito por extenso (são 7).",
+      "contexto_secoes": [
+        "sumario"
+      ],
+      "contexto_textos": [
+        "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual."
+      ]
+    },
+    {
+      "id": "H11",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "11"
+      ],
+      "score_sobreposicao": 0.2,
+      "resposta": "Também foi encontrada uma variante no gene kcnj11.",
+      "justificativa_rotulo": "Gene inexistente, grafado em minúsculas.",
+      "contexto_secoes": [
+        "marcadores_2.1"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Diabetes Mellitus Tipo 2: RS7903146 (TCF7L2) alelo T/T — homozigoto para alelo de risco; RS12255372 (TCF7L2) alelo T/G — heterozigoto; RS1801282 (PPARG) alelo C/G — Pro12Ala heterozigoto. Descrição técnica: Homozigose para o alelo de risco T no polimorfismo RS7903146 do gene TCF7L2 (odds ratio de 1,37 por alelo; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas."
+      ]
+    },
+    {
+      "id": "H12",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": true,
+      "classe": "FN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.0,
+      "resposta": "Você deve começar a tomar metformina imediatamente.",
+      "justificativa_rotulo": "Recomendação extrapolada (medicamento) sem nenhum número ou gene.",
+      "contexto_secoes": [
+        "recomendacao_2.1"
+      ],
+      "contexto_textos": [
+        "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias."
+      ]
+    },
+    {
+      "id": "H13",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "7"
+      ],
+      "score_sobreposicao": 0.75,
+      "resposta": "Consulte um endocrinologista nos próximos 7 dias.",
+      "justificativa_rotulo": "Prazo inventado (o trecho diz 30 dias).",
+      "contexto_secoes": [
+        "recomendacao_2.1"
+      ],
+      "contexto_textos": [
+        "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias."
+      ]
+    },
+    {
+      "id": "H14",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "RS12345"
+      ],
+      "score_sobreposicao": 0.5,
+      "resposta": "O marcador rs 12345 no gene ACE está alterado.",
+      "justificativa_rotulo": "SNP inexistente, com espaço e minúsculas.",
+      "contexto_secoes": [
+        "marcadores_2.3"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Hipertensão Arterial Essencial: RS4340 (ACE) alelo I/D — heterozigoto inserção/deleção; RS699 (AGT) alelo M235T — heterozigoto; RS5186 (AGTR1) alelo A/C — heterozigoto receptor AT1. Descrição técnica: Heterozigose para polimorfismo de inserção/deleção RS4340 no gene ACE, associado a níveis elevados de ACE sérica no genótipo D/D. Variante RS699 no gene AGT (M235T) em heterozigose, relacionada a maior produção de angiotensinogênio. RS5186 (AGTR1) em heterozigose."
+      ]
+    },
+    {
+      "id": "H15",
+      "grupo": "alucinacao",
+      "fiel": false,
+      "ancorado_detector": false,
+      "classe": "VP",
+      "termos_nao_ancorados": [
+        "41"
+      ],
+      "score_sobreposicao": 0.0,
+      "resposta": "Você tem 41 anos, então esse resultado merece atenção.",
+      "justificativa_rotulo": "Idade derivada: o relatório traz a data de nascimento, não a idade; o valor depende da data de hoje.",
+      "contexto_secoes": [
+        "paciente"
+      ],
+      "contexto_textos": [
+        "Paciente: Carlos Eduardo Mendes. Data de nascimento: 1985-03-14. ID do relatório: GEN-2024-00847. Data do exame: 2024-11-05. Médico solicitante: Dra. Fernanda Lopes."
+      ]
+    },
+    {
+      "id": "B01",
+      "grupo": "fronteira",
+      "fiel": true,
+      "ancorado_detector": false,
+      "classe": "FP",
+      "termos_nao_ancorados": [
+        "42"
+      ],
+      "score_sobreposicao": 0.4,
+      "resposta": "Cerca de 42% da sua ancestralidade vem da Europa Ibérica.",
+      "justificativa_rotulo": "Arredondamento honesto e sinalizado ('cerca de') de 42,3%.",
+      "contexto_secoes": [
+        "ancestralidade"
+      ],
+      "contexto_textos": [
+        "Composição ancestral do paciente: Europa Ibérica (Península Ibérica): 42.3%; Europa do Sul (Itália/Grécia): 18.7%; África Subsaariana (África Ocidental): 22.1%; Ameríndio (América do Sul): 11.4%; Oriente Médio / Norte da África: 3.8%; Ásia do Leste: 1.2%; Outros / Não determinado: 0.5%."
+      ]
+    },
+    {
+      "id": "B02",
+      "grupo": "fronteira",
+      "fiel": true,
+      "ancorado_detector": false,
+      "classe": "FP",
+      "termos_nao_ancorados": [
+        "0.423"
+      ],
+      "score_sobreposicao": 0.3333,
+      "resposta": "A fração ibérica da sua ancestralidade é 0,423.",
+      "justificativa_rotulo": "Mesmo valor em outra unidade (proporção em vez de percentual).",
+      "contexto_secoes": [
+        "ancestralidade"
+      ],
+      "contexto_textos": [
+        "Composição ancestral do paciente: Europa Ibérica (Península Ibérica): 42.3%; Europa do Sul (Itália/Grécia): 18.7%; África Subsaariana (África Ocidental): 22.1%; Ameríndio (América do Sul): 11.4%; Oriente Médio / Norte da África: 3.8%; Ásia do Leste: 1.2%; Outros / Não determinado: 0.5%."
+      ]
+    },
+    {
+      "id": "B03",
+      "grupo": "fronteira",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.5,
+      "resposta": "A recomendação é fazer atividade física por pelo menos 2 horas e meia por semana.",
+      "justificativa_rotulo": "Conversão correta de 150 minutos.",
+      "contexto_secoes": [
+        "recomendacao_2.1"
+      ],
+      "contexto_textos": [
+        "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias."
+      ]
+    },
+    {
+      "id": "B04",
+      "grupo": "fronteira",
+      "fiel": true,
+      "ancorado_detector": false,
+      "classe": "FP",
+      "termos_nao_ancorados": [
+        "IMPORTANTE"
+      ],
+      "score_sobreposicao": 0.8333,
+      "resposta": "IMPORTANTE: seu nível de risco para diabetes tipo 2 é Alto.",
+      "justificativa_rotulo": "Ênfase em caixa alta; conteúdo fiel.",
+      "contexto_secoes": [
+        "resultado_2.1"
+      ],
+      "contexto_textos": [
+        "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença."
+      ]
+    },
+    {
+      "id": "B05",
+      "grupo": "fronteira",
+      "fiel": true,
+      "ancorado_detector": false,
+      "classe": "FP",
+      "termos_nao_ancorados": [
+        "1"
+      ],
+      "score_sobreposicao": 0.4286,
+      "resposta": "Resumo:\nSeu risco para hipertensão é Médio.\n\nBaseado em:\n[Fonte 1] e [Fonte 2] do relatório.",
+      "justificativa_rotulo": "Citação de fonte no formato que o prompt do agente produz ('[Fonte i]'); conteúdo fiel.",
+      "contexto_secoes": [
+        "resultado_2.3",
+        "recomendacao_2.3"
+      ],
+      "contexto_textos": [
+        "Condição: Hipertensão Arterial Essencial. Categoria: Cardiologia. Nível de risco: Médio. Seu perfil genético indica uma predisposição moderada à pressão alta. Genes relacionados ao controle da pressão arterial apresentam variações que podem contribuir para hipertensão, especialmente combinados com fatores como estresse, excesso de sal e sedentarismo. ",
+        "Recomendação para Hipertensão Arterial Essencial (risco Médio): Monitoramento regular da pressão arterial (pelo menos 2 vezes por ano). Dieta com baixo teor de sódio (menos de 2g de sal por dia). Controle de peso corporal e prática de exercícios físicos regulares. Avaliação cardiológica anual. Urgência: ."
+      ]
+    },
+    {
+      "id": "B06",
+      "grupo": "fronteira",
+      "fiel": true,
+      "ancorado_detector": false,
+      "classe": "FP",
+      "termos_nao_ancorados": [
+        "2.1"
+      ],
+      "score_sobreposicao": 0.5714,
+      "resposta": "Segundo a seção 2.1 do relatório, seu risco para diabetes tipo 2 é Alto.",
+      "justificativa_rotulo": "Cita o número da seção do relatório; conteúdo fiel.",
+      "contexto_secoes": [
+        "resultado_2.1"
+      ],
+      "contexto_textos": [
+        "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença."
+      ]
+    },
+    {
+      "id": "B07",
+      "grupo": "fronteira",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.1667,
+      "resposta": "Faça o exame de HbA1c a cada seis meses.",
+      "justificativa_rotulo": "Sigla em caixa mista presente no trecho; 'semestral' reescrito.",
+      "contexto_secoes": [
+        "recomendacao_2.1"
+      ],
+      "contexto_textos": [
+        "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias."
+      ]
+    },
+    {
+      "id": "B08",
+      "grupo": "fronteira",
+      "fiel": true,
+      "ancorado_detector": true,
+      "classe": "VN",
+      "termos_nao_ancorados": [],
+      "score_sobreposicao": 0.875,
+      "resposta": "A variante c.5946delT é classificada como Classe 5 (Patogênica) pelos critérios ACMG.",
+      "justificativa_rotulo": "Nomenclatura HGVS e sigla ACMG presentes no trecho.",
+      "contexto_secoes": [
+        "marcadores_2.2"
+      ],
+      "contexto_textos": [
+        "Marcadores genéticos para Carcinoma de Mama (BRCA-relacionado): RS80357906 (BRCA2) alelo variante patogênica c.5946delT — Classe 5 ACMG — Patogênica; RS28897696 (BRCA1) alelo G/A — efeito modificador; RS4986850 (BRCA1) alelo T/T — efeito modificador. Descrição técnica: Variante patogênica de perda de função no gene BRCA2 (c.5946delT, p.Ser1982Argfs), classificada como Patogênica (Classe 5) segundo critérios ACMG/AMP. Risco cumulativo de carcinoma de mama de 45–85% ao longo da vida e risco de carcinoma ovariano de 10–30%. Variantes adicionais em BRCA1 com efeito modificador detectadas."
+      ]
+    }
+  ]
+}
