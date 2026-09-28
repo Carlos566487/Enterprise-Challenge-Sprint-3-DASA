@@ -21,6 +21,9 @@ Modos:
     (sem flag)         bateria completa: cada pergunta × 3 perfis × N
                        (N=3; N=5 nas críticas de perguntas.json).
     --rotulo NOME      prefixo do diretório de saída (ex.: pos_ajuste).
+    --limiar X         limiar de similaridade da busca (omitido = produção, 0,50).
+                       A Parte B roda duas vezes: sem a flag e com o ótimo da
+                       varredura (varrer_limiar.py).
 
 Isolamento das repetições: cada (pergunta, perfil, repetição) usa um
 HistoricoMemoria novo. Sem isso, a 2ª repetição ganharia a diretiva de
@@ -86,28 +89,45 @@ def versao_codigo() -> dict:
             hashlib.sha256(p.read_bytes()).hexdigest()[:16] for p in ARQUIVOS_VERSIONADOS}
 
 
-def chave_cache(pergunta_id: str, perfil: str, repeticao: int, versao: dict) -> str:
-    bruto = json.dumps([pergunta_id, perfil, repeticao, versao], sort_keys=True)
+def chave_cache(pergunta_id: str, perfil: str, repeticao: int, versao: dict,
+                limiar: float = None) -> str:
+    bruto = json.dumps([pergunta_id, perfil, repeticao, versao, limiar], sort_keys=True)
     return hashlib.sha256(bruto.encode("utf-8")).hexdigest()[:24]
 
 
-def executar_uma(pergunta: dict, perfil: str, repeticao: int, api_key: str) -> dict:
-    """Uma execução real pelo caminho de produção, instrumentada."""
+def executar_uma(pergunta: dict, perfil: str, repeticao: int, api_key: str,
+                 limiar: float = None) -> dict:
+    """
+    Uma execução real pelo caminho de produção, instrumentada.
+
+    limiar=None usa a busca padrão do contrato (limiar de produção 0,50, sem
+    injeção). Com limiar, a busca real é injetada via fn_buscar chamando
+    buscar_contexto(similaridade_minima=limiar) — parâmetro já existente em
+    buscar.py; nenhum arquivo de produção muda.
+    """
     import llm_connector
     from instrumento_custo import capturar_chamadas
     from sprint3.integracao import responder_com_linguagem_simples
     from sprint3.rag_personalizacao import HistoricoMemoria
+
+    extra = {}
+    if limiar is not None:
+        from sprint2.vetorial.buscar import buscar_contexto
+
+        extra["fn_buscar"] = lambda texto, top_k: buscar_contexto(
+            texto, top_k=top_k, similaridade_minima=limiar)
 
     inicio = _agora()
     with capturar_chamadas(llm_connector) as registro:
         r = responder_com_linguagem_simples(
             pergunta=pergunta["pergunta"], perfil=perfil,
             usuario_id=f"aval-{pergunta['id']}-{perfil}-{repeticao}",
-            api_key=api_key, historico=HistoricoMemoria(),
+            api_key=api_key, historico=HistoricoMemoria(), **extra,
         )
     return {
         "id": pergunta["id"], "categoria": pergunta["categoria"],
         "pergunta": pergunta["pergunta"], "perfil": perfil, "repeticao": repeticao,
+        "limiar_busca": limiar if limiar is not None else "producao",
         "timestamp_utc": inicio,
         "status": r["status"], "categoria_resposta": r["categoria"],
         "resposta": r["resposta"],
@@ -180,6 +200,8 @@ def main(argv=None) -> int:
     parser.add_argument("--preflight", action="store_true")
     parser.add_argument("--piloto", type=int, default=None)
     parser.add_argument("--rotulo", default="geracao")
+    parser.add_argument("--limiar", type=float, default=None,
+                        help="limiar de similaridade da busca; omitido = produção (0,50)")
     args = parser.parse_args(argv)
 
     try:
@@ -197,6 +219,8 @@ def main(argv=None) -> int:
     DIR_CACHE.mkdir(parents=True, exist_ok=True)
 
     rotulo = f"piloto{args.piloto}" if args.piloto else args.rotulo
+    if args.limiar is not None:
+        rotulo += f"_limiar{args.limiar:.2f}".replace(".", "")
     destino = DIR / "execucoes" / f"{rotulo}_{carimbo}.jsonl"
 
     feitas_llm, reaproveitadas = 0, 0
@@ -204,12 +228,12 @@ def main(argv=None) -> int:
         for pergunta, perfil, rep in plano(conjunto["perguntas"], args.piloto):
             if args.piloto and feitas_llm >= args.piloto:
                 break
-            arquivo_cache = DIR_CACHE / f"{chave_cache(pergunta['id'], perfil, rep, versao)}.json"
+            arquivo_cache = DIR_CACHE / f"{chave_cache(pergunta['id'], perfil, rep, versao, args.limiar)}.json"
             if arquivo_cache.exists():
                 linha = json.loads(arquivo_cache.read_text(encoding="utf-8"))
                 reaproveitadas += 1
             else:
-                linha = executar_uma(pergunta, perfil, rep, api_key)
+                linha = executar_uma(pergunta, perfil, rep, api_key, args.limiar)
                 linha["versao_codigo"] = versao
                 arquivo_cache.write_text(json.dumps(linha, ensure_ascii=False), encoding="utf-8")
             feitas_llm += 1 if linha["chamou_llm"] else 0

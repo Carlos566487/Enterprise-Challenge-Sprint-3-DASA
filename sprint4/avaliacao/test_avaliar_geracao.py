@@ -158,3 +158,34 @@ def test_analise_pega_valor_fora_da_base_e_mede_consistencia():
     assert r2["ancoragem_estavel"] is False
     assert r2["similaridade_media"] is None  # sem modelo: não medido, nunca inventado
     assert r["custo"]["tokens_entrada"] == 200 and r["custo"]["usd"] is None
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# --limiar: Parte B nos dois limiares
+# ─────────────────────────────────────────────────────────────────────────────
+
+def test_limiar_injetado_chega_a_busca_real(ambiente, monkeypatch):
+    chamadas = []
+
+    def buscar_contexto_falso(pergunta, top_k=3, similaridade_minima=0.50):
+        chamadas.append((top_k, similaridade_minima))
+        return {"trechos": [TRECHO]}
+
+    modulo = SimpleNamespace(buscar_contexto=buscar_contexto_falso)
+    monkeypatch.setitem(sys.modules, "sprint2.vetorial.buscar", modulo)
+
+    linha = avaliar_geracao.executar_uma(PERGUNTA, "leigo_curioso", 1, "sk-duplo", limiar=0.40)
+    assert chamadas == [(4, 0.40)]          # top_k do perfil, limiar pedido
+    assert linha["limiar_busca"] == 0.40
+
+
+def test_sem_limiar_usa_busca_padrao_do_contrato(ambiente):
+    linha = avaliar_geracao.executar_uma(PERGUNTA, "leigo_ansioso", 1, "sk-duplo")
+    assert linha["limiar_busca"] == "producao"
+    assert linha["fontes"] == [TRECHO]       # veio de personalizador._buscar_padrao (fixture)
+
+
+def test_cache_separa_limiares():
+    v = avaliar_geracao.versao_codigo()
+    assert (avaliar_geracao.chave_cache("F1", "medico", 1, v, None)
+            != avaliar_geracao.chave_cache("F1", "medico", 1, v, 0.40))
