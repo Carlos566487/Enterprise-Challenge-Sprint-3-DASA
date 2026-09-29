@@ -110,6 +110,9 @@ RAM livre é registrada antes de cada grupo.
   comparado com este registro antes de classificá-lo como regressão. Separadamente, a suíte
   num processo único falhou com `MemoryError` com ~5,7 GB livres e passou 99/99 duas vezes
   com ~7,5–8 GB.
+  Em 29/09, na confirmação do baseline (`execucoes/confirmacao_20260929_191226/`), o Grupo B
+  isolado passou 3/3 com só **4,8–5,6 GB** livres. Isso pesa contra "falta de RAM" como causa da
+  falha isolada de 24/09, que continua sem explicação.
 - **Testes de oráculo do extrator (7 testes):** nesta máquina **rodam e passam**
   (`reportlab 4.4.10` instalado globalmente; a fixture gera o PDF). Num clone limpo ou no CI,
   instalado só pelo `requirements.txt`, **são pulados de propósito**, com mensagem explícita.
