@@ -1,0 +1,5057 @@
+{
+  "gerado_em_utc": "2026-09-28T23:38:21+00:00",
+  "busca": "sprint2/vetorial/buscar.py::buscar_contexto(similaridade_minima=...) — parâmetro existente, arquivo não alterado",
+  "limiar_producao": 0.5,
+  "criterio_otimo": [
+    "max respondíveis com essencial",
+    "min sem-resposta com trecho",
+    "min irrelevantes admitidos",
+    "maior limiar"
+  ],
+  "otimo_por_perfil": {
+    "leigo_ansioso": {
+      "limiar": 0.4,
+      "respondiveis_com_essencial": 9,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 10
+    },
+    "leigo_curioso": {
+      "limiar": 0.4,
+      "respondiveis_com_essencial": 9,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 18
+    },
+    "medico": {
+      "limiar": 0.4,
+      "respondiveis_com_essencial": 9,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 24
+    }
+  },
+  "todos_conferem_com_derivado": true,
+  "pontos": [
+    {
+      "limiar": 0.35,
+      "top_k": 3,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 9,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ],
+      "irrelevantes_admitidos": 13,
+      "recall_medio": 0.8182,
+      "precisao_media": 0.6061,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente",
+            "resultado_2.4",
+            "sumario"
+          ],
+          "similaridades": [
+            0.5358,
+            0.4256,
+            0.423
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.4",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561,
+            0.4468
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6"
+          ],
+          "recall": 0.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3",
+            "resultado_2.3",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.4726,
+            0.438,
+            0.4281
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.3"
+          ],
+          "irrelevantes": [
+            "resultado_2.7"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario"
+          ],
+          "recall": 0.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6",
+            "sumario",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.4542,
+            0.4432,
+            0.4417
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6",
+            "resultado_2.7"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.6",
+            "resultado_2.4"
+          ],
+          "similaridades": [
+            0.4938,
+            0.3842,
+            0.3622
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.6",
+            "resultado_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4936,
+            0.4108,
+            0.3809
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "recall": 1.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.3585
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.6"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.3654,
+            0.3612
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.7"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [
+            "resultado_2.4",
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.3542,
+            0.3504
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.4",
+            "ancestralidade"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [
+            "metadata"
+          ],
+          "similaridades": [
+            0.3904
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "metadata"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_ansioso"
+    },
+    {
+      "limiar": 0.4,
+      "top_k": 3,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 9,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 10,
+      "recall_medio": 0.8182,
+      "precisao_media": 0.6818,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente",
+            "resultado_2.4",
+            "sumario"
+          ],
+          "similaridades": [
+            0.5358,
+            0.4256,
+            0.423
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.4",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561,
+            0.4468
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6"
+          ],
+          "recall": 0.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3",
+            "resultado_2.3",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.4726,
+            0.438,
+            0.4281
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.3"
+          ],
+          "irrelevantes": [
+            "resultado_2.7"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario"
+          ],
+          "recall": 0.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6",
+            "sumario",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.4542,
+            0.4432,
+            0.4417
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6",
+            "resultado_2.7"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4938
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.4936,
+            0.4108
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_ansioso"
+    },
+    {
+      "limiar": 0.45,
+      "top_k": 3,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 8,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 5,
+      "recall_medio": 0.6818,
+      "precisao_media": 0.8333,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente"
+          ],
+          "similaridades": [
+            0.5358
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6"
+          ],
+          "recall": 0.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.4726
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario"
+          ],
+          "recall": 0.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4542
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6"
+          ],
+          "irrelevantes": [],
+          "recall": 0.5,
+          "precisao": 1.0
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4938
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4936
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_ansioso"
+    },
+    {
+      "limiar": 0.5,
+      "top_k": 3,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 4,
+      "respondiveis_com_algum_trecho": 5,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 1,
+      "recall_medio": 0.3636,
+      "precisao_media": 0.9333,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente"
+          ],
+          "similaridades": [
+            0.5358
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_ansioso"
+    },
+    {
+      "limiar": 0.55,
+      "top_k": 3,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 3,
+      "respondiveis_com_algum_trecho": 4,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [],
+      "irrelevantes_admitidos": 1,
+      "recall_medio": 0.2727,
+      "precisao_media": 0.9167,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_ansioso"
+    },
+    {
+      "limiar": 0.6,
+      "top_k": 3,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 3,
+      "respondiveis_com_algum_trecho": 4,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [],
+      "irrelevantes_admitidos": 0,
+      "recall_medio": 0.2727,
+      "precisao_media": 1.0,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_ansioso"
+    },
+    {
+      "limiar": 0.35,
+      "top_k": 4,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 9,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ],
+      "irrelevantes_admitidos": 24,
+      "recall_medio": 0.8182,
+      "precisao_media": 0.4545,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente",
+            "resultado_2.4",
+            "sumario",
+            "recomendacao_2.6"
+          ],
+          "similaridades": [
+            0.5358,
+            0.4256,
+            0.423,
+            0.4221
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.4",
+            "sumario",
+            "recomendacao_2.6"
+          ],
+          "recall": 1.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente",
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561,
+            0.4468,
+            0.4137
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6",
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555,
+            0.433
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6",
+            "recomendacao_2.3"
+          ],
+          "recall": 0.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182,
+            0.4731
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3",
+            "resultado_2.3",
+            "resultado_2.7",
+            "resultado_2.4"
+          ],
+          "similaridades": [
+            0.4726,
+            0.438,
+            0.4281,
+            0.3797
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.3"
+          ],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario",
+            "resultado_2.4"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466,
+            0.4498
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario",
+            "resultado_2.4"
+          ],
+          "recall": 0.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6",
+            "sumario",
+            "resultado_2.7",
+            "metadata"
+          ],
+          "similaridades": [
+            0.4542,
+            0.4432,
+            0.4417,
+            0.4143
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6",
+            "resultado_2.7"
+          ],
+          "irrelevantes": [
+            "metadata"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.6",
+            "resultado_2.4",
+            "resultado_2.3"
+          ],
+          "similaridades": [
+            0.4938,
+            0.3842,
+            0.3622,
+            0.3615
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.6",
+            "resultado_2.4",
+            "resultado_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.2",
+            "resultado_2.6",
+            "resultado_2.4"
+          ],
+          "similaridades": [
+            0.4936,
+            0.4108,
+            0.3809,
+            0.3584
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "resultado_2.6",
+            "resultado_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.3585
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.6"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737,
+            0.4556
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.3654,
+            0.3612
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.7"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [
+            "resultado_2.4",
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.3542,
+            0.3504
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.4",
+            "ancestralidade"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [
+            "metadata"
+          ],
+          "similaridades": [
+            0.3904
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "metadata"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465,
+            0.4574
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        }
+      ],
+      "perfil": "leigo_curioso"
+    },
+    {
+      "limiar": 0.4,
+      "top_k": 4,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 9,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 18,
+      "recall_medio": 0.8182,
+      "precisao_media": 0.5606,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente",
+            "resultado_2.4",
+            "sumario",
+            "recomendacao_2.6"
+          ],
+          "similaridades": [
+            0.5358,
+            0.4256,
+            0.423,
+            0.4221
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.4",
+            "sumario",
+            "recomendacao_2.6"
+          ],
+          "recall": 1.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente",
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561,
+            0.4468,
+            0.4137
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6",
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555,
+            0.433
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6",
+            "recomendacao_2.3"
+          ],
+          "recall": 0.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182,
+            0.4731
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3",
+            "resultado_2.3",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.4726,
+            0.438,
+            0.4281
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.3"
+          ],
+          "irrelevantes": [
+            "resultado_2.7"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario",
+            "resultado_2.4"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466,
+            0.4498
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario",
+            "resultado_2.4"
+          ],
+          "recall": 0.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6",
+            "sumario",
+            "resultado_2.7",
+            "metadata"
+          ],
+          "similaridades": [
+            0.4542,
+            0.4432,
+            0.4417,
+            0.4143
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6",
+            "resultado_2.7"
+          ],
+          "irrelevantes": [
+            "metadata"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4938
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.4936,
+            0.4108
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737,
+            0.4556
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465,
+            0.4574
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        }
+      ],
+      "perfil": "leigo_curioso"
+    },
+    {
+      "limiar": 0.45,
+      "top_k": 4,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 8,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 8,
+      "recall_medio": 0.6818,
+      "precisao_media": 0.7727,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente"
+          ],
+          "similaridades": [
+            0.5358
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6"
+          ],
+          "recall": 0.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182,
+            0.4731
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.4726
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario"
+          ],
+          "recall": 0.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4542
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6"
+          ],
+          "irrelevantes": [],
+          "recall": 0.5,
+          "precisao": 1.0
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4938
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4936
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737,
+            0.4556
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465,
+            0.4574
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        }
+      ],
+      "perfil": "leigo_curioso"
+    },
+    {
+      "limiar": 0.5,
+      "top_k": 4,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 4,
+      "respondiveis_com_algum_trecho": 5,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 2,
+      "recall_medio": 0.3636,
+      "precisao_media": 0.9,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente"
+          ],
+          "similaridades": [
+            0.5358
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_curioso"
+    },
+    {
+      "limiar": 0.55,
+      "top_k": 4,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 3,
+      "respondiveis_com_algum_trecho": 4,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [],
+      "irrelevantes_admitidos": 2,
+      "recall_medio": 0.2727,
+      "precisao_media": 0.875,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_curioso"
+    },
+    {
+      "limiar": 0.6,
+      "top_k": 4,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 3,
+      "respondiveis_com_algum_trecho": 4,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [],
+      "irrelevantes_admitidos": 0,
+      "recall_medio": 0.2727,
+      "precisao_media": 1.0,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "leigo_curioso"
+    },
+    {
+      "limiar": 0.35,
+      "top_k": 5,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 9,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X1",
+        "X2",
+        "X3",
+        "B1",
+        "B2"
+      ],
+      "irrelevantes_admitidos": 35,
+      "recall_medio": 0.8182,
+      "precisao_media": 0.3636,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente",
+            "resultado_2.4",
+            "sumario",
+            "recomendacao_2.6",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.5358,
+            0.4256,
+            0.423,
+            0.4221,
+            0.4201
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.4",
+            "sumario",
+            "recomendacao_2.6",
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.2
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente",
+            "recomendacao_2.4",
+            "recomendacao_2.3",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561,
+            0.4468,
+            0.4137,
+            0.3961
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "recomendacao_2.4",
+            "recomendacao_2.3",
+            "recomendacao_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.2
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6",
+            "recomendacao_2.3",
+            "resultado_2.3"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555,
+            0.433,
+            0.403
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6",
+            "recomendacao_2.3",
+            "resultado_2.3"
+          ],
+          "recall": 0.0,
+          "precisao": 0.2
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "resultado_2.3"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576,
+            0.4476
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario",
+            "resultado_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.4
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182,
+            0.4731,
+            0.4172
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3",
+            "resultado_2.3",
+            "resultado_2.7",
+            "resultado_2.4",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.4726,
+            0.438,
+            0.4281,
+            0.3797,
+            0.3771
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.3"
+          ],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.4",
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.4
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario",
+            "resultado_2.4",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466,
+            0.4498,
+            0.4371
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario",
+            "resultado_2.4",
+            "resultado_2.6"
+          ],
+          "recall": 0.0,
+          "precisao": 0.4
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6",
+            "sumario",
+            "resultado_2.7",
+            "metadata",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.4542,
+            0.4432,
+            0.4417,
+            0.4143,
+            0.3988
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6",
+            "resultado_2.7"
+          ],
+          "irrelevantes": [
+            "metadata",
+            "resultado_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.6",
+            "resultado_2.4",
+            "resultado_2.3",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.4938,
+            0.3842,
+            0.3622,
+            0.3615,
+            0.3604
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.6",
+            "resultado_2.4",
+            "resultado_2.3",
+            "resultado_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.2
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.2",
+            "resultado_2.6",
+            "resultado_2.4",
+            "resultado_2.3"
+          ],
+          "similaridades": [
+            0.4936,
+            0.4108,
+            0.3809,
+            0.3584,
+            0.3506
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "resultado_2.6",
+            "resultado_2.4",
+            "resultado_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.2
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.3585
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.6"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737,
+            0.4556,
+            0.4351
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.3654,
+            0.3612
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.7"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [
+            "resultado_2.4",
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.3542,
+            0.3504
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.4",
+            "ancestralidade"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [
+            "metadata"
+          ],
+          "similaridades": [
+            0.3904
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "metadata"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4",
+            "recomendacao_2.5"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465,
+            0.4574,
+            0.4478
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "recomendacao_2.5"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6
+        }
+      ],
+      "perfil": "medico"
+    },
+    {
+      "limiar": 0.4,
+      "top_k": 5,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 9,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 24,
+      "recall_medio": 0.8182,
+      "precisao_media": 0.5061,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente",
+            "resultado_2.4",
+            "sumario",
+            "recomendacao_2.6",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.5358,
+            0.4256,
+            0.423,
+            0.4221,
+            0.4201
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.4",
+            "sumario",
+            "recomendacao_2.6",
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.2
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente",
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561,
+            0.4468,
+            0.4137
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2",
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.25
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6",
+            "recomendacao_2.3",
+            "resultado_2.3"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555,
+            0.433,
+            0.403
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6",
+            "recomendacao_2.3",
+            "resultado_2.3"
+          ],
+          "recall": 0.0,
+          "precisao": 0.2
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "resultado_2.3"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576,
+            0.4476
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario",
+            "resultado_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.4
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182,
+            0.4731,
+            0.4172
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "recomendacao_2.3"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3",
+            "resultado_2.3",
+            "resultado_2.7"
+          ],
+          "similaridades": [
+            0.4726,
+            0.438,
+            0.4281
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.3"
+          ],
+          "irrelevantes": [
+            "resultado_2.7"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario",
+            "resultado_2.4",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466,
+            0.4498,
+            0.4371
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario",
+            "resultado_2.4",
+            "resultado_2.6"
+          ],
+          "recall": 0.0,
+          "precisao": 0.4
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6",
+            "sumario",
+            "resultado_2.7",
+            "metadata"
+          ],
+          "similaridades": [
+            0.4542,
+            0.4432,
+            0.4417,
+            0.4143
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6",
+            "resultado_2.7"
+          ],
+          "irrelevantes": [
+            "metadata"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4938
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.4936,
+            0.4108
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [
+            "resultado_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737,
+            0.4556,
+            0.4351
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4",
+            "recomendacao_2.5"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465,
+            0.4574,
+            0.4478
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "recomendacao_2.5"
+          ],
+          "recall": 1.0,
+          "precisao": 0.6
+        }
+      ],
+      "perfil": "medico"
+    },
+    {
+      "limiar": 0.45,
+      "top_k": 5,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 8,
+      "respondiveis_com_algum_trecho": 11,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 8,
+      "recall_medio": 0.6818,
+      "precisao_media": 0.7727,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente"
+          ],
+          "similaridades": [
+            0.5358
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "paciente"
+          ],
+          "similaridades": [
+            0.476,
+            0.4561
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [
+            "resultado_2.2"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.7",
+            "resultado_2.2",
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4602,
+            0.46,
+            0.4555
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "resultado_2.7",
+            "resultado_2.6"
+          ],
+          "recall": 0.0,
+          "precisao": 0.3333
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182,
+            0.4731
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [
+            "recomendacao_2.3"
+          ],
+          "similaridades": [
+            0.4726
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797,
+            0.466
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "sumario"
+          ],
+          "recall": 0.0,
+          "precisao": 0.6667
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.6"
+          ],
+          "similaridades": [
+            0.4542
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.6"
+          ],
+          "irrelevantes": [],
+          "recall": 0.5,
+          "precisao": 1.0
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4938
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [
+            "ancestralidade"
+          ],
+          "similaridades": [
+            0.4936
+          ],
+          "essenciais_recuperados": [
+            "ancestralidade"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101,
+            0.4737,
+            0.4556
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4",
+            "paciente",
+            "resultado_2.2"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario",
+            "recomendacao_2.4"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465,
+            0.4574
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.4"
+          ],
+          "recall": 1.0,
+          "precisao": 0.75
+        }
+      ],
+      "perfil": "medico"
+    },
+    {
+      "limiar": 0.5,
+      "top_k": 5,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 4,
+      "respondiveis_com_algum_trecho": 5,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [
+        "X2"
+      ],
+      "irrelevantes_admitidos": 2,
+      "recall_medio": 0.3636,
+      "precisao_media": 0.9,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [
+            "paciente"
+          ],
+          "similaridades": [
+            0.5358
+          ],
+          "essenciais_recuperados": [
+            "paciente"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303,
+            0.5182
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "similaridades": [
+            0.5267,
+            0.5101
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [
+            "recomendacao_2.4",
+            "resultado_2.4"
+          ],
+          "recall": null,
+          "precisao": 0.0
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057,
+            0.5465
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "medico"
+    },
+    {
+      "limiar": 0.55,
+      "top_k": 5,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 3,
+      "respondiveis_com_algum_trecho": 4,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [],
+      "irrelevantes_admitidos": 2,
+      "recall_medio": 0.2727,
+      "precisao_media": 0.875,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1",
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126,
+            0.5737,
+            0.5576
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [
+            "recomendacao_2.1",
+            "sumario"
+          ],
+          "recall": 1.0,
+          "precisao": 0.5
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "medico"
+    },
+    {
+      "limiar": 0.6,
+      "top_k": 5,
+      "respondiveis_total": 11,
+      "respondiveis_com_essencial": 3,
+      "respondiveis_com_algum_trecho": 4,
+      "sem_resposta_total": 5,
+      "sem_resposta_com_trecho": [],
+      "irrelevantes_admitidos": 0,
+      "recall_medio": 0.2727,
+      "precisao_media": 1.0,
+      "confere_com_derivado": true,
+      "divergencias": [],
+      "perguntas": [
+        {
+          "id": "F1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F3",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "F4",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "marcadores_2.1"
+          ],
+          "similaridades": [
+            0.7205,
+            0.6126
+          ],
+          "essenciais_recuperados": [
+            "marcadores_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R1",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6882,
+            0.6303
+          ],
+          "essenciais_recuperados": [
+            "resultado_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "R3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.2",
+            "recomendacao_2.2"
+          ],
+          "similaridades": [
+            0.6954,
+            0.6797
+          ],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": 1.0
+        },
+        {
+          "id": "R4",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A1",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "A2",
+          "respondivel": true,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": 0.0,
+          "precisao": null
+        },
+        {
+          "id": "X1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "X3",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B1",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B2",
+          "respondivel": false,
+          "secoes": [],
+          "similaridades": [],
+          "essenciais_recuperados": [],
+          "irrelevantes": [],
+          "recall": null,
+          "precisao": null
+        },
+        {
+          "id": "B3",
+          "respondivel": true,
+          "secoes": [
+            "resultado_2.1",
+            "recomendacao_2.1"
+          ],
+          "similaridades": [
+            0.6275,
+            0.6057
+          ],
+          "essenciais_recuperados": [
+            "recomendacao_2.1"
+          ],
+          "irrelevantes": [],
+          "recall": 1.0,
+          "precisao": 1.0
+        }
+      ],
+      "perfil": "medico"
+    }
+  ]
+}
