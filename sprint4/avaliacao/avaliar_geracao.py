@@ -149,6 +149,7 @@ def preflight(api_key: str, destino: Path) -> int:
     relatorio = {"gerado_em_utc": _agora(), "versao_codigo": versao_codigo(),
                  "sdk_openai": _versao_sdk()}
     trechos = ["Composição ancestral do paciente: Europa Ibérica (Península Ibérica): 42.3%."]
+    registro = None
     try:
         with capturar_chamadas(llm_connector) as registro:
             r = llm_connector.responder_com_llm(
@@ -168,7 +169,10 @@ def preflight(api_key: str, destino: Path) -> int:
         relatorio.update({"resultado": "ok" if all(provas.values()) else "suspeito",
                           "provas": provas, "chamada": chamada, "resposta": r["resposta"]})
     except Exception as erro:  # registra o erro exato, sem tentar consertar
+        # O envoltório registra a chamada mesmo quando o SDK levanta erro: guarda
+        # os parâmetros que o conector chegou a enviar (prova do lado do cliente).
         relatorio.update({"resultado": "falhou", "erro": f"{type(erro).__name__}: {erro}",
+                          "chamada": registro.chamadas[0] if registro and registro.chamadas else None,
                           "traceback": traceback.format_exc()})
     destino.write_text(json.dumps(relatorio, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({k: relatorio.get(k) for k in ("resultado", "provas", "erro")},
