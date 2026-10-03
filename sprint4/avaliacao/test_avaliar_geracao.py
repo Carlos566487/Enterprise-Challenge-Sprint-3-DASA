@@ -158,8 +158,12 @@ def test_analise_pega_valor_fora_da_base_e_mede_consistencia():
     r = analisar_geracao.analisar(linhas, PERGUNTAS_ANALISE, modelo=None)
     assert r["chamadas_llm"] == 2 and r["evitadas_sem_contexto"] == 1
     assert r["roteamento_correto"] == 3
-    assert r["ancoragem"] == {"respondidas": 2, "ancoradas": 1, "taxa": 0.5,
-                              "score_sobreposicao_medio": 0.5}
+    assert {k: r["ancoragem"][k] for k in ("respondidas", "ancoradas", "taxa",
+                                           "score_sobreposicao_medio", "falsos_positivos_citacao")} == {
+        "respondidas": 2, "ancoradas": 1, "taxa": 0.5,
+        "score_sobreposicao_medio": 0.5, "falsos_positivos_citacao": 0}
+    assert r["ancoragem"]["nao_ancoradas_por_outro_motivo"] == [
+        {"id": "R2", "perfil": "medico", "repeticao": 2, "termos": ["67"]}]
     fora = r["valores_fora_da_base_apresentados"]
     assert [(f["id"], f["repeticao"], f["valores_fora_da_base_na_resposta"]) for f in fora] == [("R2", 2, ["67"])]
     r2 = next(c for c in r["consistencia_geracao"] if c["id"] == "R2")
@@ -235,3 +239,28 @@ def test_plano_recorte_reduzido():
     assert [(p["id"], perfil, rep) for p, perfil, rep in itens] == [
         ("A", "leigo_ansioso", 1), ("A", "leigo_ansioso", 2),
         ("B", "leigo_ansioso", 1), ("B", "leigo_ansioso", 2)]
+
+
+def test_falso_positivo_de_citacao_so_quando_o_numero_esta_so_na_citacao():
+    f = analisar_geracao.orfao_so_em_citacao
+    assert f("1", "Risco Alto.\n\nBaseado em: [Fonte 1] e [Fonte 2]") is True
+    assert f("1", "Baseado: Fonte 1") is True
+    assert f("1", "Faça 1 exame por ano. Baseado em [Fonte 1]") is False   # número real fora da citação
+    assert f("67", "percentil 67 [Fonte 1]") is False
+    assert f("KCNJ11", "[Fonte 1] gene KCNJ11") is False                   # não numérico
+
+
+def test_citacao_nao_conta_numero_dentro_de_outro_numero():
+    f = analisar_geracao.orfao_so_em_citacao
+    texto = "Europa do Sul: 18.7%; Ameríndio: 11.4%; Ásia: 1.2%.\nBaseado: [Fonte 1]"
+    assert f("1", texto) is True
+    assert f("1", "Nascido em 1985. [Fonte 1]") is True
+    assert f("1", "1 vez ao ano. [Fonte 1]") is False
+
+
+def test_citacao_em_lista():
+    f = analisar_geracao.orfao_so_em_citacao
+    assert f("4", "Baseado: [Fonte 1, 2, 3, 4]") is True
+    assert f("2", "Baseado: [Fonte 1, Fonte 2]") is True
+    assert f("2", "Baseado: Fonte 1 e Fonte 2") is True
+    assert f("4", "Faça 4 refeições. [Fonte 1, 2, 3, 4]") is False

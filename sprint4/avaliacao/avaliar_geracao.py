@@ -216,6 +216,34 @@ def _versao_sdk():
         return None
 
 
+def ram_livre_gb():
+    try:
+        import psutil
+    except ImportError:
+        return None
+    return round(psutil.virtual_memory().available / 1e9, 2)
+
+
+def reaproveitar_modelo_de_embeddings() -> None:
+    """
+    Carrega o SentenceTransformer e a coleção do ChromaDB UMA vez por processo.
+
+    buscar_trechos() chama carregar_modelo() e carregar_colecao() a cada
+    pergunta (~3 s cada vez). Aqui as duas funções do MÓDULO são envolvidas por
+    um cache em memória durante a avaliação — buscar.py não é alterado, e o
+    resultado é o mesmo (mesmo modelo, busca determinística). O uso de produção
+    continua recarregando a cada pergunta; isso está registrado como achado.
+    """
+    from functools import lru_cache
+
+    import sprint2.vetorial.buscar as buscar
+
+    if not getattr(buscar.carregar_modelo, "_cache_avaliacao", False):
+        buscar.carregar_modelo = lru_cache(maxsize=1)(buscar.carregar_modelo)
+        buscar.carregar_modelo._cache_avaliacao = True
+        buscar.carregar_colecao = lru_cache(maxsize=1)(buscar.carregar_colecao)
+
+
 def plano(perguntas: list, piloto: int = None, ids: list = None,
           perfis: list = None, n_fixo: int = None) -> list:
     itens = []
@@ -240,6 +268,10 @@ def main(argv=None) -> int:
                         help="ids separados por vírgula (recorte reduzido); omitido = todas")
     parser.add_argument("--perfis", default=None, help="perfis separados por vírgula")
     parser.add_argument("--n", type=int, default=None, help="repetições fixas por pergunta")
+    parser.add_argument("--ram-minima", type=float, default=4.0,
+                        help="GB livres abaixo dos quais o script para limpo (retoma pelo cache)")
+    parser.add_argument("--recarregar-embeddings", action="store_true",
+                        help="não reaproveita o modelo de embeddings (comportamento de produção)")
     args = parser.parse_args(argv)
 
     try:
@@ -263,6 +295,8 @@ def main(argv=None) -> int:
 
     amb = ambiente()
     print(f"[ambiente] {amb}", flush=True)
+    if not args.recarregar_embeddings:
+        reaproveitar_modelo_de_embeddings()
     ids = args.perguntas.split(",") if args.perguntas else None
     perfis = args.perfis.split(",") if args.perfis else None
     inicio_total = time.perf_counter()
@@ -272,6 +306,12 @@ def main(argv=None) -> int:
             if args.piloto and feitas_llm >= args.piloto:
                 break
             arquivo_cache = DIR_CACHE / f"{chave_cache(pergunta['id'], perfil, rep, versao, args.limiar, amb)}.json"
+            ram = ram_livre_gb()
+            if not arquivo_cache.exists() and ram is not None and ram < args.ram_minima:
+                print(f"[PARADO] RAM livre {ram} GB < {args.ram_minima} GB antes de "
+                      f"{pergunta['id']} {perfil} r{rep}. Nada se perde: retome com o mesmo "
+                      f"comando (cache).", flush=True)
+                return 3
             if arquivo_cache.exists():
                 linha = json.loads(arquivo_cache.read_text(encoding="utf-8"))
                 reaproveitadas += 1
@@ -279,13 +319,16 @@ def main(argv=None) -> int:
                 linha = executar_uma(pergunta, perfil, rep, api_key, args.limiar)
                 linha["versao_codigo"] = versao
                 linha["ambiente"] = amb
+                linha["ram_livre_antes_gb"] = ram
                 arquivo_cache.write_text(json.dumps(linha, ensure_ascii=False), encoding="utf-8")
             feitas_llm += 1 if linha["chamou_llm"] else 0
             saida.write(json.dumps(linha, ensure_ascii=False) + "\n")
+            saida.flush()
             uso = linha["chamadas_sdk"][0]["usage"] if linha["chamadas_sdk"] else {}
             print(f"{linha['id']:3} {perfil:13} r{rep} {linha['status']:13} "
                   f"llm={linha['chamou_llm']} modelo={linha.get('modelo_respondido')} "
-                  f"tokens={uso.get('total_tokens')} t={linha.get('duracao_total_s')}s", flush=True)
+                  f"tokens={uso.get('total_tokens')} t={linha.get('duracao_total_s')}s "
+                  f"ram={linha.get('ram_livre_antes_gb')}GB", flush=True)
 
     print(f"[geracao] {destino.relative_to(RAIZ)}  chamadas_llm={feitas_llm} "
           f"reaproveitadas_do_cache={reaproveitadas} "
