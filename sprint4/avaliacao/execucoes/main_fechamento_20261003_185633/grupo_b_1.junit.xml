@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="10.967" timestamp="2026-10-03T18:56:36.505471" hostname="cleitin-jr"><testcase classname="sprint3.rag_personalizacao.test_personalizacao" name="test_busca_real_alimenta_a_personalizacao" time="10.934" /></testsuite></testsuites>
