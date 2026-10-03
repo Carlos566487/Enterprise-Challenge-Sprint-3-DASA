@@ -1,0 +1,487 @@
+{
+ "gerado_em_utc": "2026-10-03T21:54:42.701111+00:00",
+ "versoes": {
+  "antes": "prompts.py antes do fechamento (bateria geracao_limiar043)",
+  "v1": "commit 75b2cfb — três ajustes; instrução de 'Baseado em' depois do bloco de formato",
+  "v2": "instrução de 'Baseado em' movida para o item 4 da ordem, antes do bloco de formato"
+ },
+ "fontes": {
+  "antes": [
+   "revisao_manual_achados.json",
+   "execucoes/geracao_limiar043_20261002_215449.jsonl"
+  ],
+  "v1": [
+   "revisao_manual_achados_pos_prompt.json",
+   "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+   "execucoes/pos_prompt_b_limiar043_20261003_182820.jsonl",
+   "execucoes/pos_prompt_c_limiar043_20261003_183154.jsonl"
+  ],
+  "v2": [
+   "revisao_manual_achados_pos_prompt_v2.json",
+   "execucoes/pos_prompt_d_limiar043_20261003_185005.jsonl",
+   "execucoes/pos_prompt_e_limiar043_20261003_185220.jsonl"
+  ]
+ },
+ "recorte_v1": {
+  "respostas": 36,
+  "chaves": [
+   [
+    "A2",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "A2",
+    "leigo_curioso",
+    1
+   ],
+   [
+    "A2",
+    "medico",
+    1
+   ],
+   [
+    "B3",
+    "medico",
+    1
+   ],
+   [
+    "B3",
+    "medico",
+    2
+   ],
+   [
+    "B3",
+    "medico",
+    3
+   ],
+   [
+    "F2",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "F2",
+    "leigo_curioso",
+    1
+   ],
+   [
+    "F2",
+    "medico",
+    1
+   ],
+   [
+    "F3",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "F3",
+    "leigo_ansioso",
+    2
+   ],
+   [
+    "F3",
+    "leigo_curioso",
+    1
+   ],
+   [
+    "F3",
+    "leigo_curioso",
+    2
+   ],
+   [
+    "F3",
+    "medico",
+    1
+   ],
+   [
+    "F3",
+    "medico",
+    2
+   ],
+   [
+    "G1",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "G1",
+    "leigo_curioso",
+    1
+   ],
+   [
+    "G1",
+    "medico",
+    1
+   ],
+   [
+    "R1",
+    "medico",
+    1
+   ],
+   [
+    "R1",
+    "medico",
+    2
+   ],
+   [
+    "R1",
+    "medico",
+    3
+   ],
+   [
+    "R2",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "R2",
+    "leigo_curioso",
+    1
+   ],
+   [
+    "R2",
+    "medico",
+    1
+   ],
+   [
+    "R3",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "R3",
+    "leigo_curioso",
+    1
+   ],
+   [
+    "R3",
+    "medico",
+    1
+   ],
+   [
+    "R4",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "R4",
+    "leigo_ansioso",
+    2
+   ],
+   [
+    "R4",
+    "leigo_curioso",
+    1
+   ],
+   [
+    "R4",
+    "leigo_curioso",
+    2
+   ],
+   [
+    "R4",
+    "medico",
+    1
+   ],
+   [
+    "R4",
+    "medico",
+    2
+   ],
+   [
+    "X2",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "X2",
+    "leigo_curioso",
+    1
+   ],
+   [
+    "X2",
+    "medico",
+    1
+   ]
+  ],
+  "por_classe": [
+   {
+    "classe": "01 gene inventado",
+    "antes": 2,
+    "v1": 2,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "02 contexto parcial tomado como todo",
+    "antes": 6,
+    "v1": 6,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "03 inversão de sentido",
+    "antes": 2,
+    "v1": 2,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "04 nível de risco trocado",
+    "antes": 2,
+    "v1": 1,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "05 recomendação de outra condição",
+    "antes": 0,
+    "v1": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "06 recomendação alterada",
+    "antes": 1,
+    "v1": 0,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "07 termo clínico trocado",
+    "antes": 4,
+    "v1": 4,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "08 SNP chamado de gene",
+    "antes": 0,
+    "v1": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "09 acréscimo incorreto",
+    "antes": 4,
+    "v1": 1,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "10 falsa tranquilização / inferência indevida",
+    "antes": 1,
+    "v1": 1,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "11 acréscimo de conhecimento geral",
+    "antes": 6,
+    "v1": 7,
+    "veredito_primeira_x_ultima": "PIOROU"
+   },
+   {
+    "classe": "12 contradição interna",
+    "antes": 3,
+    "v1": 0,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "13 ausência atribuída ao relatório",
+    "antes": 1,
+    "v1": 0,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "14 (nova) vazamento do formato do prompt",
+    "antes": 0,
+    "v1": 2,
+    "veredito_primeira_x_ultima": "PIOROU"
+   },
+   {
+    "classe": "outros (fora das 13 classes)",
+    "antes": 0,
+    "v1": 0,
+    "veredito_primeira_x_ultima": "igual"
+   }
+  ],
+  "mecanicas": {
+   "antes": {
+    "respondidas": 33,
+    "bloqueadas_ou_sem_contexto": 3,
+    "genes_HNF1A_KCNJ11": 2,
+    "hipoglicemica": 4,
+    "vazamento_formato": 0
+   },
+   "v1": {
+    "respondidas": 33,
+    "bloqueadas_ou_sem_contexto": 3,
+    "genes_HNF1A_KCNJ11": 2,
+    "hipoglicemica": 4,
+    "vazamento_formato": 2
+   }
+  },
+  "achados_no_recorte": {
+   "antes": 30,
+   "v1": 24
+  }
+ },
+ "recorte_v2": {
+  "respostas": 5,
+  "chaves": [
+   [
+    "B3",
+    "medico",
+    1
+   ],
+   [
+    "B3",
+    "medico",
+    2
+   ],
+   [
+    "B3",
+    "medico",
+    3
+   ],
+   [
+    "R3",
+    "leigo_ansioso",
+    1
+   ],
+   [
+    "R4",
+    "leigo_ansioso",
+    1
+   ]
+  ],
+  "por_classe": [
+   {
+    "classe": "01 gene inventado",
+    "antes": 1,
+    "v1": 1,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "02 contexto parcial tomado como todo",
+    "antes": 0,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "03 inversão de sentido",
+    "antes": 0,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "04 nível de risco trocado",
+    "antes": 0,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "05 recomendação de outra condição",
+    "antes": 0,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "06 recomendação alterada",
+    "antes": 1,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "07 termo clínico trocado",
+    "antes": 3,
+    "v1": 2,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "08 SNP chamado de gene",
+    "antes": 0,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "09 acréscimo incorreto",
+    "antes": 0,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "10 falsa tranquilização / inferência indevida",
+    "antes": 1,
+    "v1": 0,
+    "v2": 1,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "11 acréscimo de conhecimento geral",
+    "antes": 0,
+    "v1": 1,
+    "v2": 2,
+    "veredito_primeira_x_ultima": "PIOROU"
+   },
+   {
+    "classe": "12 contradição interna",
+    "antes": 3,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "melhorou"
+   },
+   {
+    "classe": "13 ausência atribuída ao relatório",
+    "antes": 0,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "14 (nova) vazamento do formato do prompt",
+    "antes": 0,
+    "v1": 2,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   },
+   {
+    "classe": "outros (fora das 13 classes)",
+    "antes": 0,
+    "v1": 0,
+    "v2": 0,
+    "veredito_primeira_x_ultima": "igual"
+   }
+  ],
+  "mecanicas": {
+   "antes": {
+    "respondidas": 5,
+    "bloqueadas_ou_sem_contexto": 0,
+    "genes_HNF1A_KCNJ11": 1,
+    "hipoglicemica": 3,
+    "vazamento_formato": 0
+   },
+   "v1": {
+    "respondidas": 5,
+    "bloqueadas_ou_sem_contexto": 0,
+    "genes_HNF1A_KCNJ11": 1,
+    "hipoglicemica": 2,
+    "vazamento_formato": 2
+   },
+   "v2": {
+    "respondidas": 5,
+    "bloqueadas_ou_sem_contexto": 0,
+    "genes_HNF1A_KCNJ11": 0,
+    "hipoglicemica": 0,
+    "vazamento_formato": 0
+   }
+  },
+  "achados_no_recorte": {
+   "antes": 8,
+   "v1": 5,
+   "v2": 3
+  }
+ }
+}

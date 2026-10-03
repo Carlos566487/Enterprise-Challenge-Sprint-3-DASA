@@ -1,0 +1,420 @@
+{
+  "gerado_em_utc": "2026-10-03T21:46:50+00:00",
+  "fonte_achados": "revisao_manual_achados_pos_prompt.json",
+  "revisor": "Claude Code, a pedido de João (RM565999) — leitura integral das 33 respostas da re-medição dirigida (prompts.py ajustado, limiar 0,43)",
+  "criterio": "O mesmo de revisao_manual_achados.json, aplicado às mesmas perguntas, perfis e repetições do recorte de antes. Classe nova encontrada: vazamento do modelo de formato do prompt (o bloco 'Resumo: ... Explicação: ...' copiado literalmente na resposta).",
+  "resumo": {
+    "respostas_respondidas_revisadas": 33,
+    "achados_aceitos": 23,
+    "achados_rejeitados_pela_verificacao": 0,
+    "respostas_com_acrescimo": 18,
+    "por_pergunta": {
+      "F3": 8,
+      "R4": 4,
+      "B3": 5,
+      "R1": 2,
+      "F2": 2,
+      "R3": 2
+    },
+    "por_tipo": {
+      "contagem_errada": 6,
+      "mistura_de_condicoes": 1,
+      "acrescimo": 8,
+      "inversao_de_sentido": 2,
+      "vazamento_de_formato": 2,
+      "termo_tecnico_trocado": 4
+    }
+  },
+  "aceitos": [
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "F3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "foram analisadas três condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Continua contando os trechos (são 7).",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "F3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 2,
+      "citacao": "foram analisadas três condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "três com risco baixo (Intolerância à Lactose, Trombofilia Hereditária (Fator V de Leiden) e Hipertensão Arterial Essencial)",
+      "tipo": "mistura_de_condicoes",
+      "subtipo": "nivel_de_risco_trocado",
+      "gravidade": "alta",
+      "justificativa": "Hipertensão é risco Médio no trecho recebido.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "indicando que não há mutações genéticas preocupantes nessas áreas",
+      "tipo": "acrescimo",
+      "subtipo": "inferencia_indevida",
+      "gravidade": "media",
+      "justificativa": "Estende 'sem mutações' à hipertensão, que é risco Médio com variações descritas no relatório.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "R4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 2,
+      "citacao": "embora você possua variantes genéticas associadas a essas condições",
+      "tipo": "inversao_de_sentido",
+      "subtipo": "negacao_invertida",
+      "gravidade": "alta",
+      "justificativa": "Trecho: 'você não possui as mutações genéticas mais comuns'.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "R4",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "embora você possua variantes genéticas ligadas a essas condições",
+      "tipo": "inversao_de_sentido",
+      "subtipo": "negacao_invertida",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "R4",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "Embora seja uma condição que pode levar a coágulos sanguíneos hereditários",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Definição da doença fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_a_limiar043_20261003_183841.jsonl",
+      "id": "R4",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "especialmente se você estiver seguindo um plano alimentar mais restritivo",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Orientação fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_b_limiar043_20261003_182820.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "Resumo:\n...\n\nExplicação:\n...",
+      "tipo": "vazamento_de_formato",
+      "subtipo": "modelo_do_prompt_copiado",
+      "gravidade": "media",
+      "justificativa": "A resposta começa com o bloco de formato do prompt copiado literalmente. 0 ocorrências nas 210 respostas antes do ajuste.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_b_limiar043_20261003_182820.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "Resumo:\n...\n\nExplicação:\n...",
+      "tipo": "vazamento_de_formato",
+      "subtipo": "modelo_do_prompt_copiado",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_b_limiar043_20261003_182820.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "Variações nessas regiões genéticas podem influenciar a sensibilidade à insulina",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo fora dos trechos — o ajuste 1 proíbe exatamente isso.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_b_limiar043_20261003_182820.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Trecho: 'hipoglicídica'.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_b_limiar043_20261003_182820.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_b_limiar043_20261003_182820.jsonl",
+      "id": "R1",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_b_limiar043_20261003_182820.jsonl",
+      "id": "R1",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_c_limiar043_20261003_183154.jsonl",
+      "id": "F2",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "Cadastro Regional de Medicina",
+      "tipo": "acrescimo",
+      "subtipo": "incorreto",
+      "gravidade": "media",
+      "justificativa": "Expansão errada da sigla (é Conselho).",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_c_limiar043_20261003_183154.jsonl",
+      "id": "F2",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "Ela pode estar realizando esse exame para diversos motivos, como acompanhamento de saúde, diagnóstico ou prevenção de doenças",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Especulação sobre motivos do exame, fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_c_limiar043_20261003_183154.jsonl",
+      "id": "R3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "quando é mais fácil de tratar",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Afirmação clínica fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "recomendacao_2.2",
+        "sumario",
+        "resultado_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_c_limiar043_20261003_183154.jsonl",
+      "id": "R3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "ajuda a reparar danos nos genes e a impedir o crescimento de células cancerosas",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo do BRCA2 fora dos trechos — mesma frase de antes do ajuste.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "recomendacao_2.2",
+        "sumario",
+        "resultado_2.4",
+        "resultado_2.6"
+      ]
+    }
+  ],
+  "rejeitados": []
+}
