@@ -1,0 +1,70 @@
+{
+  "gerado_em_utc": "2026-10-03T00:51:06+00:00",
+  "nota": "comparação de candidatos; prompt e caminho de produção, modelo trocado na fronteira",
+  "resultados": [
+    {
+      "modelo_pedido": "qwen2.5:7b",
+      "caso": "R1",
+      "pergunta": "Qual é o meu nível de risco para diabetes tipo 2?",
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "qwen2.5:7b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "qwen2.5:7b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 1078,
+        "completion_tokens": 167,
+        "total_tokens": 1245
+      },
+      "latencia_s": 31.06,
+      "ram_livre_antes_gb": 5.19,
+      "ram_livre_depois_gb": 5.48,
+      "ram_processos_ollama_gb": 6.04,
+      "ollama_ps": "NAME          ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nqwen2.5:7b    845dbda0ea48    5.1 GB    55%/45% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Resumo:\nSeu relatório sugere um risco alto de desenvolver diabetes tipo 2.\n\nExplicação:\nIsso significa que seu DNA indica uma chance maior de você desenvolver diabetes tipo 2 em comparação com a população geral. Isso não significa que você terá certamente diabetes, mas sim que precisa estar mais atento e tomar medidas preventivas.\n\nNa prática:\nIsso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.\n\nBaseado:\n[Fonte 1] Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto."
+    },
+    {
+      "modelo_pedido": "qwen2.5:7b",
+      "caso": "X2",
+      "pergunta": "O meu relatório fala sobre risco de Parkinson?",
+      "secoes": [
+        "recomendacao_2.4",
+        "resultado_2.4",
+        "paciente"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "qwen2.5:7b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "qwen2.5:7b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 99,
+        "total_tokens": 1053
+      },
+      "latencia_s": 22.47,
+      "ram_livre_antes_gb": 5.47,
+      "ram_livre_depois_gb": 5.14,
+      "ram_processos_ollama_gb": 6.11,
+      "ollama_ps": "NAME          ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nqwen2.5:7b    845dbda0ea48    5.1 GB    55%/45% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Não encontrei essa informação no relatório.\n\nExplicação:\nO relatório focou na predisposição para a Doença de Alzheimer (início tardio), não mencionando Parkinson.\n\nNa prática:\nIsso significa que, com base apenas no conteúdo do relatório, não há informações sobre o risco de Parkinson.\n\nBaseado em:\n[Fonte 1] e [Fonte 2] focaram na Doença de Alzheimer, não mencionando Parkinson."
+    }
+  ]
+}

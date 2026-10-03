@@ -1,0 +1,18 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.3, pytest-7.4.2, pluggy-1.6.0
+rootdir: C:\Users\fonte\Enterprise-Challenge-Sprint-3-DASA
+plugins: anyio-4.14.2, Faker-19.3.1, hypothesis-6.149.1, cov-4.1.0
+collected 1 item
+
+sprint3\rag_personalizacao\test_personalizacao.py .                      [100%]
+
+============================== warnings summary ===============================
+sprint3/rag_personalizacao/test_personalizacao.py::test_busca_real_alimenta_a_personalizacao
+  C:\Users\fonte\AppData\Local\Programs\Python\Python311\Lib\site-packages\opentelemetry\util\_importlib_metadata.py:32: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
+    return EntryPoints(ep for group_eps in eps.values() for ep in group_eps)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: C:\Users\fonte\Enterprise-Challenge-Sprint-3-DASA\sprint4\avaliacao\execucoes\baseline_20260924_203540\grupo_b_2.junit.xml -
+======================== 1 passed, 1 warning in 11.47s ========================
+
+--- STDERR ---

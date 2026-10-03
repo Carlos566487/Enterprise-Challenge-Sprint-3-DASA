@@ -1,0 +1,14 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.3, pytest-7.4.2, pluggy-1.6.0
+rootdir: C:\Users\fonte\Enterprise-Challenge-Sprint-3-DASA
+plugins: anyio-4.14.2, Faker-19.3.1, hypothesis-6.149.1, cov-4.1.0
+collected 33 items
+
+sprint4\avaliacao\test_avaliar_geracao.py .................              [ 51%]
+sprint4\avaliacao\test_curva_limiar.py .....                             [ 66%]
+sprint4\avaliacao\test_instrumento_custo.py ...........                  [100%]
+
+- generated xml file: C:\Users\fonte\Enterprise-Challenge-Sprint-3-DASA\sprint4\avaliacao\execucoes\final_parte_b_20261003_135639\instrumentos_avaliacao.junit.xml -
+============================= 33 passed in 1.91s ==============================
+
+--- STDERR ---

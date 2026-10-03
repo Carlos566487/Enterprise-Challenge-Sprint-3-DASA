@@ -1,0 +1,415 @@
+{
+  "gerado_em_utc": "2026-09-28T23:36:55+00:00",
+  "fonte_bruta": "sprint4/avaliacao/execucoes/recuperacao_20260928_202044.json",
+  "modelo": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimensao_vetores_gravados": 384,
+  "A_pergunta_x_chunk": {
+    "todas": {
+      "n": 399,
+      "min": 0.0001,
+      "p05": 0.0824,
+      "mediana": 0.2987,
+      "p95": 0.4727,
+      "max": 0.7205,
+      "media": 0.2891,
+      "desvio": 0.1272
+    },
+    "por_pergunta": [
+      {
+        "id": "F1",
+        "max": 0.5358,
+        "min": 0.1071,
+        "amplitude": 0.4287,
+        "margem_top1_top2": 0.1102,
+        "margem_top1_mediana": 0.1949
+      },
+      {
+        "id": "F2",
+        "max": 0.476,
+        "min": 0.0685,
+        "amplitude": 0.4075,
+        "margem_top1_top2": 0.0199,
+        "margem_top1_mediana": 0.1778
+      },
+      {
+        "id": "F3",
+        "max": 0.4602,
+        "min": 0.0001,
+        "amplitude": 0.4601,
+        "margem_top1_top2": 0.0002,
+        "margem_top1_mediana": 0.17
+      },
+      {
+        "id": "F4",
+        "max": 0.7205,
+        "min": 0.2985,
+        "amplitude": 0.422,
+        "margem_top1_top2": 0.1079,
+        "margem_top1_mediana": 0.3432
+      },
+      {
+        "id": "R1",
+        "max": 0.6882,
+        "min": 0.1616,
+        "amplitude": 0.5266,
+        "margem_top1_top2": 0.0579,
+        "margem_top1_mediana": 0.3408
+      },
+      {
+        "id": "R2",
+        "max": 0.4726,
+        "min": 0.0832,
+        "amplitude": 0.3894,
+        "margem_top1_top2": 0.0346,
+        "margem_top1_mediana": 0.1877
+      },
+      {
+        "id": "R3",
+        "max": 0.6954,
+        "min": 0.1151,
+        "amplitude": 0.5803,
+        "margem_top1_top2": 0.0157,
+        "margem_top1_mediana": 0.3407
+      },
+      {
+        "id": "R4",
+        "max": 0.4542,
+        "min": 0.005,
+        "amplitude": 0.4492,
+        "margem_top1_top2": 0.011,
+        "margem_top1_mediana": 0.1116
+      },
+      {
+        "id": "A1",
+        "max": 0.4938,
+        "min": 0.0114,
+        "amplitude": 0.4824,
+        "margem_top1_top2": 0.1096,
+        "margem_top1_mediana": 0.2668
+      },
+      {
+        "id": "A2",
+        "max": 0.4936,
+        "min": 0.0531,
+        "amplitude": 0.4405,
+        "margem_top1_top2": 0.0828,
+        "margem_top1_mediana": 0.2215
+      },
+      {
+        "id": "X1",
+        "max": 0.3585,
+        "min": 0.0239,
+        "amplitude": 0.3346,
+        "margem_top1_top2": 0.0293,
+        "margem_top1_mediana": 0.1536
+      },
+      {
+        "id": "X2",
+        "max": 0.5267,
+        "min": 0.0755,
+        "amplitude": 0.4512,
+        "margem_top1_top2": 0.0166,
+        "margem_top1_mediana": 0.1891
+      },
+      {
+        "id": "X3",
+        "max": 0.3654,
+        "min": 0.0436,
+        "amplitude": 0.3218,
+        "margem_top1_top2": 0.0042,
+        "margem_top1_mediana": 0.1078
+      },
+      {
+        "id": "B1",
+        "max": 0.3542,
+        "min": 0.0212,
+        "amplitude": 0.333,
+        "margem_top1_top2": 0.0038,
+        "margem_top1_mediana": 0.115
+      },
+      {
+        "id": "B2",
+        "max": 0.3904,
+        "min": 0.1278,
+        "amplitude": 0.2626,
+        "margem_top1_top2": 0.0596,
+        "margem_top1_mediana": 0.125
+      },
+      {
+        "id": "B3",
+        "max": 0.6275,
+        "min": 0.1787,
+        "amplitude": 0.4488,
+        "margem_top1_top2": 0.0218,
+        "margem_top1_mediana": 0.2818
+      }
+    ],
+    "amplitude_media": 0.4212,
+    "margem_top1_top2_media": 0.0428
+  },
+  "B_chunk_x_chunk": {
+    "mesma_condicao": {
+      "n": 21,
+      "min": 0.3807,
+      "p05": 0.4255,
+      "mediana": 0.6187,
+      "p95": 0.8507,
+      "max": 0.8603,
+      "media": 0.6357,
+      "desvio": 0.1266
+    },
+    "condicoes_diferentes": {
+      "n": 189,
+      "min": 0.0955,
+      "p05": 0.1764,
+      "mediana": 0.3432,
+      "p95": 0.5322,
+      "max": 0.6266,
+      "media": 0.3439,
+      "desvio": 0.1086
+    }
+  },
+  "C_tokenizador": {
+    "palavras_analisadas": 931,
+    "tokens_por_palavra": 2.577,
+    "palavras_em_3_ou_mais_pecas": 423,
+    "fracao_em_3_ou_mais_pecas": 0.4544,
+    "remove_acentos": true,
+    "exemplos_alvo": {
+      "predisposição": [
+        "pre",
+        "##dis",
+        "##po",
+        "##sic",
+        "##ao"
+      ],
+      "hipertensão": [
+        "hip",
+        "##ert",
+        "##ens",
+        "##ao"
+      ],
+      "ancestralidade": [
+        "ancestral",
+        "##idad",
+        "##e"
+      ],
+      "recomendação": [
+        "rec",
+        "##ome",
+        "##nda",
+        "##cao"
+      ],
+      "composição": [
+        "com",
+        "##po",
+        "##sic",
+        "##ao"
+      ],
+      "condição": [
+        "con",
+        "##dic",
+        "##ao"
+      ],
+      "genético": [
+        "genetic",
+        "##o"
+      ],
+      "risco": [
+        "ri",
+        "##sco"
+      ],
+      "doença": [
+        "doe",
+        "##nca"
+      ],
+      "percentil": [
+        "percent",
+        "##il"
+      ]
+    }
+  },
+  "D_lexical_x_similaridade": [
+    {
+      "id": "F1",
+      "chunk": "paciente",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.5,
+      "palavras_em_comum": [
+        "paciente",
+        "relatorio"
+      ],
+      "similaridade": 0.5358
+    },
+    {
+      "id": "F2",
+      "chunk": "paciente",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.33,
+      "palavras_em_comum": [
+        "exame",
+        "medico"
+      ],
+      "similaridade": 0.4561
+    },
+    {
+      "id": "F3",
+      "chunk": "sumario",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.71,
+      "palavras_em_comum": [
+        "alto",
+        "analisadas",
+        "condicoes",
+        "foram",
+        "risco"
+      ],
+      "similaridade": 0.4026
+    },
+    {
+      "id": "F4",
+      "chunk": "marcadores_2.1",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.4,
+      "palavras_em_comum": [
+        "diabetes",
+        "tipo"
+      ],
+      "similaridade": 0.6126
+    },
+    {
+      "id": "R1",
+      "chunk": "resultado_2.1",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 1.0,
+      "palavras_em_comum": [
+        "diabetes",
+        "nivel",
+        "risco",
+        "tipo"
+      ],
+      "similaridade": 0.6882
+    },
+    {
+      "id": "R2",
+      "chunk": "resultado_2.3",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.25,
+      "palavras_em_comum": [
+        "hipertensao"
+      ],
+      "similaridade": 0.438
+    },
+    {
+      "id": "R3",
+      "chunk": "marcadores_2.2",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.67,
+      "palavras_em_comum": [
+        "longo",
+        "mama",
+        "risco",
+        "vida"
+      ],
+      "similaridade": 0.3547
+    },
+    {
+      "id": "R4",
+      "chunk": "resultado_2.6",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.4,
+      "palavras_em_comum": [
+        "baixo",
+        "risco"
+      ],
+      "similaridade": 0.4542
+    },
+    {
+      "id": "R4",
+      "chunk": "resultado_2.7",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.6,
+      "palavras_em_comum": [
+        "baixo",
+        "risco",
+        "tem"
+      ],
+      "similaridade": 0.4417
+    },
+    {
+      "id": "A1",
+      "chunk": "ancestralidade",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 1.0,
+      "palavras_em_comum": [
+        "ancestral",
+        "composicao"
+      ],
+      "similaridade": 0.4938
+    },
+    {
+      "id": "A2",
+      "chunk": "ancestralidade",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.0,
+      "palavras_em_comum": [],
+      "similaridade": 0.4936
+    },
+    {
+      "id": "X1",
+      "chunk": "resultado_2.6",
+      "tipo": "top1_de_pergunta_sem_resposta",
+      "palavras_da_pergunta_no_chunk": 0.0,
+      "palavras_em_comum": [],
+      "similaridade": 0.3585
+    },
+    {
+      "id": "X2",
+      "chunk": "recomendacao_2.4",
+      "tipo": "top1_de_pergunta_sem_resposta",
+      "palavras_da_pergunta_no_chunk": 0.25,
+      "palavras_em_comum": [
+        "risco"
+      ],
+      "similaridade": 0.5267
+    },
+    {
+      "id": "X3",
+      "chunk": "recomendacao_2.4",
+      "tipo": "top1_de_pergunta_sem_resposta",
+      "palavras_da_pergunta_no_chunk": 0.25,
+      "palavras_em_comum": [
+        "colesterol"
+      ],
+      "similaridade": 0.3654
+    },
+    {
+      "id": "B1",
+      "chunk": "resultado_2.4",
+      "tipo": "top1_de_pergunta_sem_resposta",
+      "palavras_da_pergunta_no_chunk": 0.0,
+      "palavras_em_comum": [],
+      "similaridade": 0.3542
+    },
+    {
+      "id": "B2",
+      "chunk": "metadata",
+      "tipo": "top1_de_pergunta_sem_resposta",
+      "palavras_da_pergunta_no_chunk": 0.0,
+      "palavras_em_comum": [],
+      "similaridade": 0.3904
+    },
+    {
+      "id": "B3",
+      "chunk": "recomendacao_2.1",
+      "tipo": "essencial",
+      "palavras_da_pergunta_no_chunk": 0.5,
+      "palavras_em_comum": [
+        "alto",
+        "risco"
+      ],
+      "similaridade": 0.6057
+    }
+  ],
+  "limite": "Sem segundo modelo sobre os mesmos dados não há referência de 'normal'; os números mostram consistência com a hipótese, não a prova."
+}

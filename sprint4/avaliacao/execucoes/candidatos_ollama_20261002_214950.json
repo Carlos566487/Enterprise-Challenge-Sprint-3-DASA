@@ -1,0 +1,198 @@
+{
+  "gerado_em_utc": "2026-10-03T00:49:50+00:00",
+  "nota": "comparação de candidatos; prompt e caminho de produção, modelo trocado na fronteira",
+  "resultados": [
+    {
+      "modelo_pedido": "gemma2:2b",
+      "caso": "R1",
+      "pergunta": "Qual é o meu nível de risco para diabetes tipo 2?",
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "gemma2:2b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "gemma2:2b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 1004,
+        "completion_tokens": 105,
+        "total_tokens": 1109
+      },
+      "latencia_s": 51.92,
+      "ram_livre_antes_gb": 7.25,
+      "ram_livre_depois_gb": 7.57,
+      "ram_processos_ollama_gb": 3.54,
+      "ollama_ps": "NAME         ID              SIZE      PROCESSOR    CONTEXT    UNTIL              \ngemma2:2b    8ccf136fdd52    1.9 GB    100% GPU     4096       4 minutes from now",
+      "resposta": "## Resumo:\n\n**Explicação:** O relatório indica que você tem um risco maior de desenvolver diabetes tipo 2, devido a variações em dois genes importantes para o controle do açúcar no sangue. \n\n**Na prática:**  Isso significa que você deve prestar atenção à sua alimentação e exercícios, buscando evitar açúcares simples e praticar atividades físicas regularmente. \n\n**Fontes utilizadas:** \n* [Fonte 1]\n* [Fonte 2]\n* [Fonte 3]"
+    },
+    {
+      "modelo_pedido": "gemma2:2b",
+      "caso": "X2",
+      "pergunta": "O meu relatório fala sobre risco de Parkinson?",
+      "secoes": [
+        "recomendacao_2.4",
+        "resultado_2.4",
+        "paciente"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "gemma2:2b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "gemma2:2b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 896,
+        "completion_tokens": 105,
+        "total_tokens": 1001
+      },
+      "latencia_s": 5.87,
+      "ram_livre_antes_gb": 7.56,
+      "ram_livre_depois_gb": 7.56,
+      "ram_processos_ollama_gb": 3.56,
+      "ollama_ps": "NAME         ID              SIZE      PROCESSOR    CONTEXT    UNTIL              \ngemma2:2b    8ccf136fdd52    1.9 GB    100% GPU     4096       4 minutes from now",
+      "resposta": "## Resumo:\n\n**Explicação:** O relatório menciona um risco moderado de desenvolver Alzheimer devido a uma variação no gene APOE.  \n\n**Na prática:**  O relatório sugere que você tenha uma chance maior de desenvolver Alzheimer após os 65 anos, mas isso não significa que você vai ter a doença.  \n\n**Fontes utilizadas:** [Fonte 1], [Fonte 2], [Fonte 3]\n\n**Observação:** O relatório não menciona o risco de Parkinson."
+    },
+    {
+      "modelo_pedido": "phi3.5",
+      "caso": "R1",
+      "pergunta": "Qual é o meu nível de risco para diabetes tipo 2?",
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "phi3.5",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "phi3.5",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 1418,
+        "completion_tokens": 165,
+        "total_tokens": 1583
+      },
+      "latencia_s": 54.29,
+      "ram_livre_antes_gb": 7.56,
+      "ram_livre_depois_gb": 7.07,
+      "ram_processos_ollama_gb": 4.68,
+      "ollama_ps": "NAME             ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nphi3.5:latest    61819fb370a3    3.9 GB    40%/60% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Resumo: Seu nível de risco para diabetes tipo 2 é considerado alto.\n\nExplicação: O relatório genético indica que você possui variações em dois genes específicos que estão associados ao controle do açúcar no sangue, o que aumenta o risco de desenvolver diabetes tipo 2.\n\nNa prática: Isso significa que você deve adotar medidas preventivas, como seguir uma dieta hipoglicídica, praticar exercícios regularmente e monitorar sua glicemia com frequência.\n\nBaseado em: [Fonte 1] e [Fonte 2]\n\n--------------------------------------------------"
+    },
+    {
+      "modelo_pedido": "phi3.5",
+      "caso": "X2",
+      "pergunta": "O meu relatório fala sobre risco de Parkinson?",
+      "secoes": [
+        "recomendacao_2.4",
+        "resultado_2.4",
+        "paciente"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "phi3.5",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "phi3.5",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 1258,
+        "completion_tokens": 179,
+        "total_tokens": 1437
+      },
+      "latencia_s": 22.77,
+      "ram_livre_antes_gb": 7.06,
+      "ram_livre_depois_gb": 7.07,
+      "ram_processos_ollama_gb": 4.68,
+      "ollama_ps": "NAME             ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nphi3.5:latest    61819fb370a3    3.9 GB    40%/60% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Resumo:\nO relatório não menciona especificamente o risco de Parkinson.\n\nExplicação:\nO relatório fornecido discute o risco de Doença de Alzheimer, particularmente relacionado a uma variação no gene APOE e estratégias preventivas.\n\nNa prática:\nComo o relatório foca na Doença de Alzheimer e não menciona Parkinson, não há informações sobre o risco de Parkinson para o paciente Carlos Eduardo Mendes.\n\nBaseado em:\n[Fonte 1], [Fonte 2] e [Fonte 3]\n\nResposta:\nNão encontrei informação sobre o risco de Parkinson no relatório fornecido."
+    },
+    {
+      "modelo_pedido": "qwen2.5:7b",
+      "caso": "R1",
+      "pergunta": "Qual é o meu nível de risco para diabetes tipo 2?",
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "qwen2.5:7b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "qwen2.5:7b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 1078,
+        "completion_tokens": 149,
+        "total_tokens": 1227
+      },
+      "latencia_s": 46.74,
+      "ram_livre_antes_gb": 7.04,
+      "ram_livre_depois_gb": 5.55,
+      "ram_processos_ollama_gb": 5.97,
+      "ollama_ps": "NAME          ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nqwen2.5:7b    845dbda0ea48    5.1 GB    55%/45% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Resumo:\nSeu relatório sugere um risco alto de desenvolver diabetes tipo 2.\n\nExplicação:\nIsso significa que seu DNA indica uma chance maior de você desenvolver diabetes tipo 2 em comparação com a população geral.\n\nNa prática:\nIsso não significa que você terá diabetes, mas que precisa de mais atenção com sua alimentação e nível de atividade física. Você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses.\n\nBaseado:\n[Fonte 1] Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto."
+    },
+    {
+      "modelo_pedido": "qwen2.5:7b",
+      "caso": "X2",
+      "pergunta": "O meu relatório fala sobre risco de Parkinson?",
+      "secoes": [
+        "recomendacao_2.4",
+        "resultado_2.4",
+        "paciente"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "qwen2.5:7b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "qwen2.5:7b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 100,
+        "total_tokens": 1054
+      },
+      "latencia_s": 19.47,
+      "ram_livre_antes_gb": 5.54,
+      "ram_livre_depois_gb": 5.41,
+      "ram_processos_ollama_gb": 6.04,
+      "ollama_ps": "NAME          ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nqwen2.5:7b    845dbda0ea48    5.1 GB    55%/45% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Não encontrei essa informação no relatório.\n\nExplicação:\nO relatório focou na predisposição para a Doença de Alzheimer (início tardio), não mencionando Parkinson.\n\nNa prática:\nIsso significa que, com base no conteúdo do relatório, não há menção a riscos relacionados à Doença de Parkinson.\n\nBaseado em:\n[Fonte 1] e [Fonte 2] que se concentram na Doença de Alzheimer."
+    }
+  ]
+}

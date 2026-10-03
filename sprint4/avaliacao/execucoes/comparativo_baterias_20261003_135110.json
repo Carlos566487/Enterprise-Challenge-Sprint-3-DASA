@@ -1,0 +1,513 @@
+{
+  "gerado_em_utc": "2026-10-03T16:51:10+00:00",
+  "fontes": [
+    "sprint4/avaliacao/execucoes/analise_geracao_20261003_133602.json",
+    "sprint4/avaliacao/execucoes/analise_geracao_limiar043_20261002_215449.json"
+  ],
+  "lado_a_lado": {
+    "execucoes": {
+      "analise_geracao_20261003_133602.json": 210,
+      "analise_geracao_limiar043_20261002_215449.json": 210
+    },
+    "chamadas_llm": {
+      "analise_geracao_20261003_133602.json": 72,
+      "analise_geracao_limiar043_20261002_215449.json": 138
+    },
+    "evitadas_guardrail": {
+      "analise_geracao_20261003_133602.json": 36,
+      "analise_geracao_limiar043_20261002_215449.json": 36
+    },
+    "evitadas_sem_contexto": {
+      "analise_geracao_20261003_133602.json": 102,
+      "analise_geracao_limiar043_20261002_215449.json": 36
+    },
+    "roteamento_correto": {
+      "analise_geracao_20261003_133602.json": 129,
+      "analise_geracao_limiar043_20261002_215449.json": 195
+    },
+    "ancoragem": {
+      "analise_geracao_20261003_133602.json": {
+        "respondidas": 72,
+        "ancoradas": 45,
+        "taxa": 0.625,
+        "score_sobreposicao_medio": 0.4206,
+        "falsos_positivos_citacao": 26,
+        "ancoradas_descontando_citacao": 71,
+        "taxa_descontando_citacao": 0.9861,
+        "nao_ancoradas_por_outro_motivo": [
+          {
+            "id": "R1",
+            "perfil": "medico",
+            "repeticao": 4,
+            "termos": [
+              "11",
+              "HNF1A",
+              "KCNJ11"
+            ]
+          }
+        ],
+        "nota": "taxa_descontando_citacao trata como ancorada a resposta cujos ÚNICOS termos não ancorados são números que aparecem só dentro de 'Fonte N'. É leitura derivada; o valor bruto do detector é 'taxa'."
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "respondidas": 138,
+        "ancoradas": 83,
+        "taxa": 0.6014,
+        "score_sobreposicao_medio": 0.3975,
+        "falsos_positivos_citacao": 53,
+        "ancoradas_descontando_citacao": 136,
+        "taxa_descontando_citacao": 0.9855,
+        "nao_ancoradas_por_outro_motivo": [
+          {
+            "id": "R1",
+            "perfil": "medico",
+            "repeticao": 2,
+            "termos": [
+              "11",
+              "HNF1A",
+              "KCNJ11"
+            ]
+          },
+          {
+            "id": "B3",
+            "perfil": "medico",
+            "repeticao": 2,
+            "termos": [
+              "11",
+              "HNF1A",
+              "KCNJ11"
+            ]
+          }
+        ],
+        "nota": "taxa_descontando_citacao trata como ancorada a resposta cujos ÚNICOS termos não ancorados são números que aparecem só dentro de 'Fonte N'. É leitura derivada; o valor bruto do detector é 'taxa'."
+      }
+    },
+    "simplificacao": {
+      "analise_geracao_20261003_133602.json": {
+        "aplicada": 29,
+        "quebrou_ancoragem": 19
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "aplicada": 54,
+        "quebrou_ancoragem": 38
+      }
+    },
+    "custo": {
+      "analise_geracao_20261003_133602.json": {
+        "tokens_entrada": 74706,
+        "tokens_saida": 13518,
+        "modelos_respondidos": [
+          "qwen2.5:7b"
+        ]
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "tokens_entrada": 147996,
+        "tokens_saida": 25994,
+        "modelos_respondidos": [
+          "qwen2.5:7b"
+        ]
+      }
+    }
+  },
+  "por_pergunta": {
+    "A1": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 2,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.3406
+      }
+    },
+    "A2": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 9,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.0862
+      }
+    },
+    "B1": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      }
+    },
+    "B2": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      }
+    },
+    "B3": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 9,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.6464
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 8,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.6113
+      }
+    },
+    "F1": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 15,
+        "respondidas": 15,
+        "ancoradas": 6,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.22
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 15,
+        "respondidas": 15,
+        "ancoradas": 7,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.229
+      }
+    },
+    "F2": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 9,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.279
+      }
+    },
+    "F3": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 15,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 15,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 15,
+        "respondidas": 15,
+        "ancoradas": 3,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.4849
+      }
+    },
+    "F4": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 8,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.4703
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 8,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.5461
+      }
+    },
+    "G1": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 9,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 9,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      }
+    },
+    "G2": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 9,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 9,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      }
+    },
+    "G3": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 9,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 9,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      }
+    },
+    "G4": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 9,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 9,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      }
+    },
+    "R1": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 15,
+        "respondidas": 15,
+        "ancoradas": 14,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.6564
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 15,
+        "respondidas": 15,
+        "ancoradas": 14,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.7078
+      }
+    },
+    "R2": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 15,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 15,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 15,
+        "respondidas": 15,
+        "ancoradas": 14,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.1383
+      }
+    },
+    "R3": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.4723
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.5834
+      }
+    },
+    "R4": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 9,
+        "ancoradas": 0,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.512
+      }
+    },
+    "X1": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      }
+    },
+    "X2": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 15,
+        "respondidas": 15,
+        "ancoradas": 8,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.1891
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 15,
+        "respondidas": 15,
+        "ancoradas": 9,
+        "sem_contexto": 0,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": 0.3222
+      }
+    },
+    "X3": {
+      "analise_geracao_20261003_133602.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      },
+      "analise_geracao_limiar043_20261002_215449.json": {
+        "execucoes": 9,
+        "respondidas": 0,
+        "ancoradas": 0,
+        "sem_contexto": 9,
+        "bloqueadas": 0,
+        "valores_fora_da_base": 0,
+        "score_medio": null
+      }
+    }
+  }
+}

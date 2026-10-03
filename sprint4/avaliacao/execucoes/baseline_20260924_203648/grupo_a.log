@@ -1,0 +1,16 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.3, pytest-7.4.2, pluggy-1.6.0
+rootdir: C:\Users\fonte\Enterprise-Challenge-Sprint-3-DASA
+plugins: anyio-4.14.2, Faker-19.3.1, hypothesis-6.149.1, cov-4.1.0
+collected 99 items / 1 deselected / 98 selected
+
+sprint1\extracao\test_extracao.py ...............................        [ 31%]
+sprint3\governanca\test_governanca.py .................                  [ 48%]
+sprint3\integracao\test_integracao_nlp.py ...................            [ 68%]
+sprint3\rag_personalizacao\test_personalizacao.py ...................... [ 90%]
+.........                                                                [100%]
+
+- generated xml file: C:\Users\fonte\Enterprise-Challenge-Sprint-3-DASA\sprint4\avaliacao\execucoes\baseline_20260924_203648\grupo_a.junit.xml -
+====================== 98 passed, 1 deselected in 1.30s =======================
+
+--- STDERR ---

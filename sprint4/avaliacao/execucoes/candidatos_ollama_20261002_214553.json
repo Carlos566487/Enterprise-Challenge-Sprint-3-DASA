@@ -1,0 +1,198 @@
+{
+  "gerado_em_utc": "2026-10-03T00:45:53+00:00",
+  "nota": "comparação de candidatos; prompt e caminho de produção, modelo trocado na fronteira",
+  "resultados": [
+    {
+      "modelo_pedido": "qwen2.5:7b",
+      "caso": "R1",
+      "pergunta": "Qual é o meu nível de risco para diabetes tipo 2?",
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "qwen2.5:7b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "qwen2.5:7b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 1078,
+        "completion_tokens": 150,
+        "total_tokens": 1228
+      },
+      "latencia_s": 117.54,
+      "ram_livre_antes_gb": 7.24,
+      "ram_livre_depois_gb": 5.18,
+      "ram_processos_ollama_gb": 0.01,
+      "ollama_ps": "NAME          ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nqwen2.5:7b    845dbda0ea48    5.1 GB    55%/45% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Resumo:\nSeu relatório sugere um nível de risco alto para diabetes tipo 2.\n\nExplicação:\nIsso significa que seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco.\n\nNa prática:\nIsso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.\n\nBaseado em:\n[Fonte 1]"
+    },
+    {
+      "modelo_pedido": "qwen2.5:7b",
+      "caso": "X2",
+      "pergunta": "O meu relatório fala sobre risco de Parkinson?",
+      "secoes": [
+        "recomendacao_2.4",
+        "resultado_2.4",
+        "paciente"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "qwen2.5:7b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "qwen2.5:7b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 98,
+        "total_tokens": 1052
+      },
+      "latencia_s": 19.74,
+      "ram_livre_antes_gb": 5.15,
+      "ram_livre_depois_gb": 5.09,
+      "ram_processos_ollama_gb": 0.01,
+      "ollama_ps": "NAME          ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nqwen2.5:7b    845dbda0ea48    5.1 GB    55%/45% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Não encontrei essa informação no relatório.\n\nExplicação:\nO relatório focou na predisposição para a Doença de Alzheimer (início tardio) e não mencionou Parkinson.\n\nNa prática:\nIsso significa que, com base apenas no conteúdo do relatório, não há informações sobre o risco de Parkinson.\n\nBaseado em:\n[Fonte 1] e [Fonte 2] focaram na Doença de Alzheimer, não em Parkinson."
+    },
+    {
+      "modelo_pedido": "qwen2.5:3b",
+      "caso": "R1",
+      "pergunta": "Qual é o meu nível de risco para diabetes tipo 2?",
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "qwen2.5:3b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "qwen2.5:3b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 1078,
+        "completion_tokens": 182,
+        "total_tokens": 1260
+      },
+      "latencia_s": 16.89,
+      "ram_livre_antes_gb": 5.07,
+      "ram_livre_depois_gb": 7.82,
+      "ram_processos_ollama_gb": 0.01,
+      "ollama_ps": "NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL              \nqwen2.5:3b    357c53fb659c    2.2 GB    100% GPU     4096       4 minutes from now",
+      "resposta": "Resumo:\nO relatório indica um nível de risco alto para Diabetes Mellitus Tipo 2.\n\nExplicação:\nO relatório sugere que você tem um risco elevado de desenvolver Diabetes Mellitus Tipo 2, baseado em variações genéticas que aumentam o risco de desenvolver esta condição.\n\nNa prática:\nCom base apenas no relatório genético, você tem um risco alto de desenvolver Diabetes Mellitus Tipo 2. Isso significa que você deve seguir as recomendações de monitoramento e mudança de hábitos de vida, como evitar açúcares simples, fazer exercícios regularmente e realizar check-ups de glicemia a cada 6 meses. É importante manter um acompanhamento médico regular, incluindo consultas com um endocrinologista.\n\nBaseado em:\n[Fonte 1]"
+    },
+    {
+      "modelo_pedido": "qwen2.5:3b",
+      "caso": "X2",
+      "pergunta": "O meu relatório fala sobre risco de Parkinson?",
+      "secoes": [
+        "recomendacao_2.4",
+        "resultado_2.4",
+        "paciente"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "qwen2.5:3b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "qwen2.5:3b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 954,
+        "completion_tokens": 12,
+        "total_tokens": 966
+      },
+      "latencia_s": 4.35,
+      "ram_livre_antes_gb": 7.83,
+      "ram_livre_depois_gb": 7.75,
+      "ram_processos_ollama_gb": 0.01,
+      "ollama_ps": "NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL              \nqwen2.5:3b    357c53fb659c    2.2 GB    100% GPU     4096       4 minutes from now",
+      "resposta": "Não encontrei essa informação no relatório enviado."
+    },
+    {
+      "modelo_pedido": "llama3.2:3b",
+      "caso": "R1",
+      "pergunta": "Qual é o meu nível de risco para diabetes tipo 2?",
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "llama3.2:3b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "llama3.2:3b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 1101,
+        "completion_tokens": 292,
+        "total_tokens": 1393
+      },
+      "latencia_s": 50.3,
+      "ram_livre_antes_gb": 7.74,
+      "ram_livre_depois_gb": 7.85,
+      "ram_processos_ollama_gb": 0.01,
+      "ollama_ps": "NAME           ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nllama3.2:3b    a80c4f17acd5    2.9 GB    20%/80% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Resumo:\nO relatório genético indica que você tem uma chance maior de desenvolver diabetes tipo 2 devido a variações nos genes que controlam o açúcar no sangue. Isso não significa que você vai ter diabetes, mas é importante tomar medidas preventivas.\n\nExplicação:\nO diabetes tipo 2 é uma condição genética que afeta a forma como o corpo regula o açúcar no sangue. A presença de variações nos genes que controlam o açúcar no sangue aumenta o risco de desenvolver essa condição. O relatório genético sugere que você tem dois genes importantes que apresentam variações que aumentam esse risco.\n\nNa prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.\n\nBaseado em:\nO relatório genético apresenta informações sobre o risco de desenvolver diabetes tipo 2 devido a variações nos genes que controlam o açúcar no sangue. Além disso, o relatório também apresenta recomendações para monitoramento e prevenção da condição.\n\nFontes utilizadas:\n[Fonte 1], [Fonte 2], [Fonte 3]"
+    },
+    {
+      "modelo_pedido": "llama3.2:3b",
+      "caso": "X2",
+      "pergunta": "O meu relatório fala sobre risco de Parkinson?",
+      "secoes": [
+        "recomendacao_2.4",
+        "resultado_2.4",
+        "paciente"
+      ],
+      "status": "respondido",
+      "modelo_respondido": "llama3.2:3b",
+      "endpoint": "http://localhost:11434/v1/",
+      "modelo_pedido_pelo_conector": "gpt-4.1-mini",
+      "parametros_enviados": {
+        "model": "llama3.2:3b",
+        "temperature": 0.2,
+        "top_p": 0.8,
+        "max_tokens": 700
+      },
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 955,
+        "completion_tokens": 170,
+        "total_tokens": 1125
+      },
+      "latencia_s": 8.62,
+      "ram_livre_antes_gb": 7.84,
+      "ram_livre_depois_gb": 7.79,
+      "ram_processos_ollama_gb": 0.01,
+      "ollama_ps": "NAME           ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \nllama3.2:3b    a80c4f17acd5    2.9 GB    20%/80% CPU/GPU    4096       4 minutes from now",
+      "resposta": "Resposta curta:\nNão, o relatório não menciona Parkinson.\n\nExplicação:\nO relatório menciona a Doença de Alzheimer, mas não Parkinson. O relatório sugere associação com a manutenção de atividade cognitiva regular e controle de fatores de risco cardiovascular para reduzir o risco de desenvolver a doença.\n\nNa prática:\nÉ importante manter o cérebro ativo e controlar fatores cardiovasculares para reduzir o risco de desenvolver a doença de Alzheimer.\n\nBaseado em:\nNão encontrei essa informação no relatório. O relatório apenas menciona a Doença de Alzheimer e sugere medidas para reduzir o risco de desenvolver a doença, mas não faz referência a Parkinson."
+    }
+  ]
+}

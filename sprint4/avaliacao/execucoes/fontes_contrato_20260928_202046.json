@@ -1,0 +1,626 @@
+{
+  "gerado_em_utc": "2026-09-28T23:20:46+00:00",
+  "natureza": "teste de MECANISMO (LLM substituído por respostas fixas); não mede qualidade",
+  "resumo": {
+    "execucoes": 18,
+    "status_ok": 18,
+    "fontes_contrato_ok": 18,
+    "fontes_integracao_ok": 18,
+    "integracao_preserva_fontes": 18
+  },
+  "execucoes": [
+    {
+      "cenario": "respondido_ancorado",
+      "perfil": "leigo_ansioso",
+      "busca": "real",
+      "status_contrato": "respondido",
+      "status_esperado": "respondido",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": true,
+        "motivo": "ok",
+        "metricas_original": {
+          "palavras": 89,
+          "frases": 8,
+          "media_palavras_por_frase": 11.12,
+          "media_caracteres_por_palavra": 5.26
+        },
+        "metricas_simplificado": {
+          "palavras": 89,
+          "frases": 8,
+          "media_palavras_por_frase": 11.12,
+          "media_caracteres_por_palavra": 5.26
+        }
+      }
+    },
+    {
+      "cenario": "respondido_nao_ancorado_sinalizar",
+      "perfil": "leigo_ansioso",
+      "busca": "real",
+      "status_contrato": "respondido",
+      "status_esperado": "respondido",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "quebrou_ancoragem",
+        "metricas_original": {
+          "palavras": 7,
+          "frases": 1,
+          "media_palavras_por_frase": 7.0,
+          "media_caracteres_por_palavra": 5.14
+        },
+        "metricas_simplificado": {
+          "palavras": 7,
+          "frases": 1,
+          "media_palavras_por_frase": 7.0,
+          "media_caracteres_por_palavra": 5.14
+        },
+        "termos_nao_ancorados": [
+          "97"
+        ]
+      }
+    },
+    {
+      "cenario": "nao_ancorado_bloquear",
+      "perfil": "leigo_ansioso",
+      "busca": "real",
+      "status_contrato": "nao_ancorado",
+      "status_esperado": "nao_ancorado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "bloqueado_guardrail",
+      "perfil": "leigo_ansioso",
+      "busca": "real",
+      "status_contrato": "bloqueado",
+      "status_esperado": "bloqueado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "sem_contexto",
+      "perfil": "leigo_ansioso",
+      "busca": "injetada (vazia)",
+      "status_contrato": "sem_contexto",
+      "status_esperado": "sem_contexto",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "bloqueio_interno_do_agente",
+      "perfil": "leigo_ansioso",
+      "busca": "real",
+      "status_contrato": "bloqueado",
+      "status_esperado": "bloqueado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "respondido_ancorado",
+      "perfil": "leigo_curioso",
+      "busca": "real",
+      "status_contrato": "respondido",
+      "status_esperado": "respondido",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": true,
+        "motivo": "ok",
+        "metricas_original": {
+          "palavras": 89,
+          "frases": 8,
+          "media_palavras_por_frase": 11.12,
+          "media_caracteres_por_palavra": 5.26
+        },
+        "metricas_simplificado": {
+          "palavras": 89,
+          "frases": 8,
+          "media_palavras_por_frase": 11.12,
+          "media_caracteres_por_palavra": 5.26
+        }
+      }
+    },
+    {
+      "cenario": "respondido_nao_ancorado_sinalizar",
+      "perfil": "leigo_curioso",
+      "busca": "real",
+      "status_contrato": "respondido",
+      "status_esperado": "respondido",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "quebrou_ancoragem",
+        "metricas_original": {
+          "palavras": 7,
+          "frases": 1,
+          "media_palavras_por_frase": 7.0,
+          "media_caracteres_por_palavra": 5.14
+        },
+        "metricas_simplificado": {
+          "palavras": 7,
+          "frases": 1,
+          "media_palavras_por_frase": 7.0,
+          "media_caracteres_por_palavra": 5.14
+        },
+        "termos_nao_ancorados": [
+          "97"
+        ]
+      }
+    },
+    {
+      "cenario": "nao_ancorado_bloquear",
+      "perfil": "leigo_curioso",
+      "busca": "real",
+      "status_contrato": "nao_ancorado",
+      "status_esperado": "nao_ancorado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "bloqueado_guardrail",
+      "perfil": "leigo_curioso",
+      "busca": "real",
+      "status_contrato": "bloqueado",
+      "status_esperado": "bloqueado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "sem_contexto",
+      "perfil": "leigo_curioso",
+      "busca": "injetada (vazia)",
+      "status_contrato": "sem_contexto",
+      "status_esperado": "sem_contexto",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "bloqueio_interno_do_agente",
+      "perfil": "leigo_curioso",
+      "busca": "real",
+      "status_contrato": "bloqueado",
+      "status_esperado": "bloqueado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "respondido_ancorado",
+      "perfil": "medico",
+      "busca": "real",
+      "status_contrato": "respondido",
+      "status_esperado": "respondido",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "perfil_tecnico",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "respondido_nao_ancorado_sinalizar",
+      "perfil": "medico",
+      "busca": "real",
+      "status_contrato": "respondido",
+      "status_esperado": "respondido",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "perfil_tecnico",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "nao_ancorado_bloquear",
+      "perfil": "medico",
+      "busca": "real",
+      "status_contrato": "nao_ancorado",
+      "status_esperado": "nao_ancorado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "3 fontes; itens incompletos=[]; tipos_ok=True",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ],
+      "fontes_contrato": [
+        {
+          "conteudo": "Condição: Diabetes Mellitus Tipo 2. Categoria: Metabolismo e Endocrinologia. Nível de risco: Alto. Seu DNA indica uma chance maior de desenvolver diabetes tipo 2. Dois genes importantes para o controle do açúcar no sangue apresentam variações que aumentam esse risco. Isso não significa que você vai ter diabetes, mas que precisa de mais atenção com alimentação e exercícios. Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+          "secao": "resultado_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2",
+          "similaridade": 0.6882
+        },
+        {
+          "conteudo": "Recomendação para Diabetes Mellitus Tipo 2 (risco Alto): Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada. Urgência: Alta - recomenda-se consulta com endocrinologista nos próximos 30 dias.",
+          "secao": "recomendacao_2.1",
+          "fonte": "dados_estruturados.json > resultados > Diabetes Mellitus Tipo 2 > recomendacao",
+          "similaridade": 0.6303
+        },
+        {
+          "conteudo": "Resumo do relatório genético: Foram analisadas 7 condições genéticas. Você tem 2 condições de risco alto que merecem atenção especial, 3 de risco médio para monitoramento e 2 de risco baixo sem preocupação específica. Total de condições analisadas: 7. Condições de risco alto: 2. Condições de risco médio: 3. Condições de risco baixo: 2. Recomendações prioritárias: Consulta com endocrinologista para diabetes; Aconselhamento genético oncológico urgente; Monitoramento cardiovascular anual.",
+          "secao": "sumario",
+          "fonte": "dados_estruturados.json > sumario",
+          "similaridade": 0.5182
+        }
+      ],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "bloqueado_guardrail",
+      "perfil": "medico",
+      "busca": "real",
+      "status_contrato": "bloqueado",
+      "status_esperado": "bloqueado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "sem_contexto",
+      "perfil": "medico",
+      "busca": "injetada (vazia)",
+      "status_contrato": "sem_contexto",
+      "status_esperado": "sem_contexto",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    },
+    {
+      "cenario": "bloqueio_interno_do_agente",
+      "perfil": "medico",
+      "busca": "real",
+      "status_contrato": "bloqueado",
+      "status_esperado": "bloqueado",
+      "status_ok": true,
+      "fontes_contrato_ok": true,
+      "fontes_contrato_detalhe": "0 fontes (esperado 0)",
+      "fontes_integracao_ok": true,
+      "integracao_preserva_fontes": true,
+      "secoes": [],
+      "fontes_contrato": [],
+      "simplificacao": {
+        "aplicada": false,
+        "motivo": "status_nao_respondido",
+        "metricas_original": {},
+        "metricas_simplificado": {}
+      }
+    }
+  ]
+}

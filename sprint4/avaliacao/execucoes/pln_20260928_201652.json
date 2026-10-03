@@ -1,0 +1,1133 @@
+{
+  "gerado_em_utc": "2026-09-28T23:16:52+00:00",
+  "modulo_avaliado": "sprint3/nlp/nlp_simplificacao.py::simplificar_texto (não editado)",
+  "entrada": "dados_estruturados.json — descricao_tecnica, recomendacao, impacto_pratico × 7 condições",
+  "resumo": {
+    "textos": 16,
+    "campos_vazios_no_json": [
+      "2.3.impacto_pratico",
+      "2.4.impacto_pratico",
+      "2.5.impacto_pratico",
+      "2.6.impacto_pratico",
+      "2.7.impacto_pratico"
+    ],
+    "textos_alterados": 5,
+    "media_flesch_pt": {
+      "original": 25.97,
+      "simplificado": 29.47
+    },
+    "media_palavras_por_frase": {
+      "original": 11.79,
+      "simplificado": 12.51
+    },
+    "media_caracteres_por_palavra": {
+      "original": 6.01,
+      "simplificado": 5.93
+    },
+    "media_densidade_tecnica_por_100": {
+      "original": 5.29,
+      "simplificado": 3.28
+    },
+    "erros": {
+      "E1_dentro_de_palavra": 0,
+      "E2_concordancia": 6,
+      "E3_duplicacao": 0,
+      "textos_com_algum_erro": 4
+    },
+    "adaptador": {
+      "simplificacao_aplicada": 16,
+      "quebrou_ancoragem": 0,
+      "motivos": [
+        "ok"
+      ],
+      "ancoragem_original_falhou": 0
+    }
+  },
+  "textos": [
+    {
+      "condicao": "2.1",
+      "doenca": "Diabetes Mellitus Tipo 2",
+      "campo": "descricao_tecnica",
+      "texto_original": "Homozigose para o alelo de risco T no polimorfismo RS7903146 do gene TCF7L2 (odds ratio de 1,37 por alelo; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas.",
+      "texto_simplificado": "Homozigose para o versão de um gene de risco T no variação comum no DNA RS7903146 do gene TCF7L2 (odds ratio de 1,37 por versão de um gene; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas.",
+      "alterado": true,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 45,
+          "frases": 2,
+          "media_palavras_por_frase": 22.5,
+          "media_caracteres_por_palavra": 5.67
+        },
+        "simplificado": {
+          "palavras": 54,
+          "frases": 2,
+          "media_palavras_por_frase": 27.0,
+          "media_caracteres_por_palavra": 5.17
+        }
+      },
+      "flesch_pt": {
+        "original": 36.12,
+        "simplificado": 50.66
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {
+            "homozigose": 1,
+            "heterozigose": 1,
+            "polimorfismo": 1,
+            "alelo": 2,
+            "odds ratio": 1,
+            "susceptibilidade": 1
+          },
+          "total": 7,
+          "por_100_palavras": 15.56
+        },
+        "simplificado": {
+          "ocorrencias": {
+            "homozigose": 1,
+            "heterozigose": 1,
+            "odds ratio": 1,
+            "susceptibilidade": 1
+          },
+          "total": 4,
+          "por_100_palavras": 7.41
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [
+          {
+            "expressao": "o versão de um gene",
+            "trecho_simplificado": "…Homozigose para o versão de um gene de risco T no variação comum no DN…"
+          },
+          {
+            "expressao": "no variação comum no DNA",
+            "trecho_simplificado": "…ara o versão de um gene de risco T no variação comum no DNA RS7903146 do gene TCF7L2 (odds rat…"
+          }
+        ],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Homozigose para o versão de um gene de risco T no variação comum no DNA RS7903146 do gene TCF7L2 (odds ratio de 1,37 por versão de um gene; OR combinado: 1,88). Heterozigose em RS12255372 (TCF7L2) e RS1801282 (PPARG — Pro12Ala) detectadas, conferindo susceptibilidade aumentada à resistência insulínica e disfunção das células beta pancreáticas."
+      },
+      "chunk_secao": "marcadores_2.1"
+    },
+    {
+      "condicao": "2.1",
+      "doenca": "Diabetes Mellitus Tipo 2",
+      "campo": "recomendacao",
+      "texto_original": "Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada.",
+      "texto_simplificado": "Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 31,
+          "frases": 4,
+          "media_palavras_por_frase": 7.75,
+          "media_caracteres_por_palavra": 6.52
+        },
+        "simplificado": {
+          "palavras": 31,
+          "frases": 4,
+          "media_palavras_por_frase": 7.75,
+          "media_caracteres_por_palavra": 6.52
+        }
+      },
+      "flesch_pt": {
+        "original": -1.92,
+        "simplificado": -1.92
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Monitoramento semestral de glicemia de jejum e HbA1c. Adoção de dieta hipoglicídica com índice glicêmico controlado. Prática regular de atividade física aeróbica (mínimo 150 minutos por semana). Avaliação com endocrinologista recomendada."
+      },
+      "chunk_secao": "recomendacao_2.1"
+    },
+    {
+      "condicao": "2.1",
+      "doenca": "Diabetes Mellitus Tipo 2",
+      "campo": "impacto_pratico",
+      "texto_original": "Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+      "texto_simplificado": "Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 31,
+          "frases": 2,
+          "media_palavras_por_frase": 15.5,
+          "media_caracteres_por_palavra": 5.16
+        },
+        "simplificado": {
+          "palavras": 31,
+          "frases": 2,
+          "media_palavras_por_frase": 15.5,
+          "media_caracteres_por_palavra": 5.16
+        }
+      },
+      "flesch_pt": {
+        "original": 47.53,
+        "simplificado": 47.53
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Na prática, isso significa que você deve evitar açúcares simples, fazer exercícios regularmente e checar sua glicemia a cada 6 meses. Pequenas mudanças no dia a dia podem fazer grande diferença."
+      },
+      "chunk_secao": "resultado_2.1"
+    },
+    {
+      "condicao": "2.2",
+      "doenca": "Carcinoma de Mama (BRCA-relacionado)",
+      "campo": "descricao_tecnica",
+      "texto_original": "Variante patogênica de perda de função no gene BRCA2 (c.5946delT, p.Ser1982Argfs), classificada como Patogênica (Classe 5) segundo critérios ACMG/AMP. Risco cumulativo de carcinoma de mama de 45–85% ao longo da vida e risco de carcinoma ovariano de 10–30%. Variantes adicionais em BRCA1 com efeito modificador detectadas.",
+      "texto_simplificado": "Variante patogênica de perda de função no gene BRCA2 (c.5946delT, p.Ser1982Argfs), classificada como Patogênica (Classe 5) segundo critérios ACMG/AMP. Risco cumulativo de carcinoma de mama de 45–85% ao longo da vida e risco de carcinoma ovariano de 10–30%. Variantes adicionais em BRCA1 com efeito modificador detectadas.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 51,
+          "frases": 5,
+          "media_palavras_por_frase": 10.2,
+          "media_caracteres_por_palavra": 5.1
+        },
+        "simplificado": {
+          "palavras": 51,
+          "frases": 5,
+          "media_palavras_por_frase": 10.2,
+          "media_caracteres_por_palavra": 5.1
+        }
+      },
+      "flesch_pt": {
+        "original": 54.09,
+        "simplificado": 54.09
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {
+            "variante": 2,
+            "patogênica": 2
+          },
+          "total": 4,
+          "por_100_palavras": 7.84
+        },
+        "simplificado": {
+          "ocorrencias": {
+            "variante": 2,
+            "patogênica": 2
+          },
+          "total": 4,
+          "por_100_palavras": 7.84
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Variante patogênica de perda de função no gene BRCA2 (c.5946delT, p.Ser1982Argfs), classificada como Patogênica (Classe 5) segundo critérios ACMG/AMP. Risco cumulativo de carcinoma de mama de 45–85% ao longo da vida e risco de carcinoma ovariano de 10–30%. Variantes adicionais em BRCA1 com efeito modificador detectadas."
+      },
+      "chunk_secao": "marcadores_2.2"
+    },
+    {
+      "condicao": "2.2",
+      "doenca": "Carcinoma de Mama (BRCA-relacionado)",
+      "campo": "recomendacao",
+      "texto_original": "Encaminhamento urgente para aconselhamento genético oncológico. Rastreamento mamográfico anual a partir dos 25 anos. Ressonância magnética de mama anual. Discussão de estratégias de redução de risco com oncologista geneticista.",
+      "texto_simplificado": "Encaminhamento urgente para aconselhamento genético oncológico. Rastreamento mamográfico anual a partir dos 25 anos. Ressonância magnética de mama anual. Discussão de estratégias de redução de risco com oncologista geneticista.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 29,
+          "frases": 4,
+          "media_palavras_por_frase": 7.25,
+          "media_caracteres_por_palavra": 6.72
+        },
+        "simplificado": {
+          "palavras": 29,
+          "frases": 4,
+          "media_palavras_por_frase": 7.25,
+          "media_caracteres_por_palavra": 6.72
+        }
+      },
+      "flesch_pt": {
+        "original": -0.65,
+        "simplificado": -0.65
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Encaminhamento urgente para aconselhamento genético oncológico. Rastreamento mamográfico anual a partir dos 25 anos. Ressonância magnética de mama anual. Discussão de estratégias de redução de risco com oncologista geneticista."
+      },
+      "chunk_secao": "recomendacao_2.2"
+    },
+    {
+      "condicao": "2.2",
+      "doenca": "Carcinoma de Mama (BRCA-relacionado)",
+      "campo": "impacto_pratico",
+      "texto_original": "Isso significa que você precisa de acompanhamento médico especializado e exames mais frequentes. Existem estratégias preventivas eficazes que um geneticista pode discutir com você.",
+      "texto_simplificado": "Isso significa que você precisa de acompanhamento médico especializado e exames mais frequentes. Existem estratégias preventivas eficazes que um geneticista pode discutir com você.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 24,
+          "frases": 2,
+          "media_palavras_por_frase": 12.0,
+          "media_caracteres_por_palavra": 6.46
+        },
+        "simplificado": {
+          "palavras": 24,
+          "frases": 2,
+          "media_palavras_por_frase": 12.0,
+          "media_caracteres_por_palavra": 6.46
+        }
+      },
+      "flesch_pt": {
+        "original": 4.01,
+        "simplificado": 4.01
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Isso significa que você precisa de acompanhamento médico especializado e exames mais frequentes. Existem estratégias preventivas eficazes que um geneticista pode discutir com você."
+      },
+      "chunk_secao": "resultado_2.2"
+    },
+    {
+      "condicao": "2.3",
+      "doenca": "Hipertensão Arterial Essencial",
+      "campo": "descricao_tecnica",
+      "texto_original": "Heterozigose para polimorfismo de inserção/deleção RS4340 no gene ACE, associado a níveis elevados de ACE sérica no genótipo D/D. Variante RS699 no gene AGT (M235T) em heterozigose, relacionada a maior produção de angiotensinogênio. RS5186 (AGTR1) em heterozigose.",
+      "texto_simplificado": "Heterozigose para variação comum no DNA de inserção/deleção RS4340 no gene ACE, associado a níveis elevados de ACE sérica no informações do DNA D/D. Variante RS699 no gene AGT (M235T) em heterozigose, relacionada a maior produção de angiotensinogênio. RS5186 (AGTR1) em heterozigose.",
+      "alterado": true,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 39,
+          "frases": 3,
+          "media_palavras_por_frase": 13.0,
+          "media_caracteres_por_palavra": 5.56
+        },
+        "simplificado": {
+          "palavras": 44,
+          "frases": 3,
+          "media_palavras_por_frase": 14.67,
+          "media_caracteres_por_palavra": 5.25
+        }
+      },
+      "flesch_pt": {
+        "original": 33.9,
+        "simplificado": 47.44
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {
+            "heterozigose": 3,
+            "polimorfismo": 1,
+            "genótipo": 1,
+            "variante": 1
+          },
+          "total": 6,
+          "por_100_palavras": 15.38
+        },
+        "simplificado": {
+          "ocorrencias": {
+            "heterozigose": 3,
+            "variante": 1
+          },
+          "total": 4,
+          "por_100_palavras": 9.09
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [
+          {
+            "expressao": "no informações do DNA",
+            "trecho_simplificado": "…do a níveis elevados de ACE sérica no informações do DNA D/D. Variante RS699 no gene AGT (M…"
+          }
+        ],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Heterozigose para variação comum no DNA de inserção/deleção RS4340 no gene ACE, associado a níveis elevados de ACE sérica no informações do DNA D/D. Variante RS699 no gene AGT (M235T) em heterozigose, relacionada a maior produção de angiotensinogênio. RS5186 (AGTR1) em heterozigose."
+      },
+      "chunk_secao": "marcadores_2.3"
+    },
+    {
+      "condicao": "2.3",
+      "doenca": "Hipertensão Arterial Essencial",
+      "campo": "recomendacao",
+      "texto_original": "Monitoramento regular da pressão arterial (pelo menos 2 vezes por ano). Dieta com baixo teor de sódio (menos de 2g de sal por dia). Controle de peso corporal e prática de exercícios físicos regulares. Avaliação cardiológica anual.",
+      "texto_simplificado": "Monitoramento regular da pressão arterial (pelo menos 2 vezes por ano). Dieta com baixo teor de sódio (menos de 2g de sal por dia). Controle de peso corporal e prática de exercícios físicos regulares. Avaliação cardiológica anual.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 37,
+          "frases": 4,
+          "media_palavras_por_frase": 9.25,
+          "media_caracteres_por_palavra": 5.03
+        },
+        "simplificado": {
+          "palavras": 37,
+          "frases": 4,
+          "media_palavras_por_frase": 9.25,
+          "media_caracteres_por_palavra": 5.03
+        }
+      },
+      "flesch_pt": {
+        "original": 61.1,
+        "simplificado": 61.1
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Monitoramento regular da pressão arterial (pelo menos 2 vezes por ano). Dieta com baixo teor de sódio (menos de 2g de sal por dia). Controle de peso corporal e prática de exercícios físicos regulares. Avaliação cardiológica anual."
+      },
+      "chunk_secao": "recomendacao_2.3"
+    },
+    {
+      "condicao": "2.4",
+      "doenca": "Doença de Alzheimer (início tardio)",
+      "campo": "descricao_tecnica",
+      "texto_original": "Genótipo APOE ε3/ε4 (heterozigoto), conferindo risco relativo de 3–4x para Doença de Alzheimer de início tardio em comparação ao genótipo ε3/ε3. O alelo ε4 está presente em aproximadamente 40% dos casos de Alzheimer esporádico. Variante RS11136000 no gene CLU com efeito protetor parcial detectada.",
+      "texto_simplificado": "Informações do DNA APOE ε3/ε4 (heterozigoto), conferindo risco relativo de 3–4x para Doença de Alzheimer de início tardio em comparação ao informações do DNA ε3/ε3. O versão de um gene ε4 está presente em aproximadamente 40% dos casos de Alzheimer esporádico. Variante RS11136000 no gene CLU com efeito protetor parcial detectada.",
+      "alterado": true,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 47,
+          "frases": 3,
+          "media_palavras_por_frase": 15.67,
+          "media_caracteres_por_palavra": 5.21
+        },
+        "simplificado": {
+          "palavras": 54,
+          "frases": 3,
+          "media_palavras_por_frase": 18.0,
+          "media_caracteres_por_palavra": 5.0
+        }
+      },
+      "flesch_pt": {
+        "original": 43.93,
+        "simplificado": 55.1
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {
+            "heterozigoto": 1,
+            "alelo": 1,
+            "genótipo": 2,
+            "variante": 1
+          },
+          "total": 5,
+          "por_100_palavras": 10.64
+        },
+        "simplificado": {
+          "ocorrencias": {
+            "heterozigoto": 1,
+            "variante": 1
+          },
+          "total": 2,
+          "por_100_palavras": 3.7
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [
+          {
+            "expressao": "O versão de um gene",
+            "trecho_simplificado": "…ração ao informações do DNA ε3/ε3. O versão de um gene ε4 está presente em aproximadament…"
+          },
+          {
+            "expressao": "ao informações do DNA",
+            "trecho_simplificado": "…mer de início tardio em comparação ao informações do DNA ε3/ε3. O versão de um gene ε4 está…"
+          }
+        ],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Informações do DNA APOE ε3/ε4 (heterozigoto), conferindo risco relativo de 3–4x para Doença de Alzheimer de início tardio em comparação ao informações do DNA ε3/ε3. O versão de um gene ε4 está presente em aproximadamente 40% dos casos de Alzheimer esporádico. Variante RS11136000 no gene CLU com efeito protetor parcial detectada."
+      },
+      "chunk_secao": "marcadores_2.4"
+    },
+    {
+      "condicao": "2.4",
+      "doenca": "Doença de Alzheimer (início tardio)",
+      "campo": "recomendacao",
+      "texto_original": "Manutenção de atividade cognitiva regular (leitura, aprendizado de novas habilidades). Controle de fatores de risco cardiovascular (pressão, colesterol, diabetes). Dieta mediterrânea. Avaliação neurológica periódica a partir dos 50 anos.",
+      "texto_simplificado": "Manutenção de atividade cognitiva regular (leitura, aprendizado de novas habilidades). Controle de fatores de risco cardiovascular (pressão, colesterol, diabetes). Dieta mediterrânea. Avaliação neurológica periódica a partir dos 50 anos.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 29,
+          "frases": 4,
+          "media_palavras_por_frase": 7.25,
+          "media_caracteres_por_palavra": 6.83
+        },
+        "simplificado": {
+          "palavras": 29,
+          "frases": 4,
+          "media_palavras_por_frase": 7.25,
+          "media_caracteres_por_palavra": 6.83
+        }
+      },
+      "flesch_pt": {
+        "original": -3.57,
+        "simplificado": -3.57
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Manutenção de atividade cognitiva regular (leitura, aprendizado de novas habilidades). Controle de fatores de risco cardiovascular (pressão, colesterol, diabetes). Dieta mediterrânea. Avaliação neurológica periódica a partir dos 50 anos."
+      },
+      "chunk_secao": "recomendacao_2.4"
+    },
+    {
+      "condicao": "2.5",
+      "doenca": "Doença Celíaca",
+      "campo": "descricao_tecnica",
+      "texto_original": "Presença do haplótipo HLA-DQ2.5 (DQA1*05:01/DQB1*02:01) em heterozigose, presente em 90–95% dos pacientes com doença celíaca. A presença isolada do haplótipo confere predisposição, mas não determina o desenvolvimento da doença (penetrância ~3%). Variante RS4713586 em IL18RAP com efeito modulador da resposta inflamatória intestinal.",
+      "texto_simplificado": "Presença do haplótipo HLA-DQ2.5 (DQA1*05:01/DQB1*02:01) em heterozigose, presente em 90–95% dos pacientes com doença celíaca. A presença isolada do haplótipo confere predisposição, mas não determina o desenvolvimento da doença (penetrância ~3%). Variante RS4713586 em IL18RAP com efeito modulador da resposta inflamatória intestinal.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 50,
+          "frases": 4,
+          "media_palavras_por_frase": 12.5,
+          "media_caracteres_por_palavra": 5.44
+        },
+        "simplificado": {
+          "palavras": 50,
+          "frases": 4,
+          "media_palavras_por_frase": 12.5,
+          "media_caracteres_por_palavra": 5.44
+        }
+      },
+      "flesch_pt": {
+        "original": 45.8,
+        "simplificado": 45.8
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {
+            "heterozigose": 1,
+            "haplótipo": 2,
+            "variante": 1,
+            "penetrância": 1
+          },
+          "total": 5,
+          "por_100_palavras": 10.0
+        },
+        "simplificado": {
+          "ocorrencias": {
+            "heterozigose": 1,
+            "haplótipo": 2,
+            "variante": 1,
+            "penetrância": 1
+          },
+          "total": 5,
+          "por_100_palavras": 10.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Presença do haplótipo HLA-DQ2.5 (DQA1*05:01/DQB1*02:01) em heterozigose, presente em 90–95% dos pacientes com doença celíaca. A presença isolada do haplótipo confere predisposição, mas não determina o desenvolvimento da doença (penetrância ~3%). Variante RS4713586 em IL18RAP com efeito modulador da resposta inflamatória intestinal."
+      },
+      "chunk_secao": "marcadores_2.5"
+    },
+    {
+      "condicao": "2.5",
+      "doenca": "Doença Celíaca",
+      "campo": "recomendacao",
+      "texto_original": "Atenção a sintomas gastrointestinais persistentes (diarreia, distensão, má absorção). Sorologia para anticorpos anti-transglutaminase (tTG-IgA) em caso de sintomas. Não iniciar dieta isenta de glúten sem diagnóstico confirmado por biópsia intestinal.",
+      "texto_simplificado": "Atenção a sintomas gastrointestinais persistentes (diarreia, distensão, má absorção). Sorologia para anticorpos anti-transglutaminase (tTG-IgA) em caso de sintomas. Não iniciar dieta isenta de glúten sem diagnóstico confirmado por biópsia intestinal.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 32,
+          "frases": 3,
+          "media_palavras_por_frase": 10.67,
+          "media_caracteres_por_palavra": 6.56
+        },
+        "simplificado": {
+          "palavras": 32,
+          "frases": 3,
+          "media_palavras_por_frase": 10.67,
+          "media_caracteres_por_palavra": 6.56
+        }
+      },
+      "flesch_pt": {
+        "original": 23.86,
+        "simplificado": 23.86
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Atenção a sintomas gastrointestinais persistentes (diarreia, distensão, má absorção). Sorologia para anticorpos anti-transglutaminase (tTG-IgA) em caso de sintomas. Não iniciar dieta isenta de glúten sem diagnóstico confirmado por biópsia intestinal."
+      },
+      "chunk_secao": "recomendacao_2.5"
+    },
+    {
+      "condicao": "2.6",
+      "doenca": "Trombofilia Hereditária (Fator V de Leiden)",
+      "campo": "descricao_tecnica",
+      "texto_original": "Ausência da mutação Fator V Leiden (RS6025, G1691A) — genótipo wild-type G/G. Ausência da mutação de protrombina G20210A (RS1799963) — genótipo wild-type G/G. Sem evidência de variantes patogênicas nos genes MTHFR, PROC e PROS1 analisados. Risco de tromboembolismo venoso dentro dos parâmetros populacionais basais.",
+      "texto_simplificado": "Ausência da mutação Fator V Leiden (RS6025, G1691A) — informações do DNA wild-type G/G. Ausência da mutação de protrombina G20210A (RS1799963) — informações do DNA wild-type G/G. Sem evidência de variantes patogênicas nos genes MTHFR, PROC e PROS1 analisados. Risco de tromboembolismo venoso dentro dos parâmetros populacionais basais.",
+      "alterado": true,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 46,
+          "frases": 4,
+          "media_palavras_por_frase": 11.5,
+          "media_caracteres_por_palavra": 5.57
+        },
+        "simplificado": {
+          "palavras": 50,
+          "frases": 4,
+          "media_palavras_por_frase": 12.5,
+          "media_caracteres_por_palavra": 5.44
+        }
+      },
+      "flesch_pt": {
+        "original": 62.45,
+        "simplificado": 68.64
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {
+            "genótipo": 2,
+            "variante": 1,
+            "patogênica": 1,
+            "mutação": 2,
+            "wild-type": 2
+          },
+          "total": 8,
+          "por_100_palavras": 17.39
+        },
+        "simplificado": {
+          "ocorrencias": {
+            "variante": 1,
+            "patogênica": 1,
+            "mutação": 2,
+            "wild-type": 2
+          },
+          "total": 6,
+          "por_100_palavras": 12.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Ausência da mutação Fator V Leiden (RS6025, G1691A) — informações do DNA wild-type G/G. Ausência da mutação de protrombina G20210A (RS1799963) — informações do DNA wild-type G/G. Sem evidência de variantes patogênicas nos genes MTHFR, PROC e PROS1 analisados. Risco de tromboembolismo venoso dentro dos parâmetros populacionais basais."
+      },
+      "chunk_secao": "marcadores_2.6"
+    },
+    {
+      "condicao": "2.6",
+      "doenca": "Trombofilia Hereditária (Fator V de Leiden)",
+      "campo": "recomendacao",
+      "texto_original": "Sem restrições específicas relacionadas a trombofilia hereditária. Manter hidratação adequada em viagens longas. Informar médico sobre resultado antes de uso de anticoncepcionais hormonais.",
+      "texto_simplificado": "Sem restrições específicas relacionadas a trombofilia hereditária. Manter hidratação adequada em viagens longas. Informar médico sobre resultado antes de uso de anticoncepcionais hormonais.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 23,
+          "frases": 3,
+          "media_palavras_por_frase": 7.67,
+          "media_caracteres_por_palavra": 7.13
+        },
+        "simplificado": {
+          "palavras": 23,
+          "frases": 3,
+          "media_palavras_por_frase": 7.67,
+          "media_caracteres_por_palavra": 7.13
+        }
+      },
+      "flesch_pt": {
+        "original": -1.71,
+        "simplificado": -1.71
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Sem restrições específicas relacionadas a trombofilia hereditária. Manter hidratação adequada em viagens longas. Informar médico sobre resultado antes de uso de anticoncepcionais hormonais."
+      },
+      "chunk_secao": "recomendacao_2.6"
+    },
+    {
+      "condicao": "2.7",
+      "doenca": "Intolerância à Lactose (tipo adulto)",
+      "campo": "descricao_tecnica",
+      "texto_original": "Genótipo heterozigoto C/T para RS4988235 (região regulatória do gene LCT — Lactase), associado à persistência parcial da lactase na vida adulta. Indivíduos com este genótipo geralmente toleram quantidades moderadas de lactose (até 12g por refeição) sem sintomas significativos.",
+      "texto_simplificado": "Informações do DNA heterozigoto C/T para RS4988235 (região regulatória do gene LCT — Lactase), associado à persistência parcial da lactase na vida adulta. Indivíduos com este informações do DNA geralmente toleram quantidades moderadas de lactose (até 12g por refeição) sem sintomas significativos.",
+      "alterado": true,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 38,
+          "frases": 2,
+          "media_palavras_por_frase": 19.0,
+          "media_caracteres_por_palavra": 6.08
+        },
+        "simplificado": {
+          "palavras": 42,
+          "frases": 2,
+          "media_palavras_por_frase": 21.0,
+          "media_caracteres_por_palavra": 5.88
+        }
+      },
+      "flesch_pt": {
+        "original": 13.6,
+        "simplificado": 24.08
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {
+            "heterozigoto": 1,
+            "genótipo": 2
+          },
+          "total": 3,
+          "por_100_palavras": 7.89
+        },
+        "simplificado": {
+          "ocorrencias": {
+            "heterozigoto": 1
+          },
+          "total": 1,
+          "por_100_palavras": 2.38
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [
+          {
+            "expressao": "este informações do DNA",
+            "trecho_simplificado": "…ase na vida adulta. Indivíduos com este informações do DNA geralmente toleram quantidades mod…"
+          }
+        ],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Informações do DNA heterozigoto C/T para RS4988235 (região regulatória do gene LCT — Lactase), associado à persistência parcial da lactase na vida adulta. Indivíduos com este informações do DNA geralmente toleram quantidades moderadas de lactose (até 12g por refeição) sem sintomas significativos."
+      },
+      "chunk_secao": "marcadores_2.7"
+    },
+    {
+      "condicao": "2.7",
+      "doenca": "Intolerância à Lactose (tipo adulto)",
+      "campo": "recomendacao",
+      "texto_original": "Tolerância moderada a produtos lácteos esperada. Observar sintomas individuais. Produtos fermentados (iogurte, queijos curados) geralmente bem tolerados. Suplementação de cálcio não necessária se consumo moderado de laticínios mantido.",
+      "texto_simplificado": "Tolerância moderada a produtos lácteos esperada. Observar sintomas individuais. Produtos fermentados (iogurte, queijos curados) geralmente bem tolerados. Suplementação de cálcio não necessária se consumo moderado de laticínios mantido.",
+      "alterado": false,
+      "metricas_modulo": {
+        "original": {
+          "palavras": 28,
+          "frases": 4,
+          "media_palavras_por_frase": 7.0,
+          "media_caracteres_por_palavra": 7.18
+        },
+        "simplificado": {
+          "palavras": 28,
+          "frases": 4,
+          "media_palavras_por_frase": 7.0,
+          "media_caracteres_por_palavra": 7.18
+        }
+      },
+      "flesch_pt": {
+        "original": -3.01,
+        "simplificado": -3.01
+      },
+      "densidade_tecnica": {
+        "original": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        },
+        "simplificado": {
+          "ocorrencias": {},
+          "total": 0,
+          "por_100_palavras": 0.0
+        }
+      },
+      "erros": {
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      "adaptador": {
+        "ancoragem_original": {
+          "ancorado": true,
+          "termos_nao_ancorados": [],
+          "score_sobreposicao": 1.0,
+          "politica": "sinalizar"
+        },
+        "simplificacao_aplicada": true,
+        "motivo": "ok",
+        "termos_nao_ancorados_apos_simplificar": [],
+        "texto_exibido": "Tolerância moderada a produtos lácteos esperada. Observar sintomas individuais. Produtos fermentados (iogurte, queijos curados) geralmente bem tolerados. Suplementação de cálcio não necessária se consumo moderado de laticínios mantido."
+      },
+      "chunk_secao": "recomendacao_2.7"
+    }
+  ],
+  "sondas_sinteticas": {
+    "aviso": "Entradas inventadas para testar o mecanismo; NÃO entram nas métricas acima.",
+    "resultados": [
+      {
+        "sonda": "plural_de_termo",
+        "entrada_sintetica": "Foram encontrados dois alelos de risco.",
+        "saida": "Foram encontrados dois versão de um genes de risco.",
+        "E1_dentro_de_palavra": [
+          {
+            "termo_da_regra": "alelo",
+            "palavra_atingida": "alelos",
+            "trecho_original": "…Foram encontrados dois alelos de risco.…"
+          }
+        ],
+        "E2_concordancia": [
+          {
+            "expressao": "dois versão de um gene",
+            "trecho_simplificado": "…Foram encontrados dois versão de um genes de risco.…"
+          }
+        ],
+        "E3_duplicacao": []
+      },
+      {
+        "sonda": "termo_dentro_de_outra_palavra",
+        "entrada_sintetica": "O resultado segue em paralelo ao exame anterior.",
+        "saida": "O resultado segue em parversão de um gene ao exame anterior.",
+        "E1_dentro_de_palavra": [
+          {
+            "termo_da_regra": "alelo",
+            "palavra_atingida": "paralelo",
+            "trecho_original": "…O resultado segue em paralelo ao exame anterior.…"
+          }
+        ],
+        "E2_concordancia": [],
+        "E3_duplicacao": []
+      },
+      {
+        "sonda": "plural_de_polimorfismo",
+        "entrada_sintetica": "Os polimorfismos avaliados são comuns.",
+        "saida": "Os variação comum no DNAs avaliados são comuns.",
+        "E1_dentro_de_palavra": [
+          {
+            "termo_da_regra": "polimorfismo",
+            "palavra_atingida": "polimorfismos",
+            "trecho_original": "…Os polimorfismos avaliados são comuns.…"
+          }
+        ],
+        "E2_concordancia": [
+          {
+            "expressao": "Os variação comum no DNA",
+            "trecho_simplificado": "…Os variação comum no DNAs avaliados são comuns.…"
+          }
+        ],
+        "E3_duplicacao": []
+      },
+      {
+        "sonda": "artigo_masculino",
+        "entrada_sintetica": "O genótipo APOE foi analisado.",
+        "saida": "O informações do DNA APOE foi analisado.",
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [
+          {
+            "expressao": "O informações do DNA",
+            "trecho_simplificado": "…O informações do DNA APOE foi analisado.…"
+          }
+        ],
+        "E3_duplicacao": []
+      },
+      {
+        "sonda": "duplicacao_por_contexto",
+        "entrada_sintetica": "Foi encontrada uma variante genética no DNA do paciente.",
+        "saida": "Foi encontrada uma alteração no DNA no DNA do paciente.",
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [],
+        "E3_duplicacao": [
+          {
+            "repeticao": "no DNA no DNA",
+            "trecho_simplificado": "…Foi encontrada uma alteração no DNA no DNA do paciente.…"
+          }
+        ]
+      },
+      {
+        "sonda": "duplicacao_por_contexto_2",
+        "entrada_sintetica": "Os marcadores genéticos do DNA foram avaliados.",
+        "saida": "Os características do DNA do DNA foram avaliados.",
+        "E1_dentro_de_palavra": [],
+        "E2_concordancia": [
+          {
+            "expressao": "Os características do DNA",
+            "trecho_simplificado": "…Os características do DNA do DNA foram avaliados.…"
+          }
+        ],
+        "E3_duplicacao": [
+          {
+            "repeticao": "do DNA do DNA",
+            "trecho_simplificado": "…Os características do DNA do DNA foram avaliados.…"
+          }
+        ]
+      }
+    ]
+  }
+}
