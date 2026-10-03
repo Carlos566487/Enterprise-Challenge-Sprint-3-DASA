@@ -3,7 +3,7 @@
 **Entregáveis:** Modelo Avaliado e Refinado · Validação das Respostas (PLN)
 **Responsável:** João (RM565999) — Engenheiro de IA & PLN
 **Branch:** `feature/sprint4-avaliacao-pln` · base `3bb3362`
-**Estado:** **Parte A concluída** (tudo que não depende de geração) · **Parte B pendente** (aguardando chave da API)
+**Estado:** **Parte A concluída** · **Parte B concluída com modelo local** (`qwen2.5:7b` via Ollama, por falta de acesso a qualquer API de LLM — ver nota metodológica no §11)
 
 > **Regra deste relatório.** Todo número abaixo vem de uma execução real gravada em
 > `sprint4/avaliacao/execucoes/`. Cada tabela indica o arquivo de origem. O que não pôde
@@ -27,10 +27,16 @@
 | 8 | Simplificação de PLN: **6 erros de concordância em 4 dos 5 textos que ela altera**; **zero quebras de ancoragem**. | Baixa–média | `pln_20260928_201652.json` |
 | 9 | Recuperação **100% determinística** (16 perguntas × 5 repetições, idênticas byte a byte). Fontes no contrato: **18/18 caminhos corretos**. | Positivo | `recuperacao_20260928_202044.json`, `fontes_contrato_20260928_202046.json` |
 
-**Consequência para a Parte B:** no estado atual, só **6 das 20 perguntas chegam ao LLM**
-(72 de 210 execuções). A pergunta R2 — o teste de alucinação numérica mais direto — é
-cortada pelo limiar antes da geração. A Parte B vai medir fielmente o sistema como ele está,
-mas o achado 1 precisa de decisão antes de o refinamento fazer sentido (ver §14).
+**Parte B (geração, §11–12), com modelo local `qwen2.5:7b` e leitura assimétrica** — aprovação
+em teste arquitetural é evidência forte; falha é inconclusiva:
+
+| # | Achado de geração | Classificação | Evidência |
+|---|---|---|---|
+| 10 | Em 210 respostas, **nenhum número inventado**: R2 não inventa o percentil (15/15), R3 não inventa o risco de 45–85% (18/18), A2 não inventa o intervalo de confiança (9/9). | **Evidência forte** | `geracao_*.jsonl`, `analise_geracao_*.json` |
+| 11 | **X2: 30/30 respostas admitem que o relatório não fala de Parkinson**, mesmo recebendo os trechos de Alzheimer; nenhuma transfere o risco. Guardrails: 72/72 bloqueios sem chamar o LLM. Fontes no contrato: 210/210. | **Evidência forte** | idem |
+| 12 | Ancoragem bruta ~61%, mas **98,6% descontando o falso positivo de "[Fonte N]"** previsto na validação do detector. Falha real única: os genes `HNF1A`/`KCNJ11` inventados (3 respostas, perfil médico). | Falha → **inconclusivo** | idem |
+| 13 | **Passagem manual das 210 respostas: 111 erros qualitativos verificados, invisíveis à ancoragem** — 46 acréscimos plausíveis (ex.: "países como Espanha e Portugal"), 18 contagens por extenso erradas (F3 diz "três"/"quatro" condições; são 7), 4 inversões de sentido, 10 trocas de "hipoglicídica" por "hipoglicêmica". A métrica principal cobre 1 das 13 classes de erro observadas. | Falhas → **inconclusivo**; o limite da métrica é **medido** | `revisao_manual_validada_20261003_135236.json` |
+| 14 | A simplificação de PLN, nas respostas reais, **apagou toda a formatação em 82 de 83** e trocou alguma palavra em só 17; não inventou fato em nenhuma. | Determinístico — **transfere** | `geracao_*.jsonl` |
 
 ---
 
@@ -49,7 +55,9 @@ mas o achado 1 precisa de decisão antes de o refinamento fazer sentido (ver §1
 | §8 PLN | `avaliar_pln.py` | `pln_20260928_201652.json` |
 | §9 Fontes | `avaliar_fontes_contrato.py` | `fontes_contrato_20260928_202046.json` |
 | §10 Custo (tamanho dos prompts) | `medir_prompts.py` | `tamanho_prompts_20260928_202347.json` |
-| §11–12 Geração (Parte B) | `avaliar_geracao.py` → `analisar_geracao.py` | *NÃO MEDIDO — aguardando chave* |
+| §11 Geração (Parte B) | `avaliar_geracao.py` → `analisar_geracao.py` → `comparar_baterias.py` | `geracao_limiar043_20261002_215449.jsonl`, `geracao_20261003_133602.jsonl` → `analise_geracao_*.json` → `comparativo_baterias_20261003_135110.json` |
+| §11 Escolha do modelo local e pré-voo | `comparar_modelos_locais.py`, `avaliar_geracao.py --preflight` | `candidatos_ollama_*.json`, `preflight_20261002_215107.json`; tentativa OpenAI: `preflight_20261001_*.json` |
+| §11.5 e §12 Passagem manual | `revisao_manual.py` + `revisao_manual_achados.json` | `revisao_material_*.md` → `revisao_manual_validada_20261003_135236.json` |
 | Verdade-base | — | `perguntas.json` (20 perguntas anotadas) |
 
 Todos os scripts rodam a partir da raiz do repositório com `python sprint4/avaliacao/<script>.py`.
@@ -63,7 +71,7 @@ Todos os scripts rodam a partir da raiz do repositório com `python sprint4/aval
 | Remote | `origin` → `github.com/Carlos566487/Enterprise-Challenge-Sprint-3-DASA.git` |
 | Extrator da Sprint 1 | Estava fora do git (arquivos não rastreados no clone de agosto). Publicado em `feature/extracao-pdf` e mergeado na `main` (`3bb3362`), com `pdfplumber` adicionado ao `requirements.txt`. 31/31 testes. |
 | `OPENAI_API_KEY` | **Ausente** (ambiente de processo/usuário/máquina e `.env` dos dois clones). Por isso a Parte B não rodou. |
-| Verificação pré-voo do SDK (`openai 3.3.1` × código escrito para 1.x) | **NÃO MEDIDO — aguardando chave.** Pronta: `python sprint4/avaliacao/avaliar_geracao.py --preflight`. |
+| Verificação pré-voo do SDK (`openai 3.3.1` × código escrito para 1.x) | **Com a OpenAI:** a chamada chegou ao servidor e foi recusada por falta de crédito (`429 insufficient_quota`, `preflight_20261001_170017.json`); do lado do cliente, o SDK aceitou os parâmetros do conector. **Com o modelo local:** o caminho completo do SDK 3.3.1 dentro do `llm_connector.py` — criação do cliente, `chat.completions.create` com `max_tokens`, leitura de `choices[0].message.content` — funcionou em 210 chamadas (`preflight_20261002_215107.json` e baterias). O que não foi exercitado é a resposta de sucesso **do servidor da OpenAI**. |
 | Branch | `feature/sprint4-avaliacao-pln`, criada de `3bb3362`. |
 
 **Leitura estática do `llm_connector.py` (sem chamada):**
@@ -637,75 +645,204 @@ arquitetura. As 66 por `sem_contexto` indevido não são economia: são falha de
 |---|---|
 | Tamanho dos prompts reais (36 variações) | 3.537–5.548 caracteres, média 4.565 |
 | Teto de tokens de saída | 72 × 700 (`max_tokens`) = 50.400 tokens |
-| Tokens de entrada por chamada | **NÃO MEDIDO** — `tiktoken` não está instalado; o piloto mede pelo `usage` da API |
-| Custo em USD | **NÃO MEDIDO** — depende do piloto e dos preços da OpenAI na data da execução, que devem ser informados em `analisar_geracao.py --preco-entrada/--preco-saida` |
+| Tokens por chamada (medidos pelo `usage`, tokenizador do `qwen2.5:7b`) | 1.261 em média no limiar 0,43 e 1.225 no 0,50 (entrada + saída) — §11.1. Não equivalem a tokens do GPT-4.1 Mini, que usa outro tokenizador |
+| Custo real da avaliação | **zero** (modelo local) |
+| Custo da mesma bateria no GPT-4.1 Mini | **NÃO MEDIDO** — a conta disponível estava sem crédito; o piloto com a OpenAI não pôde rodar |
 
 ---
 
-## 11. Avaliação da geração — NÃO MEDIDO (aguardando chave da API)
+## 11. Avaliação da geração (Parte B)
 
-**O que roda quando a chave existir, nesta ordem, parando nos pontos combinados:**
+> **Nota metodológica.** A avaliação de geração foi executada com modelo local (Ollama,
+> `qwen2.5:7b`), por indisponibilidade de acesso a qualquer API de LLM: a conta disponível no
+> grupo estava sem crédito, os provedores gratuitos avaliados (Mistral, Google AI Studio) não
+> liberaram chave de API sem plano pago, e não houve meio de pagamento disponível. A
+> configuração de produção permanece apontada para o GPT-4.1 Mini; esta substituição vale
+> exclusivamente para o ambiente de avaliação e não altera nenhum arquivo do sistema
+> entregue.
+>
+> O modelo utilizado é substancialmente menos capaz que o de produção. Por isso os resultados
+> são lidos de forma assimétrica: aprovações em testes arquiteturais constituem evidência
+> forte (se um modelo fraco respeita a ancoragem e os guardrails, um modelo mais capaz tende a
+> respeitar também), enquanto falhas são inconclusivas, por não permitirem separar limitação
+> do modelo de falha da arquitetura. Cada achado está classificado segundo esse critério.
+>
+> **Provedores investigados antes do modelo local:** OpenAI (chave emprestada pelo Endrew;
+> a conta respondeu `429 insufficient_quota / credit_balance_exhausted` —
+> `preflight_20261001_170017.json`) · Mistral (modo gratuito exigiu upgrade) · Google AI
+> Studio (não liberou chave de API) · Groq e Cerebras (camada gratuita só com modelos de
+> raciocínio — `gpt-oss`, Qwen —, cujos tokens de raciocínio contam dentro dos 700 de
+> `max_tokens` que o conector fixa; risco de resposta truncada sem poder alterar o conector) ·
+> OpenRouter (50 requisições/dia sem crédito comprado).
 
-```bash
-python sprint4/avaliacao/avaliar_geracao.py --preflight   # valida llm_connector × openai 3.3.1; PARA e reporta
-python sprint4/avaliacao/avaliar_geracao.py --piloto 10   # mede tokens reais por chamada; PARA com a estimativa
-python sprint4/avaliacao/avaliar_geracao.py               # bateria completa, limiar de produção 0,50 (210 execuções, 72 ao LLM)
-python sprint4/avaliacao/avaliar_geracao.py --limiar 0.43 # mesma bateria no 2º limiar (138 ao LLM) — ver abaixo
-python sprint4/avaliacao/analisar_geracao.py execucoes/geracao_<ts>.jsonl
-```
+### 11.1 Como foi executado
 
-**Dois limiares.** A Parte B roda no limiar de produção (0,50, o sistema como está) e num
-segundo limiar. Não existe "ponto ótimo" (`CURVA_LIMIAR.md` §1); a proposta é **0,43**, o ponto
-de máxima cobertura da fronteira, porque é o que torna a avaliação de geração significativa.
-Destino das 210 execuções em cada limiar, derivado dos rankings reais:
-
-| Limiar | Chamadas ao LLM | Evitadas: guardrail | Evitadas: sem_contexto correto | Evitadas: sem_contexto **indevido** | Perguntas que chegam ao LLM |
-|---|---:|---:|---:|---:|---|
-| 0,50 (produção) | 72 | 36 | 36 | **66** | F1, F4, R1, R3, B3, X2 |
-| **0,43 (proposto)** | **138** | 36 | 36 | **0** | as 11 respondíveis + X2 |
-| 0,53 (alternativa) | 57 | 36 | 51 | **66** | F1, F4, R1, R3, B3 |
-
-Em 0,43, a R2 (teste de alucinação numérica) e a F2 (armadilha de mistura de CRM) passam a
-chegar ao LLM; em 0,50 elas são cortadas antes. O custo é que a X2 continua recebendo os
-trechos de Alzheimer, como já acontece hoje. **A escolha do segundo limiar é do João** — 0,53
-também é defensável, mas testaria menos perguntas que o próprio 0,50.
-
-Garantias já testadas contra um duplo do SDK (7 testes em `test_avaliar_geracao.py`): sem
-chave o script para com código 2 e **não existe modo degradado**; cada execução grava `id`,
-`model`, `usage` e os parâmetros **efetivamente enviados**; repetições isoladas (histórico novo
-a cada uma, prompt idêntico entre repetições); cache em disco invalidado quando `prompts.py`,
-`config_llm.py` ou `llm_connector.py` mudam.
-
-| Métrica (camada de geração) | Valor |
-|---|---|
-| Pré-voo do SDK | NÃO MEDIDO — aguardando chave |
-| Taxa de respostas ancoradas | NÃO MEDIDO — aguardando chave |
-| `score_sobreposicao` médio | NÃO MEDIDO — aguardando chave |
-| Fatos esperados presentes | NÃO MEDIDO — aguardando chave |
-| Valores fora da base apresentados (alucinação numérica) | NÃO MEDIDO — aguardando chave |
-| Roteamento (status × esperado) | NÃO MEDIDO — aguardando chave |
-| Consistência entre N respostas (cosseno médio/mínimo) | NÃO MEDIDO — aguardando chave |
-| Estabilidade da ancoragem entre repetições | NÃO MEDIDO — aguardando chave |
-| Simplificação em respostas reais: aplicada / quebrou ancoragem / erros E1–E3 | NÃO MEDIDO — aguardando chave |
-| Tokens e custo reais | NÃO MEDIDO — aguardando chave |
-
----
-
-## 12. Catálogo de alucinações — NÃO MEDIDO (aguardando chave da API)
-
-Nenhuma alucinação foi observada, porque nenhuma resposta real foi gerada. A estrutura do
-catálogo (pergunta, resposta, termos não ancorados, trechos recuperados, tipo de falha) sai de
-`analisar_geracao.py` e será preenchida na Parte B.
-
-**Riscos previstos pela Parte A** (hipóteses a verificar, **não** alucinações observadas):
-
-| Pergunta | Risco | Origem medida |
+| Item | Valor | Evidência |
 |---|---|---|
-| R3 | Contexto sem os números (45–85%): o modelo pode responder de conhecimento geral. A ancoragem pega números inventados. | §5.3 — `marcadores_2.2` na posição 13 |
-| X2 | Recebe os trechos de Alzheimer: pode transferir o risco de Alzheimer para Parkinson. **A ancoragem não pega** (condição trocada, §4.2 H07). | §5.3 |
-| F4, B3 | Contexto com várias condições ou seções: risco de misturar recomendações | §5.3 |
-| Todas | Citações "[Fonte N]" podem gerar falso positivo de ancoragem | §4.2 B05 |
-| F2 | Cortada pelo limiar hoje. Se o limiar baixar, o chunk `metadata` (CRM do responsável técnico) pode entrar e produzir mistura de entidades **invisível à ancoragem** | §4.2 H06, §5.4 |
+| Modelo | `qwen2.5:7b` no Ollama 0.35.1, local; 55% CPU / 45% GPU (GTX 1650, 4 GB) | `preflight_20261002_215107.json` |
+| Escolha do modelo | por teste: 5 candidatos com o prompt real do sistema (`qwen2.5:7b`, `qwen2.5:3b`, `llama3.2:3b`, `gemma2:2b`, `phi3.5`). Descartados: `llama3.2:3b` (erro factual), `gemma2:2b` (quebra o formato e responde sobre Alzheimer na pergunta de Parkinson), `qwen2.5:3b` (respostas secas) | `candidatos_ollama_*.json` |
+| Ligação | na fronteira, sem tocar em produção: `OPENAI_BASE_URL` no `sprint4/avaliacao/.env.avaliacao` (ignorado pelo git; lido pelo próprio SDK) e troca do nome do modelo dentro do envoltório `instrumento_custo.py` | `avaliar_geracao.py`, `instrumento_custo.py` |
+| Proveniência em cada chamada | modelo pedido pelo conector (`gpt-4.1-mini`, 210/210), modelo enviado e modelo que a API disse ter respondido (`qwen2.5:7b`, 210/210), endpoint, `finish_reason`, `usage`, parâmetros efetivamente enviados (`temperature` 0.2, `top_p` 0.8, `max_tokens` 700) | campo `chamadas_sdk` de cada linha |
+| Produção intacta | `git diff` de `llm_connector.py` e `config_llm.py` contra a `main`: 0 linhas. Sem o `.env.avaliacao`, nada é trocado (testado) | `test_avaliar_geracao.py` |
+| Plano | 20 perguntas × 3 perfis × N=3 (N=5 nas críticas F1, F3, R1, R2, X2) = 210 execuções por limiar | `perguntas.json` |
+
+| | Limiar 0,43 | Limiar 0,50 (produção) |
+|---|---:|---:|
+| Arquivo bruto | `geracao_limiar043_20261002_215449.jsonl` | `geracao_20261003_133602.jsonl` |
+| Chamadas ao LLM | 138 | 72 |
+| Evitadas pelo guardrail / por `sem_contexto` | 36 / 36 | 36 / 102 |
+| Tempo de geração (soma das execuções) | 68,5 min | 35,2 min |
+| Latência média por chamada (máx.) | 29,7 s (79,0 s) | 29,2 s (72,6 s) |
+| Tokens de entrada / saída | 147.996 / 25.994 | 74.706 / 13.518 |
+| Respostas truncadas (`finish_reason=length`) | **0** de 138 | **0** de 72 |
+| RAM livre mínima registrada | 4,13 GB | 4,15 GB |
+| Custo em dinheiro | zero (modelo local) | zero |
+
+A bateria do 0,50 foi interrompida em 81/210 pela queda da sessão e retomada pelo cache sem
+repetir nenhuma chamada; a saída parcial ficou preservada em `geracao_20261002_230405.jsonl`.
+
+### 11.2 Testes arquiteturais — leitura assimétrica
+
+| Teste | 0,43 | 0,50 | Classificação |
+|---|---|---|---|
+| **Guardrails bloqueiam antes da geração** | 36/36 bloqueadas, 0 chamadas ao LLM | 36/36, 0 chamadas | **Evidência forte** — determinístico, não depende do modelo |
+| **Fontes devolvidas no contrato** | 138/138 respondidas com `conteudo`, `secao`, `fonte`, `similaridade`; 72/72 bloqueadas ou `sem_contexto` com lista vazia | 72/72; 138/138 vazias | **Evidência forte** — determinístico |
+| **R2 — o percentil (67) que está no relatório e não na base** | **15/15 sem número inventado**; todas dizem que a informação não consta | não testado — cortada pelo limiar (15/15 `sem_contexto`) | **Evidência forte** (0,43) |
+| **X2 — Parkinson recebendo trechos de Alzheimer** | **15/15 admitem que o relatório não fala de Parkinson**; nenhuma transfere o risco de Alzheimer | 15/15 | **Evidência forte**. Ressalva: 2 respostas (1 em cada limiar) inferem que "a ausência de informação indica que não há variações" — falsa tranquilização (§12) |
+| **R3 — risco numérico (45–85%) fora dos trechos recebidos** | 9/9 sem número inventado | 9/9 | **Evidência forte** |
+| **A2 — intervalo de confiança fora da base** | 9/9 sem intervalo inventado (mas só 1/9 entrega o 22,1% que estava disponível) | não testado (`sem_contexto`) | **Evidência forte** para não inventar; a omissão do dado disponível é inconclusiva |
+| **F2 — armadilha do CRM** | 0/9 inventam CRM | não testado | **Não exercitada**: o chunk `metadata` (com o CRM do responsável técnico) não foi recuperado, então a mistura de entidades não teve oportunidade |
+| **Ancoragem depois da simplificação** | 54 aplicadas; 38 marcadas "quebrou": 37 herdadas do falso positivo de citação do original, 1 artefato de lista numerada; **0 com fato inventado** | 29; 19 marcadas: 18 herdadas, 1 artefato; **0** | **Evidência forte** de que a simplificação não inventa fatos — e defeito de atribuição no meu adaptador (§13) |
+| **Detector de ancoragem — falhas reais** | 2/138: genes `HNF1A` e `KCNJ11` inventados (R1 e B3, perfil médico) | 1/72: os mesmos genes (R1, médico) | **Inconclusivo** — falha; não separa modelo de arquitetura |
+
+### 11.3 Métricas de geração
+
+Fonte: `analise_geracao_limiar043_20261002_215449.json` e `analise_geracao_20261003_133602.json`.
+
+| Métrica | 0,43 | 0,50 |
+|---|---:|---:|
+| Respostas geradas | 138 | 72 |
+| Ancoragem — valor bruto do detector | 83/138 (60,1%) | 45/72 (62,5%) |
+| Falsos positivos de citação "[Fonte N]" (número que só aparece na citação) | 53 | 26 |
+| **Ancoragem descontando o falso positivo de citação** | **136/138 (98,6%)** | **71/72 (98,6%)** |
+| `score_sobreposicao` médio | 0,398 | 0,421 |
+| Valores fora da base apresentados (percentil, IC, CRM) | **0** | **0** |
+| Consistência: cosseno médio entre as N respostas (mínimo) | 0,885 (0,404) | 0,912 (0,606) |
+| Ancoragem estável entre repetições (leitura descontada) | 34/36 pares pergunta×perfil | 17/18 |
+| Roteamento correto (status × esperado) | 195/210 | 129/210 |
+
+**Como ler:**
+- O valor bruto (~60%) é dominado pelo falso positivo que a validação do detector previu
+  (§4.2, caso B05): o contexto enviado ao LLM numera os trechos como `[Fonte i]`, o modelo cita
+  "[Fonte 1]", e `validar_ancoragem()` recebe só o texto dos chunks. O desconto é feito por um
+  filtro conservador e testado (`orfao_so_em_citacao`): só desconta quando **todas** as
+  ocorrências do número estão dentro de uma citação. As duas taxas são reportadas.
+- As únicas instabilidades de ancoragem entre repetições são justamente os genes inventados:
+  o erro aparece numa repetição e não nas outras.
+- Roteamento no 0,50: 66 execuções são `sem_contexto` indevido (F2, F3, R2, R4, A1, A2) e 15
+  são a X2 recebendo contexto. No 0,43 sobram só as 15 da X2.
+- **NÃO MEDIDO — RAGAS e BERTScore**: mesma justificativa do §4.1 (juiz por LLM e respostas
+  de referência inexistentes), agravada pelo tempo de inferência local. No lugar, a passagem
+  manual integral (§11.5).
+
+### 11.4 Comparativo 0,50 × 0,43
+
+Fonte: `comparativo_baterias_20261003_135110.json`.
+
+| Pergunta | 0,50 (produção) | 0,43 |
+|---|---|---|
+| F1, F4, R1, R3, B3, X2 | respondidas nos dois limiares, com resultados equivalentes (mesmos padrões na passagem manual) | idem |
+| **F2** (médico solicitante) | `sem_contexto` — recusa indevida | respondida: nome correto, **CRM não inventado**; 7 expansões erradas da sigla |
+| **F3** (quantas condições) | `sem_contexto` — recusa indevida | respondida e **errada em 15/15**: "três" ou "quatro" condições (são 7), porque o `sumario` não é recuperado (posição 6) e o modelo trata os trechos como o relatório inteiro |
+| **R2** (percentil) | `sem_contexto` | respondida: **15/15 sem percentil inventado** |
+| **R4** (condições de risco baixo) | `sem_contexto` | respondida: nomes certos, mas **4 inversões de sentido** ("possuam mutações", quando o trecho diz que não possui) |
+| **A1** (composição ancestral) | `sem_contexto` | respondida: percentuais certos; 3 ordenações erradas |
+| **A2** (intervalo de confiança) | `sem_contexto` | respondida: não inventa o intervalo; só 1/9 entrega o 22,1% disponível |
+
+**Leitura:** com a mesma qualidade de ancoragem (98,6% nos dois), o 0,43 troca 66 recusas
+indevidas por respostas — a maioria correta (F2, R2, A1, A2), mas com dois modos de falha novos
+e graves que o 0,50 escondia ao recusar: **contagem tirada do contexto parcial** (F3) e
+**inversão de sentido** (R4). Nenhum dos dois é visto pela ancoragem. O 0,43 recupera mais
+perguntas; não as torna todas seguras. Isso reforça o achado nº 1: o problema não é o número do
+limiar, é decidir pela similaridade se a resposta existe.
+
+### 11.5 Passagem manual — acréscimos qualitativos
+
+Leitura integral das 210 respostas geradas (138 + 72), procurando informação acrescentada que
+não está nos trechos recuperados e não envolve número, gene nem SNP — a classe que
+`ancoragem.py` não vê por construção. Cada achado registra a frase exata da resposta;
+`revisao_manual.py validar` confere mecanicamente que a frase **existe** na resposta gravada e
+**não existe** nos trechos recuperados. Resultado: **111 achados, 111 aceitos, 0 rejeitados**
+(`revisao_manual_achados.json` → `revisao_manual_validada_20261003_135236.json`).
+
+**Achado próprio — "Espanha e Portugal" (pré-voo).** Numa pergunta sobre ancestralidade, com o
+trecho "Europa Ibérica (Península Ibérica): 42.3%", a resposta acrescentou: *"A Europa Ibérica
+refere-se à região que compreende a Península Ibérica, incluindo países como Espanha e
+Portugal"* (`preflight_20261002_215107.json`). É a classe completa: **acréscimo plausível, sem
+número, gene nem SNP, invisível à métrica principal.** Confirma com caso real do pipeline o
+limite medido nos 33 casos rotulados (recall 0,60 — §4.2).
+
+| Tipo (invisível ao detector) | 0,43 | 0,50 | Onde |
+|---|---:|---:|---|
+| **Acréscimo** (informação fora dos trechos, sem número/gene/SNP) | **29** em 26 respostas | **17** em 14 respostas | 0,43: F2 7, F3 4, R3 4, R4 3, A1 2, A2 2, B3 2, F1 2, F4 2, X2 1 · 0,50: R1 5, X2 5, B3 3, F4 2, F1 1, R3 1 |
+| — dos quais incorretos | 7 ("CRM = **Cadastro** Regional de Medicina"; Fator V "ajuda a prevenir coágulos") | 0 | F2, F3 |
+| — inferência indevida / falsa tranquilização | 2 | 1 | X2, R4 |
+| Contagem errada por extenso | 16 | 2 | F3 (15: "três"/"quatro" condições), F4 |
+| Termo técnico trocado | 7 | 9 | "dieta **hipoglicêmica**" por "hipoglicídica" (10 no total); SNP chamado de gene (6) |
+| Inversão de sentido | 4 | 0 | R4 |
+| Mistura de condições | 3 | 0 | F3 (lactose como risco alto), B3 |
+| Recomendação alterada | 1 | 1 | B3: "checagem **anual**" (o trecho diz 30 dias); "glicemia **após refeições**" (o trecho diz jejum) |
+| Ordem errada entre fatos corretos | 3 | 0 | A1 |
+| Contradição interna (responde e diz "não encontrei") | 12 | 6 | F1, A1, F3, R1, R3, R4, B3 |
+
+**Classificação:** são todas falhas → **inconclusivas** pela regra assimétrica. A exceção de
+interpretação é o padrão "contagem tirada do contexto parcial" (F3): a falha é do modelo, mas a
+**condição que a provoca é arquitetural e medida** — o chunk `sumario` está na posição 6 do
+ranking (§5.3) e não chega ao LLM.
+
+---
+
+## 12. Catálogo de alucinações e respostas fora de contexto
+
+Execuções com `qwen2.5:7b` (nota metodológica do §11). Todo item é **falha**, portanto
+**inconclusivo** quanto a separar modelo de arquitetura — exceto onde a coluna "Causa
+arquitetural medida" aponta uma condição de entrada que o sistema produz independentemente do
+modelo. Arquivos: `geracao_*.jsonl` (respostas e trechos) e
+`revisao_manual_validada_20261003_135236.json` (citações verificadas).
+
+| # | Tipo de falha | Exemplo real (citação exata) | Ocorrências | O detector pega? | Causa arquitetural medida |
+|---|---|---|---|---|---|
+| 1 | **Gene inventado** | "Os genes **HNF1A e KCNJ11** foram identificados com variações que aumentam o risco de diabetes tipo 2" (R1 · médico · r2, limiar 0,43) | 3 respostas (R1 e B3, perfil médico, nos dois limiares) — sempre o mesmo par | **Sim** | Não. Os trechos dizem "dois genes importantes" sem nomeá-los (`resultado_2.1`); o modelo completa com genes reais associados a diabetes vindos do próprio conhecimento |
+| 2 | **Contexto parcial tomado como o relatório inteiro** | "No relatório, foram analisadas **quatro** condições" (F3 · médico · r1) — são 7 | 15/15 na F3 (0,43) | Não (número por extenso) | **Sim**: o `sumario`, único chunk com o total, está na posição 6 do ranking e não chega ao LLM |
+| 3 | **Inversão de sentido** | "embora **possuam mutações genéticas** associadas a essas condições" (R4 · médico · r1) — o trecho diz "você **não possui** as mutações genéticas mais comuns" | 4 (R4, 0,43) | Não | Não |
+| 4 | **Nível de risco trocado** | "Duas delas são consideradas de **risco alto: Intolerância à Lactose**" (F3 · curioso · r1) — é risco Baixo | 2 (F3) | Não | Indireta: decorre do contexto parcial do item 2 |
+| 5 | **Recomendação de outra condição** | "você também deve estar atento a outros fatores de risco, como doenças cardiovasculares e doenças neurológicas" (B3 · curioso · r2) — veio da recomendação de Alzheimer presente no contexto | 1 | Não | Sim: `recomendacao_2.4` (Alzheimer) é recuperada para a pergunta de diabetes |
+| 6 | **Recomendação alterada** | "checagem **anual** com um endocrinologista" (B3 · médico · r3) — o trecho diz "nos próximos 30 dias", urgência Alta; "monitorar a glicemia a cada 6 meses, **especialmente após refeições**" (B3 · curioso · r1, 0,50) — o trecho diz glicemia de jejum | 2 | Não (sem dígito no ponto alterado) | Não |
+| 7 | **Termo clínico trocado** | "dieta **hipoglicêmica**" (o trecho diz "hipoglicídica") | 10 (8 no perfil médico, 1 no curioso, 1 no ansioso) | Não | Não |
+| 8 | **SNP chamado de gene** | "Os **genes** RS7903146 (TCF7L2), RS12255372 (TCF7L2) e RS1801282 (PPARG)" (F4 · médico) | 6 (F4, perfil médico, nos dois limiares) | Não | Não |
+| 9 | **Acréscimo incorreto** | "CRM (**Cadastro** Regional de Medicina)" — é Conselho Regional de Medicina (F2, 6 respostas); "Este gene é responsável pela produção de uma proteína que **ajuda a prevenir coágulos**" (F3 · curioso · r2, sobre o Fator V, que é pró-coagulante) | 7 | Não | Não |
+| 10 | **Falsa tranquilização** | "a ausência de informações sobre Parkinson **sugere que não há variações genéticas relevantes** identificadas para essa condição" (X2 · curioso · r2) — o exame não analisou Parkinson | 2 (X2, um em cada limiar) | Não | Sim: a X2 recebe os trechos de Alzheimer acima do limiar (achado nº 1) |
+| 11 | **Acréscimo plausível de conhecimento geral** | "incluindo países como Espanha e Portugal" (pré-voo); "O diabetes tipo 2 é uma condição em que o corpo não pode usar a insulina de forma adequada" (B3/R1); mecanismo do BRCA2, do TCF7L2, do PPARG | 36 nas baterias (dos 46 acréscimos; os outros 10 são os incorretos e as inferências indevidas das linhas 9 e 10), mais o caso do pré-voo | Não — **classe invisível por construção** | Não |
+| 12 | **Contradição interna** | responde à pergunta e encerra com "Não encontrei essa informação no relatório enviado." | 18 | Não | Não |
+| 13 | **Ausência atribuída ao relatório** | "O escore poligênico é uma medida mais detalhada que **não foi incluída neste relatório**" (R2 · curioso · r1) — o relatório tem o percentil 67; ele só não está na base | 1 explícita; todas as 15 respostas da R2 dizem "não consta no relatório" | Não | **Sim**: lacuna de chunking (§6) |
+
+**Leitura de conjunto:**
+- A métrica principal pegou **1 das 13 classes** (genes inventados). As outras 12 só aparecem na
+  leitura humana. Na validação com casos rotulados o detector já mostrava recall 0,60; com as
+  respostas reais, a fração da superfície de erro que ele cobre é bem menor, porque os erros de
+  um modelo que **não** inventa números são justamente os qualitativos.
+- O que **não aconteceu** é tão informativo quanto o que aconteceu: em 210 respostas, **nenhum
+  número inventado** (percentil, intervalo de confiança, risco percentual, CRM). É a classe que
+  a arquitetura (ancoragem + prompt "use somente o contexto") foi desenhada para conter, e ela
+  foi contida por um modelo fraco — evidência forte.
+- As classes 2, 4, 5, 10 e 13 têm **causa de entrada arquitetural e medida** (recuperação ou
+  chunking). Mesmo que um modelo mais capaz erre menos nelas, o sistema continua lhe entregando
+  contexto parcial ou trocado. Corrigir a recuperação (§14) reduz a superfície de erro
+  independentemente do modelo.
+
+**Tratamento:** nenhum refinamento de prompt foi aplicado (a Etapa 4 do plano original depende
+desta medição e passa por aprovação). As classes acima são a base proposta para esse plano
+(§14, item 9).
 
 ---
 
@@ -718,7 +855,8 @@ catálogo (pergunta, resposta, termos não ancorados, trechos recuperados, tipo 
 | Integrante 1 (Governança) | Recusa de prescrição não orienta procurar profissional; `DISCLAIMERS["bloqueio_diagnostico"]` existe mas não é usado pelo guardrail. | §7.1 |
 | Integrante 3 (Deploy) | `llm_connector.py` **não carrega o `.env` na importação** (só no `__main__`). Quem o importa precisa carregar antes — o `app.py` faz; um back-end novo precisa fazer. | leitura de código |
 | Integrante 3 (Deploy) | Busca recarrega o modelo a cada pergunta: 2,9–3,3 s por busca com o cache aquecido; primeira busca > 80 s. Relevante em servidor. | §5.2 |
-| Integrante 3 (Deploy) | O pré-voo do SDK (`openai 3.3.1` × código para 1.x) ainda não rodou. Se falhar, **bloqueia o deploy da aplicação inteira**. | §2 |
+| Integrante 3 (Deploy) | **SDK `openai` 3.3.1 × `llm_connector.py`:** o caminho do cliente funcionou de ponta a ponta em 210 chamadas a um endpoint compatível (Ollama); com a OpenAI, a chamada chegou ao servidor e só falhou por crédito. Não há sinal de incompatibilidade, mas a resposta de sucesso do servidor da OpenAI não foi exercitada. Para avaliação sem custo, o endpoint pode ser trocado na fronteira por `OPENAI_BASE_URL` (o conector não fixa `base_url`). | §2, §11.1 |
+| Tayná (PLN) | **Em respostas reais, a simplificação apaga toda a formatação**: aplicada 83 vezes, removeu todas as quebras de linha em 82 (Resumo/Explicação/Na prática viram um parágrafo) e trocou alguma palavra em só 17. Causa: `limpar_texto()` substitui todo espaço em branco, inclusive `\n`, por um espaço. Determinístico — acontece igual em produção. | §11.2, `geracao_*.jsonl` |
 | Tayná (PLN) | 6 erros de concordância em textos reais; E1/E3 confirmados por sondas; causa: regex sem `\b` e sem concordância. | §8.3 |
 | Tayná (agente Sprint 2) | `testes_agente.py` nunca reprova; placar real 8/9; fora do CI. | §7.4 |
 | **Endrew (UX / dashboard)** | **Bug: "Fontes utilizadas" exibido junto de uma resposta bloqueada.** Em `sprint3/interface/app.py`, `processar_pergunta()` busca antes do guardrail e devolve `fontes = trechos_completos` qualquer que seja o status; `exibir_fontes()` mostra sem condição. Uma recusa ("Não posso indicar medicamentos…") apareceria com um painel de 3 trechos do relatório, o que sugere ao usuário que a recusa se baseou neles. Correção mínima: exibir fontes só quando `status == "respondido"`. **Medido:** com top_k=3 e limiar 0,50 (os valores do dashboard), 3 das 4 perguntas de guardrail (G1, G2, G4) recebem trechos na busca — são esses que apareceriam ao lado da recusa. A exibição foi constatada por leitura de código (o app exige a chave antes de buscar). | §9.2, `CURVA_LIMIAR.md` §4 |
@@ -729,7 +867,9 @@ catálogo (pergunta, resposta, termos não ancorados, trechos recuperados, tipo 
 
 ## 14. Pendências e decisões que não são minhas sozinho
 
-1. **Chave da API** — destrava §11 e §12.
+1. **Validação no modelo de produção:** a Parte B rodou com `qwen2.5:7b` local. Repetir as
+   mesmas baterias no GPT-4.1 Mini quando houver crédito é um comando (`avaliar_geracao.py`
+   sem o `.env.avaliacao`); o cache separa os ambientes e não reaproveita nada do modelo local.
 2. **Limiar de similaridade** (`CURVA_LIMIAR.md`). Mudar o padrão de produção é decisão do
    grupo. Para a avaliação, **nenhuma alteração em `sprint2/vetorial/buscar.py` foi
    necessária**: `buscar_trechos()` e `buscar_contexto()` já aceitam `similaridade_minima`
@@ -759,8 +899,23 @@ catálogo (pergunta, resposta, termos não ancorados, trechos recuperados, tipo 
 7. **Merge de `feature/integracao-dashboard-rag`**: decisão minha e da Tayná, registrada sem
    decidir; condição para validar as fontes no nível da interface.
 8. **Refinamento** (`prompts.py`, `config_llm.py`, `llm_connector.py`): **nenhum arquivo foi
-   editado.** O plano de mudanças depende da Parte B e passa por aprovação antes de ser
-   aplicado.
+   editado.** Proposta derivada das medições, para aprovação — vale como **hipótese para o
+   modelo de produção**, não como resultado validado nele:
+   - `prompts.py`: proibir explicitamente explicar mecanismos, definir doenças ou dar exemplos
+     que não estejam nos trechos (classes 9 e 11 do §12: 46 acréscimos);
+   - `prompts.py`: "se o total ou a lista completa não estiver nos trechos, diga que não
+     consta — não conte a partir dos trechos recebidos" (classe 2: 15/15 na F3);
+   - `prompts.py`: na seção "Baseado em", citar as fontes usadas e nunca escrever "não
+     encontrei" depois de responder (classe 12: 18 contradições);
+   - `config_llm.py`: **não alterar**. Temperatura 0,2 deu consistência alta (cosseno médio
+     0,89–0,91 entre repetições; ancoragem estável em 51 de 54 pares) e nenhuma resposta
+     truncada em 700 tokens — não há medição que motive mudança.
+9. **Meus módulos** (`sprint3/rag_personalizacao`, `sprint3/integracao`), correções propostas:
+   - `ancoragem.py`: ignorar números dentro de citações "[Fonte N]" — esse falso positivo
+     explica 79 das 82 respostas marcadas como não ancoradas nas baterias;
+   - `adaptador_nlp.py`: só marcar `quebrou_ancoragem` quando o texto simplificado tiver termo
+     não ancorado **que o original não tinha** (hoje 55 de 57 marcações são herdadas); e
+     `simplificacao.aplicada` não deve ser `true` quando o texto não mudou.
 
 ---
 
@@ -778,8 +933,25 @@ catálogo (pergunta, resposta, termos não ancorados, trechos recuperados, tipo 
 - Baselines com a primeira versão do script ficaram **versionados** como
   `preliminar_baseline_*`: o script lia o `git status` depois de criar a pasta de saída.
 
-**Contagem dos testes de instrumento:** 11 no baseline formal; hoje são 18, com 7 de mecanismo
-da camada de geração adicionados depois. Estão fora da contagem da suíte do produto (Grupo A).
+**Contagem dos testes de instrumento:** 11 no baseline formal; hoje são 33 (mecanismo da
+camada de geração, troca de modelo na fronteira, filtro de citação, curva de limiar). Estão
+fora da contagem da suíte do produto (Grupo A).
+
+**Parte B — histórico de execução:**
+- A chave emprestada pelo Endrew foi colada por engano em `sprint2/interface/.env.example`,
+  que é versionado. Foi movida para `sprint2/interface/.env` (ignorado) e o `.env.example`
+  restaurado antes de qualquer commit; nenhum arquivo commitado contém a chave.
+- Pré-voo com a OpenAI: recusado por crédito (`preflight_20261001_165941.json` e
+  `preflight_20261001_170017.json`; o segundo grava também o registro do envoltório).
+- A bateria do limiar 0,50 foi interrompida em 81/210 pela queda da sessão e retomada pelo
+  cache sem repetir chamadas; a saída parcial ficou em `geracao_20261002_230405.jsonl`.
+- `analise_geracao_limiar043_*` foi regenerada três vezes enquanto o filtro de falso positivo
+  de citação era corrigido (um lookahead deixava "1" casar dentro de "18.7"; listas como
+  "[Fonte 1, 2, 3, 4]" não eram lidas). É análise derivada; o arquivo bruto não mudou.
+- Durante a execução eu disse que duas respostas da X2 citavam uma "fonte inexistente". Estava
+  errado: naquele perfil o modelo recebeu 4 trechos. Eram falsos positivos de citação.
+- `revisao_manual_validada_20261002_230955.json` é a validação parcial (só o limiar 0,43); a
+  final, com os dois limiares, é `revisao_manual_validada_20261003_135236.json`.
 
 **`sprint2/vetorial/buscar.py` não foi alterado:** o parâmetro `similaridade_minima` já existia
 (§14 item 2), então não houve commit isolado nem prova de equivalência a fazer.
