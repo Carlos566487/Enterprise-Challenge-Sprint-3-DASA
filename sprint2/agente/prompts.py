@@ -87,7 +87,8 @@ Responder nesta ordem:
 
 3. O que significa na prática
 
-4. Fontes utilizadas
+4. Fontes utilizadas: liste as fontes que você usou (ex.: [Fonte 1]).
+   Se você respondeu à pergunta, nunca escreva "Não encontrei" nessa seção.
 
 Formato:
 
@@ -102,9 +103,6 @@ Na prática:
 
 Baseado em:
 ...
-
-Em "Baseado em", liste as fontes que você usou (ex.: [Fonte 1]).
-Se você respondeu à pergunta, nunca escreva "Não encontrei" nessa seção.
 
 --------------------------------------------------
 RESTRIÇÕES
