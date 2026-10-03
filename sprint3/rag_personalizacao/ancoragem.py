@@ -58,6 +58,44 @@ RE_GENE = re.compile(r"\b[A-Z][A-Z0-9]{2,}\b")
 RE_MARCADOR_LISTA = re.compile(r"(?m)^\s*\d+\s*[.)\-]\s+")
 RE_PALAVRA = re.compile(r"[a-z0-9]+")
 
+# Citação de trecho no formato que o contexto do agente usa ("[Fonte i]"),
+# inclusive em lista: "[Fonte 1, 2, 3]", "Fonte 1 e Fonte 2", "[Fonte 1, Fonte 2]".
+# O número da citação é rótulo de trecho, não fato clínico: sem esta remoção,
+# toda resposta que cita "[Fonte 1]" seria reprovada (medido na Sprint 4:
+# 79 das 82 respostas reprovadas pelo detector eram só isso).
+RE_CITACAO = re.compile(
+    r"\[?\s*fonte\s*\[?\s*\d+(?:\s*(?:,|\be\b)\s*(?:fonte\s*)?\d+)*\s*\]?",
+    re.IGNORECASE,
+)
+
+# Numerais por extenso → dígitos. Sem isto, "foram analisadas três condições"
+# (o relatório tem 7) passa pela regra dura, que só lia dígitos (medido na
+# Sprint 4: 18 contagens erradas por extenso não detectadas).
+# "um"/"uma" ficam DE FORA de propósito: em português são quase sempre artigo
+# ("uma alteração no gene"), e tratá-los como número reprovaria toda resposta.
+# Compostos ("vinte e cinco") são lidos palavra a palavra — limitação aceita:
+# os numerais que o LLM usa para contar condições, genes e meses são simples.
+NUMERAIS_POR_EXTENSO = {
+    "zero": 0, "dois": 2, "duas": 2, "tres": 3, "quatro": 4, "cinco": 5,
+    "seis": 6, "sete": 7, "oito": 8, "nove": 9, "dez": 10, "onze": 11,
+    "doze": 12, "treze": 13, "catorze": 14, "quatorze": 14, "quinze": 15,
+    "dezesseis": 16, "dezessete": 17, "dezoito": 18, "dezenove": 19,
+    "vinte": 20, "trinta": 30, "quarenta": 40, "cinquenta": 50,
+    "sessenta": 60, "setenta": 70, "oitenta": 80, "noventa": 90, "cem": 100,
+}
+RE_NUMERAL_EXTENSO = re.compile(r"\b(" + "|".join(NUMERAIS_POR_EXTENSO) + r")\b")
+
+# Periodicidade escrita por palavra → número de meses. Necessário porque os
+# trechos do relatório dizem "monitoramento semestral" e a resposta fiel diz
+# "a cada seis meses": sem este mapa, a leitura de numerais por extenso
+# reprovaria a paráfrase correta (regressão medida no caso B07 da validação).
+PERIODOS_EM_MESES = {
+    "mensal": 1, "mensalmente": 1, "bimestral": 2, "trimestral": 3,
+    "quadrimestral": 4, "semestral": 6, "semestralmente": 6,
+    "anual": 12, "anualmente": 12,
+}
+RE_PERIODO = re.compile(r"\b(" + "|".join(PERIODOS_EM_MESES) + r")\b")
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # NORMALIZAÇÃO
@@ -97,8 +135,10 @@ def extrair_fatos(texto: str) -> dict:
     """
     Extrai da string os elementos factuais verificáveis.
 
-    Marcadores de lista ("1. ", "2) ") são removidos antes da extração de
-    números, para não confundir numeração de tópicos com dado clínico.
+    Marcadores de lista ("1. ", "2) ") e citações de trecho ("[Fonte 1]")
+    são removidos antes da extração de números, para não confundir
+    numeração de tópico ou de fonte com dado clínico. Numerais por extenso
+    ("três", "sete") são convertidos e comparados como números.
 
     Returns:
         {"numeros": set, "snps": set, "genes": set}
@@ -111,9 +151,13 @@ def extrair_fatos(texto: str) -> dict:
     # Remove os SNPs antes de procurar números, senão "RS7903146" vira o
     # número 7903146 e polui a comparação.
     texto_sem_snp = RE_SNP.sub(" ", texto)
-    texto_sem_lista = RE_MARCADOR_LISTA.sub("", texto_sem_snp)
+    texto_sem_citacao = RE_CITACAO.sub(" ", texto_sem_snp)
+    texto_sem_lista = RE_MARCADOR_LISTA.sub("", texto_sem_citacao)
 
     numeros = {_normalizar_numero(t) for t in RE_NUMERO.findall(texto_sem_lista)}
+    minusculo = sem_acento(texto_sem_lista.lower())
+    numeros |= {str(NUMERAIS_POR_EXTENSO[p]) for p in RE_NUMERAL_EXTENSO.findall(minusculo)}
+    numeros |= {str(PERIODOS_EM_MESES[p]) for p in RE_PERIODO.findall(minusculo)}
 
     genes = {
         t for t in RE_GENE.findall(texto_sem_snp)

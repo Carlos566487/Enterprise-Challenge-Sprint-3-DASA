@@ -27,6 +27,7 @@ from adaptador_nlp import (                                  # noqa: E402
     MOTIVO_OK,
     MOTIVO_PERFIL_TECNICO,
     MOTIVO_STATUS,
+    MOTIVO_SEM_ALTERACAO,
     VERSAO_CONTRATO_INTEGRACAO,
     responder_com_linguagem_simples,
 )
@@ -368,7 +369,40 @@ def test_integracao_com_funcao_real_da_taina():
         ),
     )
     assert resultado["status"] == "respondido"
-    assert resultado["simplificacao"]["motivo"] in (MOTIVO_OK, MOTIVO_ANCORAGEM)
+    assert resultado["simplificacao"]["motivo"] in (MOTIVO_OK, MOTIVO_ANCORAGEM, MOTIVO_SEM_ALTERACAO)
     assert resultado["resposta_simplificada"].strip()
     # A função real produz métricas de legibilidade em ambos os casos.
     assert resultado["simplificacao"]["metricas_original"]
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Sprint 4 — atribuição correta e preservação de formatação
+# ─────────────────────────────────────────────────────────────────────────────
+
+def test_simplificacao_que_so_mexe_em_espacos_nao_e_aplicada():
+    """Texto idêntico salvo quebras de linha: exibe o original, com formatação."""
+    original = ("Resumo:\nRisco Alto para diabetes tipo 2.\n\n"
+                "Na prática:\nAtenção à glicemia.")
+    simplificador = SimplificadorFake(texto_simplificado=" ".join(original.split()))
+    resultado = chamar(fn_simplificar=simplificador, fn_llm=LLMFake(resposta=original))
+    assert resultado["simplificacao"]["aplicada"] is False
+    assert resultado["simplificacao"]["motivo"] == MOTIVO_SEM_ALTERACAO
+    assert resultado["resposta_simplificada"] == original
+
+
+def test_termo_nao_ancorado_herdado_do_original_nao_e_culpa_da_simplificacao():
+    """O original já tinha um número órfão; a reescrita não acrescentou nada."""
+    original = "Seu percentil é 42 para diabetes tipo 2."
+    simplificador = SimplificadorFake(texto_simplificado="Seu percentil é 42 para o diabetes tipo 2, de forma simples.")
+    resultado = chamar(fn_simplificar=simplificador, fn_llm=LLMFake(resposta=original))
+    assert resultado["ancoragem"]["ancorado"] is False
+    assert resultado["simplificacao"]["motivo"] == MOTIVO_OK
+    assert resultado["simplificacao"]["aplicada"] is True
+
+
+def test_quebra_reporta_so_os_termos_introduzidos():
+    original = "Seu percentil é 42 para diabetes tipo 2."
+    simplificador = SimplificadorFake(texto_simplificado="Seu percentil é 42 e o marcador é RS9999999.")
+    resultado = chamar(fn_simplificar=simplificador, fn_llm=LLMFake(resposta=original))
+    assert resultado["simplificacao"]["motivo"] == MOTIVO_ANCORAGEM
+    assert resultado["simplificacao"]["termos_nao_ancorados"] == ["RS9999999"]

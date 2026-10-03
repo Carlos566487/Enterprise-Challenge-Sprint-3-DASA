@@ -3,7 +3,7 @@
 **Entregáveis:** Modelo Avaliado e Refinado · Validação das Respostas (PLN)
 **Responsável:** João (RM565999) — Engenheiro de IA & PLN
 **Branch:** `feature/sprint4-avaliacao-pln` · base `3bb3362`
-**Estado:** **Parte A concluída** · **Parte B concluída com modelo local** (`qwen2.5:7b` via Ollama, por falta de acesso a qualquer API de LLM — ver nota metodológica no §11)
+**Estado:** **Parte A concluída** · **Parte B concluída com modelo local** (`qwen2.5:7b` via Ollama, por falta de acesso a qualquer API de LLM — ver nota metodológica no §11) · **Fechamento concluído:** detector e adaptador corrigidos (§4.3, §14 item 9), `prompts.py` refinado e re-medido com controle (§12.1)
 
 > **Regra deste relatório.** Todo número abaixo vem de uma execução real gravada em
 > `sprint4/avaliacao/execucoes/`. Cada tabela indica o arquivo de origem. O que não pôde
@@ -14,6 +14,36 @@
 ---
 
 ## Sumário executivo
+
+### Três destaques
+
+**1. A métrica principal cobre 1 das 13 classes de erro observadas.** Em 210 respostas reais, o
+detector de ancoragem só viu os genes inventados; as outras 12 classes (contagem errada,
+inversão de sentido, nível de risco trocado, termo clínico trocado, acréscimos de conhecimento
+geral…) apareceram apenas na leitura humana: 112 erros verificados. Ao mesmo tempo, **nenhum
+número foi inventado** em 210 respostas. O sistema é **sólido no eixo que mede e cego nos
+demais**. A correção do detector no fechamento (§4.3) passou a pegar a classe 2 (18/18
+contagens por extenso); 11 das 13 continuam invisíveis à métrica automática (§12).
+
+**2. Quatro inversões de sentido — a classe de maior consequência clínica.** "embora você
+**possua** variantes genéticas associadas a essas condições", quando o trecho diz "você **não
+possui** as mutações genéticas mais comuns" (R4, limiar 0,43). O paciente lê o oposto do
+relatório, e nenhuma métrica automática deste sistema detecta isso. O ajuste de prompt do
+fechamento **não** a corrigiu (2 → 2 no recorte re-medido, §12.1).
+
+**3. Genes inventados só no perfil médico — um risco introduzido pela minha própria feature de
+personalização.** O relatório diz "dois genes importantes" sem nomeá-los. Só no perfil
+`medico` o modelo os nomeia (`HNF1A` e `KCNJ11`), com genes reais de diabetes tirados do
+próprio conhecimento: são plausíveis para um médico e, por isso, perigosos. A causa é a
+diretiva que eu escrevi para esse perfil (`sprint3/rag_personalizacao/perfis.py`: "priorizando
+marcadores genéticos"), que pede um dado que o contexto não tem. Os perfis leigos nunca
+inventaram gene. O detector pega esse caso; o ajuste de prompt não o reduziu (2 → 2, §12.1).
+A correção proposta está no §14, item 9.
+
+**Sobre o limiar:** o 0,50 parecia mais seguro porque recusava mais, não porque errava menos
+(§11.4).
+
+### Achados por número
 
 | # | Achado | Gravidade | Onde está a evidência |
 |---|---|---|---|
@@ -35,7 +65,7 @@ em teste arquitetural é evidência forte; falha é inconclusiva:
 | 10 | Em 210 respostas, **nenhum número inventado**: R2 não inventa o percentil (15/15), R3 não inventa o risco de 45–85% (18/18), A2 não inventa o intervalo de confiança (9/9). | **Evidência forte** | `geracao_*.jsonl`, `analise_geracao_*.json` |
 | 11 | **X2: 30/30 respostas admitem que o relatório não fala de Parkinson**, mesmo recebendo os trechos de Alzheimer; nenhuma transfere o risco. Guardrails: 72/72 bloqueios sem chamar o LLM. Fontes no contrato: 210/210. | **Evidência forte** | idem |
 | 12 | Ancoragem bruta ~61%, mas **98,6% descontando o falso positivo de "[Fonte N]"** previsto na validação do detector. Falha real única: os genes `HNF1A`/`KCNJ11` inventados (3 respostas, perfil médico). | Falha → **inconclusivo** | idem |
-| 13 | **Passagem manual das 210 respostas: 111 erros qualitativos verificados, invisíveis à ancoragem** — 46 acréscimos plausíveis (ex.: "países como Espanha e Portugal"), 18 contagens por extenso erradas (F3 diz "três"/"quatro" condições; são 7), 4 inversões de sentido, 10 trocas de "hipoglicídica" por "hipoglicêmica". A métrica principal cobre 1 das 13 classes de erro observadas. | Falhas → **inconclusivo**; o limite da métrica é **medido** | `revisao_manual_validada_20261003_135236.json` |
+| 13 | **Passagem manual das 210 respostas: 112 erros qualitativos verificados (111 + 1 correção simétrica, §15), invisíveis à ancoragem** — 46 acréscimos plausíveis (ex.: "países como Espanha e Portugal"), 18 contagens por extenso erradas (F3 diz "três"/"quatro" condições; são 7), 4 inversões de sentido, 10 trocas de "hipoglicídica" por "hipoglicêmica". A métrica principal cobre 1 das 13 classes de erro observadas. | Falhas → **inconclusivo**; o limite da métrica é **medido** | `revisao_manual_validada_20261003_135236.json` |
 | 14 | A simplificação de PLN, nas respostas reais, **apagou toda a formatação em 82 de 83** e trocou alguma palavra em só 17; não inventou fato em nenhuma. | Determinístico — **transfere** | `geracao_*.jsonl` |
 
 ---
@@ -57,7 +87,10 @@ em teste arquitetural é evidência forte; falha é inconclusiva:
 | §10 Custo (tamanho dos prompts) | `medir_prompts.py` | `tamanho_prompts_20260928_202347.json` |
 | §11 Geração (Parte B) | `avaliar_geracao.py` → `analisar_geracao.py` → `comparar_baterias.py` | `geracao_limiar043_20261002_215449.jsonl`, `geracao_20261003_133602.jsonl` → `analise_geracao_*.json` → `comparativo_baterias_20261003_135110.json` |
 | §11 Escolha do modelo local e pré-voo | `comparar_modelos_locais.py`, `avaliar_geracao.py --preflight` | `candidatos_ollama_*.json`, `preflight_20261002_215107.json`; tentativa OpenAI: `preflight_20261001_*.json` |
-| §11.5 e §12 Passagem manual | `revisao_manual.py` + `revisao_manual_achados.json` | `revisao_material_*.md` → `revisao_manual_validada_20261003_135236.json` |
+| §11.5 e §12 Passagem manual | `revisao_manual.py` + `revisao_manual_achados.json` | `revisao_material_*.md` → `revisao_manual_validada_20261003_135236.json`; com a correção simétrica do fechamento: `revisao_manual_validada_20261003_184952.json` |
+| §4.3 Detector corrigido | `validar_ancoragem.py`, `reancorar.py` | `validacao_ancoragem_20261003_140805.json`, `reancoragem_20261003_140806.json` |
+| §14 item 9 Adaptador corrigido | `readaptar.py` | `readaptacao_20261003_141011.json` |
+| §12.1 Antes × depois do prompt | `avaliar_geracao.py --rotulo pos_prompt_*` → `revisao_manual.py` + `revisao_manual_achados_pos_prompt.json` → `comparar_pos_prompt.py` | `pos_prompt_{a,b,c}_limiar043_*.jsonl` → `revisao_manual_validada_20261003_184937.json`; v2: `pos_prompt_{d,e}_limiar043_*.jsonl` → `revisao_manual_validada_20261003_185412.json`; ambos → `comparativo_pos_prompt_20261003_185442.json` |
 | Verdade-base | — | `perguntas.json` (20 perguntas anotadas) |
 
 Todos os scripts rodam a partir da raiz do repositório com `python sprint4/avaliacao/<script>.py`.
@@ -194,6 +227,49 @@ ancorado. A B03 ("2 horas e meia") passou só porque "2" aparece por coincidênc
 **Limitações documentadas:** a ancoragem é um detector de **fatos numéricos e identificadores
 inventados**. Não detecta erro semântico. Por isso a Parte B a complementa com a verificação
 de valores fora da base e com a leitura do catálogo de falhas (§12).
+
+### 4.3 Detector corrigido no fechamento (commit `7134677`)
+
+Duas correções em `sprint3/rag_personalizacao/ancoragem.py` (meu módulo), cada uma motivada por
+uma medição da Parte B:
+
+- **Números por extenso** (classe 2 do §12: a F3 diz "quatro condições"; são 7). O extrator passa
+  a ler numerais por extenso de "zero" a "cem" e as palavras de período ("semestral" = 6,
+  "anual" = 12). "um"/"uma" ficam de fora de propósito: são artigos ("uma alteração no gene").
+- **Citação "[Fonte N]"** (falso positivo B05, previsto no §4.2 e confirmado: explicava 79 das 82
+  reprovações nas baterias). Citações, inclusive listas ("[Fonte 1, 2 e 3]"), são removidas antes
+  da extração. Um teste garante que um "89" inventado ao lado de uma citação continua reprovado.
+
+**Mesmos 33 casos rotulados** — `validacao_ancoragem_20260928_200941.json` → `validacao_ancoragem_20261003_140805.json`:
+
+| Grupo | Antes | Depois | |
+|---|---|---|---|
+| Fiéis (10) | 10 VN | 10 VN | igual — nenhuma resposta fiel passou a ser reprovada |
+| Alucinações (15) | 9 VP · recall 0,60 | **10 VP · recall 0,67** | melhorou: H10 ("oito condições") agora é pego |
+| Fronteira (8) | 5 FP | **4 FP** | melhorou: B05 ("[Fonte 1]") deixou de ser falso positivo |
+| **Geral** | precisão 0,64 · recall 0,60 | **precisão 0,71 · recall 0,67** | nenhuma classe piorou |
+
+Durante a correção houve uma regressão intermediária: com os numerais por extenso, a B07
+("seis meses" no texto, "semestral" no contexto) virou falso positivo. Foi corrigida com o
+mapeamento das palavras de período antes do commit (ver §15).
+
+**Mesmas 210 respostas da Parte B, repontuadas sem nova chamada ao LLM** — `reancoragem_20261003_140806.json`:
+
+| Limiar | Ancoragem bruta antes | Depois | Contagens por extenso erradas detectadas |
+|---|---:|---:|---:|
+| 0,43 | 83/138 (60,1%) | **120/138 (87,0%)** | — |
+| 0,50 | 45/72 (62,5%) | **68/72 (94,4%)** | — |
+| Total | | | **18 de 18** (eram 0) |
+
+As 22 respostas que continuam reprovadas foram lidas uma a uma: **21 são falhas reais** (15
+contagens erradas da F3, 3 "três genes" da F4, 3 com `HNF1A`/`KCNJ11`) e **1 é um falso
+positivo novo** (F4 · 0,50 · ansioso · r1, "três marcadores": contagem correta de uma lista
+enumerada, mas o total não está escrito em dígito no contexto). A ancoragem bruta deixa de ser
+um número que precisava de desconto manual: o que ela reprova agora é, com 1 exceção em 22, erro.
+
+**O limite continua:** o detector cobre fatos numéricos e identificadores. Das 13 classes do
+§12, a correção move a classe 2 de "invisível" para "detectada"; as outras 11 continuam
+invisíveis (ver Destaque 1 no sumário).
 
 ---
 
@@ -763,8 +839,10 @@ Fonte: `comparativo_baterias_20261003_135110.json`.
 indevidas por respostas — a maioria correta (F2, R2, A1, A2), mas com dois modos de falha novos
 e graves que o 0,50 escondia ao recusar: **contagem tirada do contexto parcial** (F3) e
 **inversão de sentido** (R4). Nenhum dos dois é visto pela ancoragem. O 0,43 recupera mais
-perguntas; não as torna todas seguras. Isso reforça o achado nº 1: o problema não é o número do
-limiar, é decidir pela similaridade se a resposta existe.
+perguntas; não as torna todas seguras. **O 0,50 parecia mais seguro porque recusava mais, não
+porque errava menos:** nas perguntas que os dois limiares respondem, os padrões de erro são os
+mesmos; o 0,50 só tem menos erros visíveis porque responde menos. Isso reforça o achado nº 1: o
+problema não é o número do limiar, é decidir pela similaridade se a resposta existe.
 
 ### 11.5 Passagem manual — acréscimos qualitativos
 
@@ -772,7 +850,7 @@ Leitura integral das 210 respostas geradas (138 + 72), procurando informação a
 não está nos trechos recuperados e não envolve número, gene nem SNP — a classe que
 `ancoragem.py` não vê por construção. Cada achado registra a frase exata da resposta;
 `revisao_manual.py validar` confere mecanicamente que a frase **existe** na resposta gravada e
-**não existe** nos trechos recuperados. Resultado: **111 achados, 111 aceitos, 0 rejeitados**
+**não existe** nos trechos recuperados. Resultado: **111 achados, 111 aceitos, 0 rejeitados** (112 depois da correção simétrica do fechamento, §15)
 (`revisao_manual_achados.json` → `revisao_manual_validada_20261003_135236.json`).
 
 **Achado próprio — "Espanha e Portugal" (pré-voo).** Numa pergunta sobre ancestralidade, com o
@@ -812,13 +890,13 @@ modelo. Arquivos: `geracao_*.jsonl` (respostas e trechos) e
 
 | # | Tipo de falha | Exemplo real (citação exata) | Ocorrências | O detector pega? | Causa arquitetural medida |
 |---|---|---|---|---|---|
-| 1 | **Gene inventado** | "Os genes **HNF1A e KCNJ11** foram identificados com variações que aumentam o risco de diabetes tipo 2" (R1 · médico · r2, limiar 0,43) | 3 respostas (R1 e B3, perfil médico, nos dois limiares) — sempre o mesmo par | **Sim** | Não. Os trechos dizem "dois genes importantes" sem nomeá-los (`resultado_2.1`); o modelo completa com genes reais associados a diabetes vindos do próprio conhecimento |
-| 2 | **Contexto parcial tomado como o relatório inteiro** | "No relatório, foram analisadas **quatro** condições" (F3 · médico · r1) — são 7 | 15/15 na F3 (0,43) | Não (número por extenso) | **Sim**: o `sumario`, único chunk com o total, está na posição 6 do ranking e não chega ao LLM |
+| 1 | **Gene inventado** | "Os genes **HNF1A e KCNJ11** foram identificados com variações que aumentam o risco de diabetes tipo 2" (R1 · médico · r2, limiar 0,43) | 3 respostas (R1 e B3, **só no perfil médico**, nos dois limiares) — sempre o mesmo par | **Sim** | **Sim — da minha feature de personalização.** Os trechos dizem "dois genes importantes" sem nomeá-los (`resultado_2.1`); a diretiva do perfil médico (`perfis.py`, "priorizando marcadores genéticos") pede o nome, e o modelo o completa com genes reais de diabetes vindos do próprio conhecimento. Ver Destaque 3 |
+| 2 | **Contexto parcial tomado como o relatório inteiro** | "No relatório, foram analisadas **quatro** condições" (F3 · médico · r1) — são 7 | 15/15 na F3 (0,43) | Não na Parte B; **sim desde o §4.3** (18/18 contagens por extenso) | **Sim**: o `sumario`, único chunk com o total, está na posição 6 do ranking e não chega ao LLM |
 | 3 | **Inversão de sentido** | "embora **possuam mutações genéticas** associadas a essas condições" (R4 · médico · r1) — o trecho diz "você **não possui** as mutações genéticas mais comuns" | 4 (R4, 0,43) | Não | Não |
 | 4 | **Nível de risco trocado** | "Duas delas são consideradas de **risco alto: Intolerância à Lactose**" (F3 · curioso · r1) — é risco Baixo | 2 (F3) | Não | Indireta: decorre do contexto parcial do item 2 |
 | 5 | **Recomendação de outra condição** | "você também deve estar atento a outros fatores de risco, como doenças cardiovasculares e doenças neurológicas" (B3 · curioso · r2) — veio da recomendação de Alzheimer presente no contexto | 1 | Não | Sim: `recomendacao_2.4` (Alzheimer) é recuperada para a pergunta de diabetes |
 | 6 | **Recomendação alterada** | "checagem **anual** com um endocrinologista" (B3 · médico · r3) — o trecho diz "nos próximos 30 dias", urgência Alta; "monitorar a glicemia a cada 6 meses, **especialmente após refeições**" (B3 · curioso · r1, 0,50) — o trecho diz glicemia de jejum | 2 | Não (sem dígito no ponto alterado) | Não |
-| 7 | **Termo clínico trocado** | "dieta **hipoglicêmica**" (o trecho diz "hipoglicídica") | 10 (8 no perfil médico, 1 no curioso, 1 no ansioso) | Não | Não |
+| 7 | **Termo clínico trocado** | "dieta **hipoglicêmica**" (o trecho diz "hipoglicídica") | 10 (8 no perfil médico, 1 no curioso, 1 no ansioso) | Não | Não. **Atribuição verificada:** a troca está no campo `resposta` bruto do LLM nas 10, a simplificação não foi aplicada em 9 delas e nenhuma camada de código contém "hipoglicêmica". Vem do modelo, **não do módulo de PLN da Tayná** — e, por ser falha, é inconclusiva quanto a GPT-4.1 Mini |
 | 8 | **SNP chamado de gene** | "Os **genes** RS7903146 (TCF7L2), RS12255372 (TCF7L2) e RS1801282 (PPARG)" (F4 · médico) | 6 (F4, perfil médico, nos dois limiares) | Não | Não |
 | 9 | **Acréscimo incorreto** | "CRM (**Cadastro** Regional de Medicina)" — é Conselho Regional de Medicina (F2, 6 respostas); "Este gene é responsável pela produção de uma proteína que **ajuda a prevenir coágulos**" (F3 · curioso · r2, sobre o Fator V, que é pró-coagulante) | 7 | Não | Não |
 | 10 | **Falsa tranquilização** | "a ausência de informações sobre Parkinson **sugere que não há variações genéticas relevantes** identificadas para essa condição" (X2 · curioso · r2) — o exame não analisou Parkinson | 2 (X2, um em cada limiar) | Não | Sim: a X2 recebe os trechos de Alzheimer acima do limiar (achado nº 1) |
@@ -840,9 +918,89 @@ modelo. Arquivos: `geracao_*.jsonl` (respostas e trechos) e
   contexto parcial ou trocado. Corrigir a recuperação (§14) reduz a superfície de erro
   independentemente do modelo.
 
-**Tratamento:** nenhum refinamento de prompt foi aplicado (a Etapa 4 do plano original depende
-desta medição e passa por aprovação). As classes acima são a base proposta para esse plano
-(§14, item 9).
+**Tratamento:** três ajustes de `prompts.py` derivados das classes 2, 11 e 12 foram aplicados e
+re-medidos no fechamento — resultado no §12.1, com todas as classes, inclusive as que pioraram.
+
+### 12.1 Refinamento de `prompts.py` — antes × depois, com controle
+
+**Os três ajustes** (commit `75b2cfb`, isolado, 12 linhas; `config_llm.py` e `llm_connector.py`
+intocados), cada um ligado a uma classe medida:
+
+| Ajuste | Texto acrescentado (resumo) | Classe-alvo |
+|---|---|---|
+| 1 | Em "Nunca": não explicar mecanismos, definir doenças nem dar exemplos que não estejam no CONTEXTO | 9 e 11 (46 acréscimos) |
+| 2 | "Totais e listas completas": se o total não estiver no CONTEXTO, dizer que não consta; nunca contar os trechos | 2 (15/15 na F3) |
+| 3 | Em "Baseado em", listar as fontes usadas; nunca escrever "Não encontrei" depois de responder | 12 (18 contradições) |
+
+**Re-medição dirigida**, limiar 0,43, mesmas perguntas, perfis e repetições da bateria original,
+para comparar resposta com resposta: F3 e R4 (3 perfis × r1–r2), R1 e B3 no perfil médico
+(r1–r3, onde os genes inventados e a troca de termo clínico aparecem), F2, X2, R3, **e os
+controles R2, A2 e G1** (3 perfis × r1). Os controles são perguntas que estavam certas antes —
+R2 e A2 não inventavam número, G1 era bloqueada — para ver se o ajuste estraga o que funcionava.
+Leitura manual integral das 36 respostas com **o mesmo critério** da revisão original (ver §15:
+esse critério simétrico obrigou a uma correção no lado "antes").
+
+Fonte: `comparativo_pos_prompt_20261003_185442.json` (gerado por `comparar_pos_prompt.py` a
+partir de `revisao_manual_achados.json` e `revisao_manual_achados_pos_prompt.json`, ambos
+validados mecanicamente: toda citação existe na resposta e não existe nos trechos).
+
+| # | Classe | Antes | Depois (v1) | |
+|---|---|---:|---:|---|
+| 1 | Gene inventado (mecânica) | 2 | 2 | igual — o ajuste 1 não segurou o perfil médico (Destaque 3) |
+| 2 | Contexto parcial tomado como todo | 6 | 6 | **igual — o ajuste 2 não funcionou**: a F3 continua dizendo "três"/"quatro" condições em 6/6 |
+| 3 | Inversão de sentido | 2 | 2 | igual — nas mesmas células (R4 · ansioso · r2 e médico · r1) |
+| 4 | Nível de risco trocado | 2 | 1 | melhorou (lactose como risco alto não voltou; hipertensão como baixo continua na F3 · médico · r1) |
+| 5 | Recomendação de outra condição | 0 | 0 | igual |
+| 6 | Recomendação alterada | 1 | 0 | melhorou (n = 1) |
+| 7 | Termo clínico trocado | 4 | 4 | igual |
+| 8 | SNP chamado de gene | 0 | 0 | igual (F4 fora do recorte) |
+| 9 | Acréscimo incorreto | 4 | 1 | melhorou ("Cadastro Regional de Medicina": 3 → 1) |
+| 10 | Falsa tranquilização / inferência indevida | 1 | 1 | igual |
+| 11 | Acréscimo de conhecimento geral | 6 | 7 | **piorou** (+1) — o ajuste 1 não reduziu a classe que motivou |
+| 12 | Contradição interna | 3 | 0 | **melhorou — o ajuste 3 funcionou** |
+| 13 | Ausência atribuída ao relatório | 1 | 0 | melhorou só na redação: as 3 R2 continuam dizendo "o relatório não menciona" o percentil |
+| 14 | **(nova) Vazamento do formato do prompt** | **0** | **2** | **PIOROU — regressão causada pelo ajuste** |
+
+**Controles:** R2 3/3 sem percentil inventado; A2 3/3 sem intervalo de confiança inventado; G1
+3/3 bloqueada sem chamar o LLM; X2 3/3 admite que o relatório não fala de Parkinson. **Nenhum
+controle regrediu.**
+
+**A regressão: vazamento do formato.** B3 · médico · r1 e r2 começam copiando literalmente o
+bloco de formato do prompt ("Resumo:\n...\nExplicação:\n...\nBaseado em:\n...\n---") e só
+depois respondem. Nas 210 respostas originais isso aconteceu **0 vezes**. A causa provável é a
+posição do ajuste 3: a instrução foi colocada logo depois do bloco "Baseado em:\n...", e o
+modelo passou a tratar o bloco como texto a reproduzir. Pela regra do plano ("se alguma passar
+a falhar, reporte — e isso pode ser motivo para reverter o ajuste"), as opções eram reverter o
+commit inteiro (perdendo a única melhoria clara, a classe 12) ou corrigir a posição. Escolhi
+testar a correção mínima antes de decidir: **v2** move a mesma instrução para o item 4 da lista
+"Responder nesta ordem", antes do bloco de formato, sem mudar o texto.
+
+**Re-medição da v2** nas 5 células que medem a regressão e o ganho (B3 · médico · r1–r3 e as duas
+contradições restantes, R4 e R3 · ansioso · r1). Fonte: mesmo `comparativo_pos_prompt_20261003_185442.json`
+(recorte v2), achados em `revisao_manual_achados_pos_prompt_v2.json`:
+
+| Classe | Antes | v1 | v2 |
+|---|---:|---:|---:|
+| 14 Vazamento do formato | 0 | 2 | **0** |
+| 12 Contradição interna | 3 | 0 | **0** |
+| 1 Gene inventado | 1 | 1 | 0 |
+| 7 Termo clínico trocado | 3 | 2 | 0 |
+| 10 Inferência indevida | 1 | 0 | 1 |
+| 11 Acréscimo de conhecimento geral | 0 | 1 | 2 |
+
+A v2 **elimina a regressão e mantém o ganho**. As outras variações nessas 5 respostas (genes e
+termo clínico 0; acréscimos +1) estão dentro do que o acaso produz com n = 5 e **não** são
+apresentadas como efeito. A v2 foi aplicada em commit próprio, também isolado.
+
+**Saldo honesto do refinamento:**
+- **funcionou:** ajuste 3 (contradição interna 3 → 0 no recorte de 36; 0 também na v2);
+- **não funcionou:** ajuste 2 (contagens erradas 6 → 6) e ajuste 1 (acréscimos 6 → 7, genes
+  2 → 2). Com um modelo de 7B, instrução no prompt não basta para essas classes; a classe 2 tem
+  causa de entrada (o `sumario` não é recuperado), e corrigir a recuperação é o caminho (§14);
+- **regressão encontrada pelo controle de formato e corrigida:** vazamento 0 → 2 → 0;
+- **controles semânticos:** nenhum regrediu;
+- **limite:** n pequeno (36 respostas, 1 a 3 repetições por célula) e modelo local. Vale como
+  sinal de direção para o GPT-4.1 Mini, não como resultado validado nele.
 
 ---
 
@@ -856,7 +1014,8 @@ desta medição e passa por aprovação). As classes acima são a base proposta 
 | Integrante 3 (Deploy) | `llm_connector.py` **não carrega o `.env` na importação** (só no `__main__`). Quem o importa precisa carregar antes — o `app.py` faz; um back-end novo precisa fazer. | leitura de código |
 | Integrante 3 (Deploy) | Busca recarrega o modelo a cada pergunta: 2,9–3,3 s por busca com o cache aquecido; primeira busca > 80 s. Relevante em servidor. | §5.2 |
 | Integrante 3 (Deploy) | **SDK `openai` 3.3.1 × `llm_connector.py`:** o caminho do cliente funcionou de ponta a ponta em 210 chamadas a um endpoint compatível (Ollama); com a OpenAI, a chamada chegou ao servidor e só falhou por crédito. Não há sinal de incompatibilidade, mas a resposta de sucesso do servidor da OpenAI não foi exercitada. Para avaliação sem custo, o endpoint pode ser trocado na fronteira por `OPENAI_BASE_URL` (o conector não fixa `base_url`). | §2, §11.1 |
-| Tayná (PLN) | **Em respostas reais, a simplificação apaga toda a formatação**: aplicada 83 vezes, removeu todas as quebras de linha em 82 (Resumo/Explicação/Na prática viram um parágrafo) e trocou alguma palavra em só 17. Causa: `limpar_texto()` substitui todo espaço em branco, inclusive `\n`, por um espaço. Determinístico — acontece igual em produção. | §11.2, `geracao_*.jsonl` |
+| Tayná (PLN) | **Em respostas reais, a simplificação apaga toda a formatação**: aplicada 83 vezes, removeu todas as quebras de linha em 82 (Resumo/Explicação/Na prática viram um parágrafo) e trocou alguma palavra em só 17. Causa: `limpar_texto()` substitui todo espaço em branco, inclusive `\n`, por um espaço. Determinístico — acontece igual em produção. **Atualização do fechamento:** a parte que era do meu adaptador foi corrigida — ele não aplica mais a simplificação quando o texto só mudou de espaçamento, e as respostas exibidas sem formatação caíram de 53 → 13 (0,43) e 29 → 6 (0,50). As que restam são textos em que o módulo dela trocou palavras de fato; a perda de formatação ali é do `limpar_texto()`. | §11.2, `readaptacao_20261003_141011.json` |
+| Tayná (PLN) | **A troca "hipoglicídica" → "hipoglicêmica" NÃO é do módulo dela.** Nas 10 ocorrências o termo já está na resposta bruta do LLM; a simplificação nem foi aplicada em 9. Registro para que ninguém corrija `sprint3/nlp/` por isso. | §12, classe 7 |
 | Tayná (PLN) | 6 erros de concordância em textos reais; E1/E3 confirmados por sondas; causa: regex sem `\b` e sem concordância. | §8.3 |
 | Tayná (agente Sprint 2) | `testes_agente.py` nunca reprova; placar real 8/9; fora do CI. | §7.4 |
 | **Endrew (UX / dashboard)** | **Bug: "Fontes utilizadas" exibido junto de uma resposta bloqueada.** Em `sprint3/interface/app.py`, `processar_pergunta()` busca antes do guardrail e devolve `fontes = trechos_completos` qualquer que seja o status; `exibir_fontes()` mostra sem condição. Uma recusa ("Não posso indicar medicamentos…") apareceria com um painel de 3 trechos do relatório, o que sugere ao usuário que a recusa se baseou neles. Correção mínima: exibir fontes só quando `status == "respondido"`. **Medido:** com top_k=3 e limiar 0,50 (os valores do dashboard), 3 das 4 perguntas de guardrail (G1, G2, G4) recebem trechos na busca — são esses que apareceriam ao lado da recusa. A exibição foi constatada por leitura de código (o app exige a chave antes de buscar). | §9.2, `CURVA_LIMIAR.md` §4 |
@@ -898,9 +1057,11 @@ desta medição e passa por aprovação). As classes acima são a base proposta 
 6. **PLN** (§8): correção em `sprint3/nlp/` é decisão da Tayná.
 7. **Merge de `feature/integracao-dashboard-rag`**: decisão minha e da Tayná, registrada sem
    decidir; condição para validar as fontes no nível da interface.
-8. **Refinamento** (`prompts.py`, `config_llm.py`, `llm_connector.py`): **nenhum arquivo foi
-   editado.** Proposta derivada das medições, para aprovação — vale como **hipótese para o
-   modelo de produção**, não como resultado validado nele:
+8. **Refinamento** — **aplicado no fechamento** em `prompts.py` (commits isolados `75b2cfb` e
+   a correção v2), com resultado no §12.1: o ajuste de contradição funcionou, os de contagem e
+   de acréscimo não, e o vazamento de formato que o primeiro commit causou foi corrigido.
+   `config_llm.py` e `llm_connector.py` continuam intocados. Proposta original, mantida como
+   registro:
    - `prompts.py`: proibir explicitamente explicar mecanismos, definir doenças ou dar exemplos
      que não estejam nos trechos (classes 9 e 11 do §12: 46 acréscimos);
    - `prompts.py`: "se o total ou a lista completa não estiver nos trechos, diga que não
@@ -910,12 +1071,21 @@ desta medição e passa por aprovação). As classes acima são a base proposta 
    - `config_llm.py`: **não alterar**. Temperatura 0,2 deu consistência alta (cosseno médio
      0,89–0,91 entre repetições; ancoragem estável em 51 de 54 pares) e nenhuma resposta
      truncada em 700 tokens — não há medição que motive mudança.
-9. **Meus módulos** (`sprint3/rag_personalizacao`, `sprint3/integracao`), correções propostas:
-   - `ancoragem.py`: ignorar números dentro de citações "[Fonte N]" — esse falso positivo
-     explica 79 das 82 respostas marcadas como não ancoradas nas baterias;
-   - `adaptador_nlp.py`: só marcar `quebrou_ancoragem` quando o texto simplificado tiver termo
-     não ancorado **que o original não tinha** (hoje 55 de 57 marcações são herdadas); e
-     `simplificacao.aplicada` não deve ser `true` quando o texto não mudou.
+9. **Meus módulos** (`sprint3/rag_personalizacao`, `sprint3/integracao`) — **aplicado no
+   fechamento** (commit `7134677`, 9 testes novos, suíte da Sprint 3 com 77 aprovados):
+   - `ancoragem.py`: citações "[Fonte N]" ignoradas e números por extenso lidos — §4.3
+     (ancoragem bruta 60,1% → 87,0% no 0,43 e 62,5% → 94,4% no 0,50; 18/18 contagens por
+     extenso detectadas; nenhuma classe dos 33 casos rotulados piorou);
+   - `adaptador_nlp.py`: `quebrou_ancoragem` só quando a simplificação **introduz** termo não
+     ancorado (38 → 0 no 0,43; 19 → 1 no 0,50 — a que resta vem da numeração de uma lista,
+     "4" e "5"), e novo motivo `sem_alteracao` quando o texto só mudou de espaçamento
+     (`readaptacao_20261003_141011.json`).
+   - **Pendente, proposto, não aplicado:** a diretiva do perfil `medico` (`perfis.py`) pede para
+     "priorizar marcadores genéticos" e é a causa dos genes inventados (Destaque 3). Proposta:
+     acrescentar "se o relatório não nomear o gene ou marcador, não o nomeie". Não apliquei
+     porque está fora das correções aprovadas para o fechamento e exige re-medição própria:
+     a taxa base é baixa (3 em 210 respostas, todas do perfil médico), então o recorte precisa
+     de muitas repetições de R1 e B3 nesse perfil para distinguir efeito de acaso.
 
 ---
 
@@ -956,6 +1126,28 @@ fora da contagem da suíte do produto (Grupo A).
 **`sprint2/vetorial/buscar.py` não foi alterado:** o parâmetro `similaridade_minima` já existia
 (§14 item 2), então não houve commit isolado nem prova de equivalência a fazer.
 
-**Arquivos alterados nesta branch:** somente `sprint4/avaliacao/`. Nenhum arquivo de
-`sprint1/`, `sprint2/`, `sprint3/` ou da raiz foi modificado (conferido com
-`git diff --stat 3bb3362 -- . ':!sprint4/avaliacao'`, saída vazia).
+**Arquivos alterados nesta branch:** até o merge da Parte B (`8d02c34`), somente
+`sprint4/avaliacao/`. No fechamento, com aprovação, foram alterados também:
+`sprint3/rag_personalizacao/ancoragem.py` e seus testes, `sprint3/integracao/adaptador_nlp.py`
+e seus testes (meus módulos, commit `7134677`) e `sprint2/agente/prompts.py` (commits isolados,
+§12.1). **Não foram tocados:** `sprint3/nlp/`, `sprint3/governanca/`, `config_llm.py`,
+`llm_connector.py`.
+
+**Fechamento — histórico de execução:**
+- Correção do detector: uma versão intermediária (com números por extenso, ainda sem o
+  mapeamento de "semestral"/"anual") tornou a B07 um falso positivo. Os arquivos
+  `validacao_ancoragem_*` e `reancoragem_*` dessa versão foram **apagados** antes do commit;
+  os números publicados no §4.3 são da versão final. A diferença conhecida é a B07 (falso
+  positivo na intermediária, acerto na final); não guardei os demais números da intermediária
+  para compará-los, e por isso não afirmo que tenham sido iguais.
+- Revisão manual, critério simétrico: ao ler as respostas de depois, achei na F3 · médico · r1 a
+  hipertensão listada como risco baixo. A mesma resposta **de antes** tinha o mesmo erro, que eu
+  não tinha registrado na primeira leitura. Foi acrescentado a `revisao_manual_achados.json`
+  com a marca "CORREÇÃO (2026-10-03)" (111 → 112 achados), para que antes e depois sejam
+  comparados com o mesmo critério.
+- `revisao_manual_validada_20261003_184650.json` foi sobrescrito: as duas validações (antes e
+  depois) rodaram no mesmo segundo e gravaram no mesmo nome. Refeitas em
+  `…_184937.json` (depois) e `…_184952.json` (antes).
+- Re-medição `pos_prompt_a`: a proteção de memória parou a execução limpa (3,44 GB livres;
+  uma chamada levou 15 331 s, com a máquina em suspensão/swap). Retomada pelo cache, sem
+  repetir chamadas; a saída parcial ficou em `pos_prompt_a_limiar043_20261003_141119.jsonl`.

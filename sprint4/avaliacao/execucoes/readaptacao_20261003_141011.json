@@ -1,0 +1,69 @@
+{
+  "gerado_em_utc": "2026-10-03T17:10:11+00:00",
+  "adaptador": "sprint3/integracao/adaptador_nlp.py (versão atual)",
+  "baterias": {
+    "0,43": {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "antes": {
+        "elegiveis": 92,
+        "aplicada": 54,
+        "motivos": {
+          "ok": 54,
+          "quebrou_ancoragem": 38
+        },
+        "quebrou_ancoragem": 38,
+        "exibidas_sem_formatacao": 53,
+        "exibidas_com_palavra_trocada": 11
+      },
+      "depois": {
+        "elegiveis": 92,
+        "aplicada": 13,
+        "motivos": {
+          "sem_alteracao": 79,
+          "ok": 13
+        },
+        "quebrou_ancoragem": 0,
+        "exibidas_sem_formatacao": 13,
+        "exibidas_com_palavra_trocada": 13
+      },
+      "quebras_depois": []
+    },
+    "0,50": {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "antes": {
+        "elegiveis": 48,
+        "aplicada": 29,
+        "motivos": {
+          "ok": 29,
+          "quebrou_ancoragem": 19
+        },
+        "quebrou_ancoragem": 19,
+        "exibidas_sem_formatacao": 29,
+        "exibidas_com_palavra_trocada": 6
+      },
+      "depois": {
+        "elegiveis": 48,
+        "aplicada": 6,
+        "motivos": {
+          "sem_alteracao": 41,
+          "ok": 6,
+          "quebrou_ancoragem": 1
+        },
+        "quebrou_ancoragem": 1,
+        "exibidas_sem_formatacao": 6,
+        "exibidas_com_palavra_trocada": 6
+      },
+      "quebras_depois": [
+        {
+          "id": "B3",
+          "perfil": "leigo_ansioso",
+          "repeticao": 1,
+          "termos_introduzidos": [
+            "4",
+            "5"
+          ]
+        }
+      ]
+    }
+  }
+}

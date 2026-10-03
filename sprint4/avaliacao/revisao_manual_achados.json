@@ -1222,6 +1222,17 @@
    "subtipo": "conhecimento_geral",
    "gravidade": "baixa",
    "justificativa": "Idem."
+  },
+  {
+   "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+   "id": "F3",
+   "perfil": "medico",
+   "repeticao": 1,
+   "citacao": "três com risco baixo (Intolerância à Lactose, Trombofilia Hereditária (Fator V de Leiden) e Hipertensão Arterial Essencial)",
+   "tipo": "mistura_de_condicoes",
+   "subtipo": "nivel_de_risco_trocado",
+   "gravidade": "alta",
+   "justificativa": "CORREÇÃO (2026-10-03): omitido na primeira leitura e encontrado ao aplicar o mesmo critério na re-medição. Hipertensão é risco Médio."
   }
  ]
 }

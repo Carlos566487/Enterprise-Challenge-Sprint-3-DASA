@@ -1,0 +1,72 @@
+{
+  "gerado_em_utc": "2026-10-03T21:54:12+00:00",
+  "fonte_achados": "revisao_manual_achados_pos_prompt_v2.json",
+  "revisor": "Claude Code, a pedido de João (RM565999) — leitura integral das 5 respostas da re-medição da versão 2 do ajuste (instrução sobre 'Baseado em' movida para antes do bloco de formato), limiar 0,43",
+  "criterio": "O mesmo de revisao_manual_achados.json e revisao_manual_achados_pos_prompt.json. 'Baseado:' truncado não é registrado: já ocorria em 155 das 210 respostas originais.",
+  "resumo": {
+    "respostas_respondidas_revisadas": 5,
+    "achados_aceitos": 3,
+    "achados_rejeitados_pela_verificacao": 0,
+    "respostas_com_acrescimo": 2,
+    "por_pergunta": {
+      "B3": 1,
+      "R4": 2
+    },
+    "por_tipo": {
+      "acrescimo": 3
+    }
+  },
+  "aceitos": [
+    {
+      "arquivo": "execucoes/pos_prompt_d_limiar043_20261003_185005.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "manter uma dieta equilibrada",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "O trecho fala em evitar açúcares simples e dieta hipoglicídica; 'dieta equilibrada' não consta.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_e_limiar043_20261003_185220.jsonl",
+      "id": "R4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "As condições com risco baixo são aquelas que, embora possam ter uma ligação genética, não apresentam um alto nível de probabilidade de manifestação clínica",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Definição genérica fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/pos_prompt_e_limiar043_20261003_185220.jsonl",
+      "id": "R4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "embora você possa ter um risco ligeiramente aumentado",
+      "tipo": "acrescimo",
+      "subtipo": "inferencia_indevida",
+      "gravidade": "media",
+      "justificativa": "O trecho da trombofilia diz que o risco está 'dentro do normal para a população geral'.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    }
+  ],
+  "rejeitados": []
+}

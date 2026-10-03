@@ -1,0 +1,1837 @@
+{
+  "gerado_em_utc": "2026-10-03T21:49:52+00:00",
+  "fonte_achados": "revisao_manual_achados.json",
+  "revisor": "Claude Code, a pedido de João (RM565999) — leitura integral das 138 respostas 'respondido' do limiar 0,43 e das 72 do limiar 0,50",
+  "criterio": "Classe principal: ACRÉSCIMO — informação que não está nos trechos recuperados e não envolve número, gene ou SNP (invisível ao ancoragem.py por construção). Também registrados, com tipo próprio, outros erros qualitativos invisíveis à métrica: contagem por extenso errada, mistura de condições, inversão de sentido, termo técnico trocado, recomendação alterada, ordem errada entre fatos, contradição interna. NÃO contam como acréscimo: definição de termo técnico (missão do prompt: 'traduzir termos técnicos'), enquadramento responsável ('não substitui orientação médica', 'tendência estatística'), conselho genérico de procurar profissional, e paráfrase do trecho. Julgamento humano; existência da citação na resposta e ausência nos trechos verificadas por revisao_manual.py.",
+  "resumo": {
+    "respostas_respondidas_revisadas": 210,
+    "achados_aceitos": 112,
+    "achados_rejeitados_pela_verificacao": 0,
+    "respostas_com_acrescimo": 87,
+    "por_pergunta": {
+      "F2": 7,
+      "F1": 12,
+      "A1": 6,
+      "A2": 2,
+      "B3": 17,
+      "F3": 23,
+      "F4": 13,
+      "R3": 6,
+      "R4": 8,
+      "X2": 6,
+      "R2": 1,
+      "R1": 11
+    },
+    "por_tipo": {
+      "acrescimo": 46,
+      "ausencia_atribuida_ao_relatorio": 1,
+      "contagem_errada": 18,
+      "mistura_de_condicoes": 4,
+      "inversao_de_sentido": 4,
+      "termo_tecnico_trocado": 16,
+      "recomendacao_alterada": 2,
+      "ordem_errada": 3,
+      "contradicao_interna": 18
+    }
+  },
+  "aceitos": [
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F2",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "Cadastro Regional de Medicina",
+      "tipo": "acrescimo",
+      "subtipo": "incorreto",
+      "gravidade": "media",
+      "justificativa": "Expansão da sigla CRM inventada e errada (é Conselho Regional de Medicina). Não está nos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F2",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "Isso é feito para preservar a privacidade do profissional",
+      "tipo": "acrescimo",
+      "subtipo": "justificativa_inventada",
+      "gravidade": "media",
+      "justificativa": "Justificativa atribuída ao relatório sem base nos trechos (o CRM só não entrou no chunking).",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F2",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "Cadastro Regional de Medicina",
+      "tipo": "acrescimo",
+      "subtipo": "incorreto",
+      "gravidade": "media",
+      "justificativa": "Mesma expansão errada da sigla.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F2",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "Cadastro Regional de Medicina",
+      "tipo": "acrescimo",
+      "subtipo": "incorreto",
+      "gravidade": "media",
+      "justificativa": "Mesma expansão errada da sigla.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F2",
+      "perfil": "leigo_curioso",
+      "repeticao": 3,
+      "citacao": "Cadastro Regional de Medicina",
+      "tipo": "acrescimo",
+      "subtipo": "incorreto",
+      "gravidade": "media",
+      "justificativa": "Mesma expansão errada da sigla.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F2",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "Cadastro Regional de Medicina",
+      "tipo": "acrescimo",
+      "subtipo": "incorreto",
+      "gravidade": "media",
+      "justificativa": "Mesma expansão errada da sigla, no perfil médico.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F2",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "Cadastro Regional de Medicina",
+      "tipo": "acrescimo",
+      "subtipo": "incorreto",
+      "gravidade": "media",
+      "justificativa": "Mesma expansão errada da sigla, no perfil médico.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "paciente",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "o nome do paciente é identificado para garantir a privacidade e a precisão do exame",
+      "tipo": "acrescimo",
+      "subtipo": "justificativa_inventada",
+      "gravidade": "baixa",
+      "justificativa": "Propósito inventado (e ilógico: nomear o paciente não garante privacidade).",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "leigo_curioso",
+      "repeticao": 4,
+      "citacao": "Este identificador único é importante para manter a privacidade do paciente",
+      "tipo": "acrescimo",
+      "subtipo": "justificativa_inventada",
+      "gravidade": "baixa",
+      "justificativa": "Propósito atribuído ao ID do relatório sem base nos trechos.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "A1",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "Os cientistas identificam padrões específicos de DNA que são comuns em diferentes regiões",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Explicação de metodologia vinda de conhecimento geral; o prompt proíbe conhecimento externo.",
+      "secoes_recuperadas": [
+        "ancestralidade"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "A1",
+      "perfil": "leigo_curioso",
+      "repeticao": 3,
+      "citacao": "Isso é comum em indivíduos que vêm de linhagens familiares com origens em várias regiões",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Generalização populacional ausente dos trechos.",
+      "secoes_recuperadas": [
+        "ancestralidade"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "A2",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "Isso é comum em análises de ancestralidade genética",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Generalização sobre o método, fora dos trechos.",
+      "secoes_recuperadas": [
+        "ancestralidade"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "A2",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "Isso é comum em análises de ancestralidade genética",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mesma generalização.",
+      "secoes_recuperadas": [
+        "ancestralidade"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "O diabetes tipo 2 é uma condição em que o corpo não pode usar a insulina de forma adequada",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Definição clínica da doença vinda de conhecimento geral (correta, mas fora dos trechos).",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "como doces e refrigerantes",
+      "tipo": "acrescimo",
+      "subtipo": "exemplo_acrescentado",
+      "gravidade": "baixa",
+      "justificativa": "Exemplos concretos não presentes nos trechos (que dizem só 'açúcares simples').",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "O gene BRCA2 é conhecido por desempenhar um papel importante na reparação de danos nos genes",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo biológico ausente dos trechos (correto em linhas gerais).",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "Este gene é responsável pela produção de uma proteína que ajuda a prevenir coágulos sanguíneos",
+      "tipo": "acrescimo",
+      "subtipo": "incorreto",
+      "gravidade": "media",
+      "justificativa": "Sobre o Fator V: o fator V é pró-coagulante; a afirmação inverte a função e não está nos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 4,
+      "citacao": "A intolerância à lactose é uma condição comum e geralmente não representa um risco significativo para a saúde",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Generalização ausente dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 5,
+      "citacao": "a frequência dessas alterações na população geral e o conhecimento atual sobre os efeitos dessas alterações",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Critérios de classificação de risco inventados para o relatório.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F4",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "O gene TCF7L2 tem um papel importante na regulação da produção de insulina pelo pâncreas",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo do gene vindo de conhecimento geral.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F4",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "é conhecido por seu papel na regulação da glicose no sangue e na função das células beta do pâncreas",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo atribuído ao PPARG fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "aumentando o risco de desenvolver câncer de mama e outros tipos de câncer",
+      "tipo": "acrescimo",
+      "subtipo": "extrapolacao",
+      "gravidade": "media",
+      "justificativa": "O trecho fala em mama e ovário; 'outros tipos de câncer' amplia o risco sem base.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "recomendacao_2.2",
+        "sumario",
+        "resultado_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R3",
+      "perfil": "leigo_curioso",
+      "repeticao": 3,
+      "citacao": "ajuda a reparar danos nos genes e a impedir o crescimento de células cancerosas",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo do BRCA2 fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "recomendacao_2.2",
+        "sumario",
+        "resultado_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "ajuda a reparar danos nos genes e a impedir o crescimento de células cancerosas",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mesmo mecanismo, perfil médico.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "recomendacao_2.2",
+        "sumario",
+        "resultado_2.4",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R3",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "ajuda a reparar danos nos genes e a controlar o crescimento das células",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mesmo mecanismo, outra redação.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "recomendacao_2.2",
+        "sumario",
+        "resultado_2.4",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R4",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "como flatulência ou diarreia após a ingestão de leite",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Sintomas não citados nos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R4",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "como dor abdominal, flatulência ou diarreia",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Sintomas não citados nos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "pois elas podem se tornar mais relevantes com o tempo ou em situações específicas",
+      "tipo": "acrescimo",
+      "subtipo": "inferencia_indevida",
+      "gravidade": "media",
+      "justificativa": "Contradiz o tom do relatório ('sem preocupação específica') e aumenta a ansiedade sem base — perfil leigo_ansioso.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "X2",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "a ausência de informações sobre Parkinson sugere que não há variações genéticas relevantes identificadas para essa condição",
+      "tipo": "acrescimo",
+      "subtipo": "inferencia_indevida",
+      "gravidade": "alta",
+      "justificativa": "Falsa tranquilização: o exame não analisou Parkinson; ausência de análise não é ausência de variante.",
+      "secoes_recuperadas": [
+        "recomendacao_2.4",
+        "resultado_2.4",
+        "paciente",
+        "resultado_2.2"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R2",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "O escore poligênico é uma medida mais detalhada que não foi incluída neste relatório",
+      "tipo": "ausencia_atribuida_ao_relatorio",
+      "subtipo": "falha_de_chunking",
+      "gravidade": "media",
+      "justificativa": "O relatório TEM o percentil (67); ele só não está na base. Correto em relação ao contexto recebido, falso em relação ao documento.",
+      "secoes_recuperadas": [
+        "recomendacao_2.3",
+        "resultado_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "foram analisadas três condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "O relatório tem 7 condições; o sumario não foi recuperado e o modelo contou os trechos recebidos. Número por extenso — invisível ao detector.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 2,
+      "citacao": "Três condições foram analisadas",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem (7 no relatório).",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 3,
+      "citacao": "Três condições foram analisadas",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 4,
+      "citacao": "Três condições foram analisadas",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 5,
+      "citacao": "Três condições foram analisadas",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem, com 4 trechos recebidos.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 3,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 4,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 5,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem, perfil médico (5 trechos recebidos, 4 condições distintas).",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 4,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 5,
+      "citacao": "foram analisadas quatro condições",
+      "tipo": "contagem_errada",
+      "subtipo": "contexto_tomado_como_todo",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 2,
+      "citacao": "foram analisados três genes específicos",
+      "tipo": "contagem_errada",
+      "subtipo": "incoerencia_interna",
+      "gravidade": "baixa",
+      "justificativa": "Diz 'três' e lista dois (TCF7L2 e PPARG).",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "Duas delas são consideradas de risco alto: Intolerância à Lactose",
+      "tipo": "mistura_de_condicoes",
+      "subtipo": "nivel_de_risco_trocado",
+      "gravidade": "alta",
+      "justificativa": "Lactose é risco Baixo no trecho; a resposta a declara de risco alto.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "leigo_curioso",
+      "repeticao": 4,
+      "citacao": "Duas delas são de risco alto: Intolerância à Lactose",
+      "tipo": "mistura_de_condicoes",
+      "subtipo": "nivel_de_risco_trocado",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "como doenças cardiovasculares e doenças neurológicas",
+      "tipo": "mistura_de_condicoes",
+      "subtipo": "recomendacao_de_outra_condicao",
+      "gravidade": "media",
+      "justificativa": "Traz para a pergunta de diabetes fatores da recomendação de Alzheimer (recomendacao_2.4, presente no contexto).",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R4",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "embora possuam mutações genéticas associadas a essas condições",
+      "tipo": "inversao_de_sentido",
+      "subtipo": "negacao_invertida",
+      "gravidade": "alta",
+      "justificativa": "O trecho diz 'você não possui as mutações genéticas mais comuns'. A resposta afirma o contrário (classe H09 da validação).",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R4",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "embora você possua variantes genéticas associadas a essas condições",
+      "tipo": "inversao_de_sentido",
+      "subtipo": "negacao_invertida",
+      "gravidade": "alta",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 2,
+      "citacao": "embora haja uma associação genética",
+      "tipo": "inversao_de_sentido",
+      "subtipo": "negacao_invertida",
+      "gravidade": "media",
+      "justificativa": "Para a trombofilia o trecho afirma ausência das mutações; 'há uma associação genética' sugere o oposto.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 3,
+      "citacao": "embora haja uma ligação genética",
+      "tipo": "inversao_de_sentido",
+      "subtipo": "negacao_invertida",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "O trecho diz 'hipoglicídica' (pobre em açúcar); 'hipoglicêmica' significa outra coisa (que reduz a glicemia).",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R1",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F4",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "Os genes RS7903146 (TCF7L2)",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "snp_chamado_de_gene",
+      "gravidade": "media",
+      "justificativa": "Identificadores de SNP apresentados como genes, no perfil médico.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "resultado_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F4",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "Os genes RS7903146 (TCF7L2)",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "snp_chamado_de_gene",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "resultado_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F4",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "Os genes RS7903146 (TCF7L2)",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "snp_chamado_de_gene",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "resultado_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "checagem anual com um endocrinologista",
+      "tipo": "recomendacao_alterada",
+      "subtipo": "prazo_trocado",
+      "gravidade": "media",
+      "justificativa": "O trecho recomenda consulta 'nos próximos 30 dias' (urgência Alta); 'anual' rebaixa a urgência. Sem dígito — invisível ao detector.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "A1",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "seguida pela Europa do Sul (18.7%), África Subsaariana (22.1%)",
+      "tipo": "ordem_errada",
+      "subtipo": "relacao_entre_fatos",
+      "gravidade": "baixa",
+      "justificativa": "Números corretos, ordem afirmada errada (22,1 > 18,7).",
+      "secoes_recuperadas": [
+        "ancestralidade"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "A1",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "seguida pela Europa do Sul (18.7%), África Subsaariana (22.1%)",
+      "tipo": "ordem_errada",
+      "subtipo": "relacao_entre_fatos",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "ancestralidade"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "A1",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "seguida pela Europa do Sul (18.7%), África Subsaariana (22.1%)",
+      "tipo": "ordem_errada",
+      "subtipo": "relacao_entre_fatos",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "ancestralidade"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "A1",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "Baseado no relatório fornecido, não encontrei essa informação.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Responde à pergunta e termina dizendo que não encontrou a informação.",
+      "secoes_recuperadas": [
+        "ancestralidade"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "leigo_ansioso",
+      "repeticao": 3,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "leigo_ansioso",
+      "repeticao": 4,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "leigo_ansioso",
+      "repeticao": 5,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F1",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 5,
+      "citacao": "Não encontrei essa informação no relatório.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "Não encontrei essa informação no relatório.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "recomendacao_2.2",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "R4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "Não encontrei essa informação no relatório.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem; e a resposta nem nomeia as duas condições.",
+      "secoes_recuperadas": [
+        "resultado_2.6",
+        "sumario",
+        "resultado_2.7"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "Não encontrei essa informação no relatório.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario",
+        "recomendacao_2.4",
+        "recomendacao_2.5"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Trecho diz 'hipoglicídica'.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 3,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "como doces e bebidas açucaradas",
+      "tipo": "acrescimo",
+      "subtipo": "exemplo_acrescentado",
+      "gravidade": "baixa",
+      "justificativa": "Exemplos ausentes dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "especialmente após refeições",
+      "tipo": "recomendacao_alterada",
+      "subtipo": "exame_trocado",
+      "gravidade": "media",
+      "justificativa": "O trecho recomenda glicemia DE JEJUM; 'após refeições' troca o exame.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "Essas variações afetam como o corpo processa e regula o açúcar, podendo levar a um aumento gradual na glicemia",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "Não encontrei essa informação no relatório.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Responde e nega.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "leigo_curioso",
+      "repeticao": 3,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "seu corpo pode ter uma resposta menos eficiente ao açúcar comparado a pessoas com genótipo mais comum",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Comparação fisiológica fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "B3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "Não encontrei essa informação no relatório.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F1",
+      "perfil": "leigo_ansioso",
+      "repeticao": 4,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F1",
+      "perfil": "leigo_curioso",
+      "repeticao": 4,
+      "citacao": "Não encontrei essa informação no relatório enviado.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F1",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "Essas informações são importantes para garantir a privacidade e a precisão dos resultados",
+      "tipo": "acrescimo",
+      "subtipo": "justificativa_inventada",
+      "gravidade": "baixa",
+      "justificativa": "Propósito inventado (o mesmo padrão do limiar 0,43).",
+      "secoes_recuperadas": [
+        "paciente"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 2,
+      "citacao": "foram analisados três genes específicos",
+      "tipo": "contagem_errada",
+      "subtipo": "incoerencia_interna",
+      "gravidade": "baixa",
+      "justificativa": "Diz três e lista dois.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F4",
+      "perfil": "leigo_ansioso",
+      "repeticao": 3,
+      "citacao": "foram estudados três genes específicos",
+      "tipo": "contagem_errada",
+      "subtipo": "incoerencia_interna",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F4",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "O gene TCF7L2 é conhecido por desempenhar um papel importante na regulação da expressão de outros genes",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F4",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "Já o gene PPARG é envolvido na regulação da expressão de genes relacionados à função das células beta",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F4",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "Os genes RS7903146 (TCF7L2)",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "snp_chamado_de_gene",
+      "gravidade": "media",
+      "justificativa": "SNP apresentado como gene.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F4",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "Os genes RS7903146 (TCF7L2)",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "snp_chamado_de_gene",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "F4",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "Os genes RS7903146, RS12255372 e RS1801282",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "snp_chamado_de_gene",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "marcadores_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "não consegue usar a insulina de forma eficiente ou não produz insulina suficiente",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Definição clínica fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "leigo_curioso",
+      "repeticao": 4,
+      "citacao": "O diabetes tipo 2 é uma condição em que o corpo não pode usar a insulina de forma eficaz",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "como frutas, vegetais e grãos integrais",
+      "tipo": "acrescimo",
+      "subtipo": "recomendacao_acrescentada",
+      "gravidade": "baixa",
+      "justificativa": "Orientação alimentar ausente dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "leigo_curioso",
+      "repeticao": 3,
+      "citacao": "com frutas, vegetais e carboidratos complexos",
+      "tipo": "acrescimo",
+      "subtipo": "recomendacao_acrescentada",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "leigo_curioso",
+      "repeticao": 2,
+      "citacao": "Não encontrei essa informação no relatório.",
+      "tipo": "contradicao_interna",
+      "subtipo": "responde_e_nega",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Trecho diz 'hipoglicídica'.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "medico",
+      "repeticao": 2,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "medico",
+      "repeticao": 4,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem (mesma resposta dos genes inventados).",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "medico",
+      "repeticao": 5,
+      "citacao": "dieta hipoglicêmica",
+      "tipo": "termo_tecnico_trocado",
+      "subtipo": "termo_clinico",
+      "gravidade": "media",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R1",
+      "perfil": "medico",
+      "repeticao": 5,
+      "citacao": "uma doença crônica caracterizada por altos níveis de açúcar no sangue devido à resistência à insulina",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Definição clínica fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.1",
+        "recomendacao_2.1",
+        "sumario"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "R3",
+      "perfil": "medico",
+      "repeticao": 3,
+      "citacao": "ajuda a reparar danos nos genes e a impedir o crescimento de células cancerosas",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Mecanismo do BRCA2 fora dos trechos.",
+      "secoes_recuperadas": [
+        "resultado_2.2",
+        "recomendacao_2.2"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "X2",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "A ausência de informações sobre Parkinson no relatório indica que não há variações genéticas associadas a essa condição mencionadas",
+      "tipo": "acrescimo",
+      "subtipo": "inferencia_indevida",
+      "gravidade": "media",
+      "justificativa": "Ambíguo, mas lido por leigo como 'não há variação para Parkinson' — o exame não analisou Parkinson.",
+      "secoes_recuperadas": [
+        "recomendacao_2.4",
+        "resultado_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "X2",
+      "perfil": "leigo_ansioso",
+      "repeticao": 1,
+      "citacao": "elas são causadas por diferentes fatores e têm caminhos de progressão distintos",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Comparação entre doenças fora dos trechos.",
+      "secoes_recuperadas": [
+        "recomendacao_2.4",
+        "resultado_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "X2",
+      "perfil": "leigo_curioso",
+      "repeticao": 1,
+      "citacao": "a Doença de Parkinson tem conexões com outros genes e fatores",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Afirmação sobre Parkinson vinda de conhecimento geral.",
+      "secoes_recuperadas": [
+        "recomendacao_2.4",
+        "resultado_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "X2",
+      "perfil": "leigo_curioso",
+      "repeticao": 3,
+      "citacao": "a Doença de Parkinson tem uma série de fatores de risco, incluindo alterações genéticas",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "recomendacao_2.4",
+        "resultado_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_20261003_133602.jsonl",
+      "id": "X2",
+      "perfil": "leigo_curioso",
+      "repeticao": 5,
+      "citacao": "o Parkinson tem conexões com outros genes e fatores",
+      "tipo": "acrescimo",
+      "subtipo": "conhecimento_geral",
+      "gravidade": "baixa",
+      "justificativa": "Idem.",
+      "secoes_recuperadas": [
+        "recomendacao_2.4",
+        "resultado_2.4"
+      ]
+    },
+    {
+      "arquivo": "execucoes/geracao_limiar043_20261002_215449.jsonl",
+      "id": "F3",
+      "perfil": "medico",
+      "repeticao": 1,
+      "citacao": "três com risco baixo (Intolerância à Lactose, Trombofilia Hereditária (Fator V de Leiden) e Hipertensão Arterial Essencial)",
+      "tipo": "mistura_de_condicoes",
+      "subtipo": "nivel_de_risco_trocado",
+      "gravidade": "alta",
+      "justificativa": "CORREÇÃO (2026-10-03): omitido na primeira leitura e encontrado ao aplicar o mesmo critério na re-medição. Hipertensão é risco Médio.",
+      "secoes_recuperadas": [
+        "resultado_2.7",
+        "resultado_2.2",
+        "resultado_2.6",
+        "recomendacao_2.3"
+      ]
+    }
+  ],
+  "rejeitados": []
+}
