@@ -40,6 +40,7 @@ import hashlib
 import json
 import os
 import sys
+import time
 import traceback
 from datetime import datetime, timezone
 from pathlib import Path
@@ -56,6 +57,11 @@ ARQUIVOS_VERSIONADOS = (
     RAIZ / "sprint2" / "interface" / "llm_connector.py",
 )
 DIR_CACHE = DIR / "execucoes" / "cache_geracao"
+# Configuração do AMBIENTE DE AVALIAÇÃO (fora de produção, ignorada pelo git):
+#   OPENAI_BASE_URL   — lido pelo próprio SDK; redireciona o cliente do conector
+#   OPENAI_API_KEY    — o Ollama ignora, mas o SDK exige não vazia
+#   AVALIACAO_MODELO  — nome trocado na fronteira pelo instrumento_custo
+ENV_AVALIACAO = DIR / ".env.avaliacao"
 N_PADRAO, N_CRITICA = 3, 5
 PERFIS = ("leigo_ansioso", "leigo_curioso", "medico")
 
@@ -72,6 +78,10 @@ def carregar_chave() -> str:
     """Carrega .env como o app faz e exige a chave. Nunca devolve vazio."""
     from dotenv import load_dotenv
 
+    # O arquivo de avaliação tem prioridade; os .env de produção só preenchem
+    # o que ele não definir. Sem ele, o comportamento é o de produção.
+    if ENV_AVALIACAO.exists():
+        load_dotenv(ENV_AVALIACAO, override=True)
     for env in (RAIZ / "sprint3" / "interface" / ".env", RAIZ / "sprint2" / "interface" / ".env"):
         if env.exists():
             load_dotenv(env, override=False)
@@ -84,14 +94,20 @@ def carregar_chave() -> str:
     return chave
 
 
+def ambiente() -> dict:
+    """Para onde a avaliação está apontada — gravado em toda saída e no cache."""
+    return {"base_url": os.environ.get("OPENAI_BASE_URL") or "padrão do SDK (api.openai.com)",
+            "modelo_substituto": os.environ.get("AVALIACAO_MODELO") or None}
+
+
 def versao_codigo() -> dict:
     return {str(p.relative_to(RAIZ)).replace("\\", "/"):
             hashlib.sha256(p.read_bytes()).hexdigest()[:16] for p in ARQUIVOS_VERSIONADOS}
 
 
 def chave_cache(pergunta_id: str, perfil: str, repeticao: int, versao: dict,
-                limiar: float = None) -> str:
-    bruto = json.dumps([pergunta_id, perfil, repeticao, versao, limiar], sort_keys=True)
+                limiar: float = None, amb: dict = None) -> str:
+    bruto = json.dumps([pergunta_id, perfil, repeticao, versao, limiar, amb], sort_keys=True)
     return hashlib.sha256(bruto.encode("utf-8")).hexdigest()[:24]
 
 
@@ -118,15 +134,20 @@ def executar_uma(pergunta: dict, perfil: str, repeticao: int, api_key: str,
             texto, top_k=top_k, similaridade_minima=limiar)
 
     inicio = _agora()
-    with capturar_chamadas(llm_connector) as registro:
+    t0 = time.perf_counter()
+    with capturar_chamadas(llm_connector, ambiente()["modelo_substituto"]) as registro:
         r = responder_com_linguagem_simples(
             pergunta=pergunta["pergunta"], perfil=perfil,
             usuario_id=f"aval-{pergunta['id']}-{perfil}-{repeticao}",
             api_key=api_key, historico=HistoricoMemoria(), **extra,
         )
+    primeira = registro.chamadas[0] if registro.chamadas else {}
     return {
         "id": pergunta["id"], "categoria": pergunta["categoria"],
         "pergunta": pergunta["pergunta"], "perfil": perfil, "repeticao": repeticao,
+        "modelo_respondido": primeira.get("modelo_respondido"),
+        "endpoint": primeira.get("endpoint"),
+        "duracao_total_s": round(time.perf_counter() - t0, 2),
         "limiar_busca": limiar if limiar is not None else "producao",
         "timestamp_utc": inicio,
         "status": r["status"], "categoria_resposta": r["categoria"],
@@ -147,11 +168,12 @@ def preflight(api_key: str, destino: Path) -> int:
     from instrumento_custo import capturar_chamadas
 
     relatorio = {"gerado_em_utc": _agora(), "versao_codigo": versao_codigo(),
-                 "sdk_openai": _versao_sdk()}
+                 "sdk_openai": _versao_sdk(), "ambiente": ambiente()}
+    substituto = ambiente()["modelo_substituto"]
     trechos = ["Composição ancestral do paciente: Europa Ibérica (Península Ibérica): 42.3%."]
     registro = None
     try:
-        with capturar_chamadas(llm_connector) as registro:
+        with capturar_chamadas(llm_connector, substituto) as registro:
             r = llm_connector.responder_com_llm(
                 pergunta="Qual é a minha ancestralidade?", trechos=trechos,
                 modo="paciente", api_key=api_key,
@@ -165,7 +187,12 @@ def preflight(api_key: str, destino: Path) -> int:
             "usage_presente": bool(chamada and chamada["usage"]["total_tokens"]),
             "modelo_respondido": chamada and chamada["modelo_respondido"],
             "difere_da_resposta_simulada": r["resposta"].strip() != simulada,
+            "nao_truncada": bool(chamada) and chamada.get("finish_reason") != "length",
         }
+        if substituto:
+            # o modelo que a API diz ter respondido tem de ser o substituto
+            provas["modelo_respondido_e_o_substituto"] = bool(
+                chamada and (chamada["modelo_respondido"] or "").startswith(substituto.split(":")[0]))
         relatorio.update({"resultado": "ok" if all(provas.values()) else "suspeito",
                           "provas": provas, "chamada": chamada, "resposta": r["resposta"]})
     except Exception as erro:  # registra o erro exato, sem tentar consertar
@@ -189,11 +216,14 @@ def _versao_sdk():
         return None
 
 
-def plano(perguntas: list, piloto: int = None) -> list:
+def plano(perguntas: list, piloto: int = None, ids: list = None,
+          perfis: list = None, n_fixo: int = None) -> list:
     itens = []
     for p in perguntas:
-        n = 1 if piloto else (N_CRITICA if p["critica_n5"] else N_PADRAO)
-        for perfil in PERFIS:
+        if ids and p["id"] not in ids:
+            continue
+        n = 1 if piloto else (n_fixo or (N_CRITICA if p["critica_n5"] else N_PADRAO))
+        for perfil in (perfis or PERFIS):
             for rep in range(1, n + 1):
                 itens.append((p, perfil, rep))
     return itens
@@ -206,6 +236,10 @@ def main(argv=None) -> int:
     parser.add_argument("--rotulo", default="geracao")
     parser.add_argument("--limiar", type=float, default=None,
                         help="limiar de similaridade da busca; omitido = produção (0,50)")
+    parser.add_argument("--perguntas", default=None,
+                        help="ids separados por vírgula (recorte reduzido); omitido = todas")
+    parser.add_argument("--perfis", default=None, help="perfis separados por vírgula")
+    parser.add_argument("--n", type=int, default=None, help="repetições fixas por pergunta")
     args = parser.parse_args(argv)
 
     try:
@@ -227,27 +261,35 @@ def main(argv=None) -> int:
         rotulo += f"_limiar{args.limiar:.2f}".replace(".", "")
     destino = DIR / "execucoes" / f"{rotulo}_{carimbo}.jsonl"
 
+    amb = ambiente()
+    print(f"[ambiente] {amb}", flush=True)
+    ids = args.perguntas.split(",") if args.perguntas else None
+    perfis = args.perfis.split(",") if args.perfis else None
+    inicio_total = time.perf_counter()
     feitas_llm, reaproveitadas = 0, 0
     with open(destino, "w", encoding="utf-8") as saida:
-        for pergunta, perfil, rep in plano(conjunto["perguntas"], args.piloto):
+        for pergunta, perfil, rep in plano(conjunto["perguntas"], args.piloto, ids, perfis, args.n):
             if args.piloto and feitas_llm >= args.piloto:
                 break
-            arquivo_cache = DIR_CACHE / f"{chave_cache(pergunta['id'], perfil, rep, versao, args.limiar)}.json"
+            arquivo_cache = DIR_CACHE / f"{chave_cache(pergunta['id'], perfil, rep, versao, args.limiar, amb)}.json"
             if arquivo_cache.exists():
                 linha = json.loads(arquivo_cache.read_text(encoding="utf-8"))
                 reaproveitadas += 1
             else:
                 linha = executar_uma(pergunta, perfil, rep, api_key, args.limiar)
                 linha["versao_codigo"] = versao
+                linha["ambiente"] = amb
                 arquivo_cache.write_text(json.dumps(linha, ensure_ascii=False), encoding="utf-8")
             feitas_llm += 1 if linha["chamou_llm"] else 0
             saida.write(json.dumps(linha, ensure_ascii=False) + "\n")
             uso = linha["chamadas_sdk"][0]["usage"] if linha["chamadas_sdk"] else {}
             print(f"{linha['id']:3} {perfil:13} r{rep} {linha['status']:13} "
-                  f"llm={linha['chamou_llm']} tokens={uso.get('total_tokens')}", flush=True)
+                  f"llm={linha['chamou_llm']} modelo={linha.get('modelo_respondido')} "
+                  f"tokens={uso.get('total_tokens')} t={linha.get('duracao_total_s')}s", flush=True)
 
     print(f"[geracao] {destino.relative_to(RAIZ)}  chamadas_llm={feitas_llm} "
-          f"reaproveitadas_do_cache={reaproveitadas}")
+          f"reaproveitadas_do_cache={reaproveitadas} "
+          f"tempo_total={round(time.perf_counter() - inicio_total, 1)}s")
     return 0
 
 

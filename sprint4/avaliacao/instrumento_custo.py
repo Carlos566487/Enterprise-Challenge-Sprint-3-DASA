@@ -85,19 +85,30 @@ class RegistroChamadas:
 
 
 class _CompletionsInstrumentado:
-    def __init__(self, completions_real, registro: RegistroChamadas):
+    def __init__(self, completions_real, registro: RegistroChamadas,
+                 modelo_substituto: str = None, endpoint: str = None):
         self._real = completions_real
         self._registro = registro
+        self._modelo_substituto = modelo_substituto
+        self._endpoint = endpoint
 
     def create(self, *args, **kwargs):
+        modelo_pedido = kwargs.get("model")
+        if self._modelo_substituto:
+            # Troca na FRONTEIRA: o conector continua pedindo o modelo de
+            # produção; só a requisição que sai deste envoltório muda.
+            kwargs["model"] = self._modelo_substituto
         entrada = {
             "timestamp_utc": _agora(),
+            "endpoint": self._endpoint,
+            "modelo_pedido_pelo_conector": modelo_pedido,
             "parametros_enviados": {
                 chave: kwargs.get(chave)
                 for chave in ("model", "temperature", "top_p", "max_tokens")
             },
             "id_resposta": None,
             "modelo_respondido": None,
+            "finish_reason": None,
             "usage": {"prompt_tokens": None, "completion_tokens": None,
                       "total_tokens": None},
             "latencia_s": None,
@@ -115,6 +126,8 @@ class _CompletionsInstrumentado:
         entrada["latencia_s"] = round(time.perf_counter() - inicio, 3)
         entrada["id_resposta"] = _ler(resposta, "id")
         entrada["modelo_respondido"] = _ler(resposta, "model")
+        escolhas = _ler(resposta, "choices") or []
+        entrada["finish_reason"] = _ler(escolhas[0], "finish_reason") if escolhas else None
         entrada["usage"] = _extrair_usage(resposta)
         self._registro.chamadas.append(entrada)
         return resposta
@@ -124,8 +137,9 @@ class _CompletionsInstrumentado:
 
 
 class _ChatInstrumentado:
-    def __init__(self, chat_real, registro):
-        self.completions = _CompletionsInstrumentado(chat_real.completions, registro)
+    def __init__(self, chat_real, registro, modelo_substituto=None, endpoint=None):
+        self.completions = _CompletionsInstrumentado(chat_real.completions, registro,
+                                                     modelo_substituto, endpoint)
         self._real = chat_real
 
     def __getattr__(self, nome):
@@ -133,8 +147,9 @@ class _ChatInstrumentado:
 
 
 class _ClienteInstrumentado:
-    def __init__(self, cliente_real, registro):
-        self.chat = _ChatInstrumentado(cliente_real.chat, registro)
+    def __init__(self, cliente_real, registro, modelo_substituto=None):
+        endpoint = str(getattr(cliente_real, "base_url", "") or "") or None
+        self.chat = _ChatInstrumentado(cliente_real.chat, registro, modelo_substituto, endpoint)
         self._real = cliente_real
 
     def __getattr__(self, nome):
@@ -148,24 +163,30 @@ class _ModuloOpenAIInstrumentado:
     tratamento de erro de chamar_openai() continua funcionando igual.
     """
 
-    def __init__(self, modulo_real, registro):
+    def __init__(self, modulo_real, registro, modelo_substituto=None):
         self._real = modulo_real
         self._registro = registro
+        self._modelo_substituto = modelo_substituto
 
     def OpenAI(self, *args, **kwargs):  # noqa: N802 — espelha o nome do SDK
-        return _ClienteInstrumentado(self._real.OpenAI(*args, **kwargs), self._registro)
+        return _ClienteInstrumentado(self._real.OpenAI(*args, **kwargs), self._registro,
+                                     self._modelo_substituto)
 
     def __getattr__(self, nome):
         return getattr(self._real, nome)
 
 
 @contextmanager
-def capturar_chamadas(conector=None):
+def capturar_chamadas(conector=None, modelo_substituto: str = None):
     """
     Instrumenta o SDK usado pelo conector durante o bloco `with`.
 
     Args:
         conector: o módulo llm_connector. Default: importado do projeto.
+        modelo_substituto: se informado, troca o `model` da requisição na
+            fronteira (ex.: modelo local do Ollama). O conector continua
+            pedindo o modelo de produção; o registro guarda os dois, mais o
+            modelo que a API diz ter respondido.
 
     Yields:
         RegistroChamadas — preenchido à medida que as chamadas acontecem.
@@ -184,7 +205,7 @@ def capturar_chamadas(conector=None):
         )
 
     registro = RegistroChamadas()
-    conector._openai_module = _ModuloOpenAIInstrumentado(original, registro)
+    conector._openai_module = _ModuloOpenAIInstrumentado(original, registro, modelo_substituto)
     try:
         yield registro
     finally:

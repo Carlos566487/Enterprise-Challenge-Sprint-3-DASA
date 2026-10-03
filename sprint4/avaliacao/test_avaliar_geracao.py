@@ -48,6 +48,14 @@ def _sdk_duplo(prompts_recebidos):
                            RateLimitError=erro, APIConnectionError=erro)
 
 
+@pytest.fixture(autouse=True)
+def sem_ambiente_de_avaliacao(monkeypatch, tmp_path):
+    """Isola os testes do .env.avaliacao real e das variáveis que ele define."""
+    monkeypatch.setattr(avaliar_geracao, "ENV_AVALIACAO", tmp_path / "inexistente.env")
+    for var in ("OPENAI_BASE_URL", "AVALIACAO_MODELO"):
+        monkeypatch.delenv(var, raising=False)
+
+
 @pytest.fixture
 def ambiente(monkeypatch):
     prompts = []
@@ -189,3 +197,41 @@ def test_cache_separa_limiares():
     v = avaliar_geracao.versao_codigo()
     assert (avaliar_geracao.chave_cache("F1", "medico", 1, v, None)
             != avaliar_geracao.chave_cache("F1", "medico", 1, v, 0.40))
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Troca de modelo na FRONTEIRA (avaliação com modelo local)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def test_modelo_trocado_na_fronteira_com_registro_duplo(ambiente, monkeypatch):
+    monkeypatch.setenv("AVALIACAO_MODELO", "modelo-local:7b")
+    linha = avaliar_geracao.executar_uma(PERGUNTA, "medico", 1, "ollama")
+    chamada = linha["chamadas_sdk"][0]
+    assert chamada["modelo_pedido_pelo_conector"] == llm_connector.MODELO   # produção intacta
+    assert chamada["parametros_enviados"]["model"] == "modelo-local:7b"     # o que saiu
+    assert chamada["modelo_respondido"] == "duplo"                          # o que a API disse
+    assert linha["modelo_respondido"] == "duplo"
+    assert "finish_reason" in chamada
+
+
+def test_sem_variaveis_de_avaliacao_nada_e_trocado(ambiente):
+    linha = avaliar_geracao.executar_uma(PERGUNTA, "medico", 1, "sk-duplo")
+    chamada = linha["chamadas_sdk"][0]
+    assert chamada["parametros_enviados"]["model"] == llm_connector.MODELO
+    assert avaliar_geracao.ambiente() == {"base_url": "padrão do SDK (api.openai.com)",
+                                          "modelo_substituto": None}
+
+
+def test_cache_separa_ambientes():
+    v = avaliar_geracao.versao_codigo()
+    local = {"base_url": "http://localhost:11434/v1", "modelo_substituto": "qwen2.5:7b"}
+    assert (avaliar_geracao.chave_cache("F1", "medico", 1, v, 0.43, local)
+            != avaliar_geracao.chave_cache("F1", "medico", 1, v, 0.43, None))
+
+
+def test_plano_recorte_reduzido():
+    perguntas = [dict(PERGUNTA, id=i, critica_n5=(i == "B")) for i in ("A", "B", "C")]
+    itens = avaliar_geracao.plano(perguntas, ids=["A", "B"], perfis=["leigo_ansioso"], n_fixo=2)
+    assert [(p["id"], perfil, rep) for p, perfil, rep in itens] == [
+        ("A", "leigo_ansioso", 1), ("A", "leigo_ansioso", 2),
+        ("B", "leigo_ansioso", 1), ("B", "leigo_ansioso", 2)]
