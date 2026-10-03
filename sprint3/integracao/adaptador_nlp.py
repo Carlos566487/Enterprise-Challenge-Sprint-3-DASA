@@ -68,6 +68,7 @@ MOTIVO_STATUS = "status_nao_respondido"
 MOTIVO_ANCORAGEM = "quebrou_ancoragem"
 MOTIVO_INDISPONIVEL = "nlp_indisponivel"
 MOTIVO_VAZIO = "texto_vazio"
+MOTIVO_SEM_ALTERACAO = "sem_alteracao"
 
 
 def _carregar_simplificador():
@@ -184,18 +185,36 @@ def responder_com_linguagem_simples(
         resultado["simplificacao"] = _sem_simplificacao(MOTIVO_VAZIO)
         return resultado
 
+    # Nenhuma palavra mudou (só espaços e quebras de linha): não há o que
+    # aplicar, e exibir o texto "simplificado" apenas apagaria a formatação
+    # da resposta. Medido na Sprint 4: 66 de 83 aplicações eram só isso.
+    if " ".join(texto_simplificado.split()) == " ".join(resposta.split()):
+        resultado["simplificacao"] = {
+            "aplicada": False,
+            "motivo": MOTIVO_SEM_ALTERACAO,
+            "metricas_original": saida_nlp.get("metricas_original", {}),
+            "metricas_simplificado": saida_nlp.get("metricas_simplificado", {}),
+        }
+        return resultado
+
     # ── Regra 3: revalidar ancoragem sobre o texto JÁ simplificado ───────────
     trechos = [f.get("conteudo", "") for f in resultado.get("fontes", [])]
     checagem = validar_ancoragem(texto_simplificado, trechos)
 
-    if not checagem["ancorado"]:
+    # Só é quebra quando a simplificação INTRODUZ termo não ancorado. Termo
+    # que o original já tinha é responsabilidade da resposta, não da reescrita
+    # (medido na Sprint 4: 55 de 57 marcações antigas eram herdadas).
+    termos_do_original = set(resultado.get("ancoragem", {}).get("termos_nao_ancorados") or [])
+    introduzidos = sorted(set(checagem["termos_nao_ancorados"]) - termos_do_original)
+
+    if introduzidos:
         # A reescrita introduziu ou corrompeu um fato: mantém o original.
         resultado["simplificacao"] = {
             "aplicada": False,
             "motivo": MOTIVO_ANCORAGEM,
             "metricas_original": saida_nlp.get("metricas_original", {}),
             "metricas_simplificado": saida_nlp.get("metricas_simplificado", {}),
-            "termos_nao_ancorados": checagem["termos_nao_ancorados"],
+            "termos_nao_ancorados": introduzidos,
         }
         return resultado
 

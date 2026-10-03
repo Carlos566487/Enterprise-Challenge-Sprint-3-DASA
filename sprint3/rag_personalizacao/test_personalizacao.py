@@ -556,3 +556,47 @@ def test_busca_real_alimenta_a_personalizacao():
     assert resultado["fontes"], "A busca real deveria retornar trechos"
     assert all("secao" in f and "fonte" in f for f in resultado["fontes"])
     assert all(isinstance(t, str) for t in llm.chamadas[0]["trechos"])
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Sprint 4 — lacunas do detector medidas na avaliação de geração
+# ─────────────────────────────────────────────────────────────────────────────
+
+def test_ancoragem_detecta_contagem_errada_por_extenso():
+    trechos = ["Foram analisadas 7 condições genéticas."]
+    checagem = validar_ancoragem("No relatório, foram analisadas quatro condições.", trechos)
+    assert checagem["ancorado"] is False
+    assert "4" in checagem["termos_nao_ancorados"]
+
+
+def test_ancoragem_aceita_numeral_por_extenso_coerente():
+    trechos = ["Dois genes importantes apresentam variações. Checar glicemia a cada 6 meses."]
+    checagem = validar_ancoragem("Duas variações genéticas; repetir o exame a cada seis meses.", trechos)
+    assert checagem["ancorado"] is True
+
+
+def test_ancoragem_nao_trata_artigo_um_como_numero():
+    trechos = ["Foram encontradas 2 variações."]
+    checagem = validar_ancoragem("Há uma alteração em um gene importante.", trechos)
+    assert checagem["ancorado"] is True
+
+
+def test_ancoragem_ignora_citacao_de_fonte():
+    trechos = ["Condição: Diabetes Mellitus Tipo 2. Nível de risco: Alto."]
+    for resposta in ("Risco Alto.\n\nBaseado em:\n[Fonte 1] e [Fonte 2]",
+                     "Risco Alto. Baseado: [Fonte 1, 2, 3, 4]",
+                     "Risco Alto. Fonte 1 e Fonte 3."):
+        assert validar_ancoragem(resposta, trechos)["ancorado"] is True, resposta
+
+
+def test_ancoragem_citacao_nao_esconde_numero_inventado():
+    trechos = ["Condição: Diabetes Mellitus Tipo 2. Nível de risco: Alto."]
+    checagem = validar_ancoragem("Seu percentil é 89. [Fonte 1]", trechos)
+    assert checagem["ancorado"] is False
+    assert checagem["termos_nao_ancorados"] == ["89"]
+
+
+def test_ancoragem_aceita_periodicidade_por_palavra():
+    trechos = ["Monitoramento semestral de glicemia de jejum. Avaliação cardiológica anual."]
+    assert validar_ancoragem("Faça o exame a cada seis meses e a avaliação a cada 12 meses.", trechos)["ancorado"] is True
+    assert validar_ancoragem("Faça o exame a cada três meses.", trechos)["ancorado"] is False
